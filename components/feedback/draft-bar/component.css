@@ -1,0 +1,22 @@
+.gui-draft-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow-raised);
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-draft-bar > p {
+  margin: 0;
+}
+.gui-draft-bar > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

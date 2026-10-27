@@ -1,0 +1,29 @@
+.gui-tree {
+  font: 13px/1.6 var(--gui-font);
+  color: var(--gui-text);
+}
+.gui-tree__branch > summary {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.gui-tree__branch > div {
+  margin-left: 14px;
+  padding-left: 12px;
+  border-left: 1px solid var(--gui-border);
+}
+.gui-tree__leaf {
+  display: block;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--gui-muted);
+  text-decoration: none;
+}
+.gui-tree__leaf[aria-current] {
+  color: var(--gui-accent);
+  background: var(--gui-accent-soft);
+}
+.gui-tree :is(summary, a):focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}

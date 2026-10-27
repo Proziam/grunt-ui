@@ -1,0 +1,10 @@
+{% macro render(title, open=false, name="") %}
+  <details class="gui-disclosure"
+           {% if open %} open{% endif %}
+           {% if !name.is_empty() %} name="{{ name }}"{% endif %}>
+    <summary>
+      {{ title }}<span aria-hidden="true">+</span>
+    </summary>
+    <div class="gui-disclosure__body">{{ caller() }}</div>
+  </details>
+{% endmacro %}

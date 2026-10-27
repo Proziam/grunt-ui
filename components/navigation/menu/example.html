@@ -1,0 +1,6 @@
+{% import "navigation/menu/component.html" as menu %}
+{{ menu::render(
+  "Workspace",
+  [("workflows", "Workflows", "#example"), ("integrations", "Integrations", "#example"), ("people", "People", "#example"), ("usage", "Usage", "#example")],
+  current="integrations"
+) }}

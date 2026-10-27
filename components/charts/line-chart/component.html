@@ -1,0 +1,25 @@
+{% macro render(id, title, description, points, rows, value_label="Value") %}
+  <figure class="gui-line-chart">
+    <figcaption>
+      <strong id="{{ id }}-title">{{ title }}</strong>
+      <p>{{ description }}</p>
+    </figcaption>
+    <svg viewBox="0 0 600 180" role="img" aria-labelledby="{{ id }}-title">
+      <path d="M0 30H600 M0 90H600 M0 150H600" class="gui-line-chart__grid" />
+      <polyline points="{{ points }}" class="gui-line-chart__line" />
+    </svg>
+    <details>
+      <summary>{{ value_label }}</summary>
+      <table>
+        <tbody>
+          {% for (label, value) in rows %}
+            <tr>
+              <th scope="row">{{ label }}</th>
+              <td>{{ value }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </details>
+  </figure>
+{% endmacro %}

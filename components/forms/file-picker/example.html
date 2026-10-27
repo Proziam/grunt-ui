@@ -1,0 +1,9 @@
+{% import "forms/file-picker/component.html" as file %}
+{{ file::render(
+  "source-files",
+  "files",
+  "Choose source files",
+  "PDF or plain text. Check your workflow’s file limits before uploading.",
+  accept=".pdf,.txt",
+  multiple=true
+) }}

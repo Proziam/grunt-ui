@@ -1,0 +1,9 @@
+{% import "collections/tree/component.html" as tree %}
+{% call tree::render("Project resources") %}
+  {{ tree::branch_open("Operations", open=true) }}
+  {{ tree::leaf("Daily reports", "#example", current=true) }}
+  {{ tree::branch_open("Reference files") }}
+  {{ tree::leaf("Company handbook", "#example") }}
+  {{ tree::branch_close() }}
+  {{ tree::branch_close() }}
+{% endcall %}

@@ -1,0 +1,31 @@
+{% import "actions/button/component.html" as button %}
+{% macro render(
+  id,
+  action,
+  form_token,
+  title,
+  description,
+  label="Verification code",
+  submit_label="Verify",
+  length=6
+) %}
+  <form class="gui-verification" method="post" action="{{ action }}">
+    <input type="hidden" name="form_token" value="{{ form_token }}">
+    <h2>{{ title }}</h2>
+    <p>{{ description }}</p>
+    <label for="{{ id }}">{{ label }}</label>
+    <input id="{{ id }}"
+           name="code"
+           inputmode="numeric"
+           autocomplete="one-time-code"
+           pattern="[0-9]+"
+           minlength="{{ length }}"
+           maxlength="{{ length }}"
+           required>{{ button::render(submit_label, kind="primary", type="submit") }}
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </form>
+{% endmacro %}

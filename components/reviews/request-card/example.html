@@ -1,0 +1,10 @@
+{% import "reviews/request-card/component.html" as review %}
+{% import "actions/link/component.html" as link %}
+{% call review::render(
+  "Customer announcement",
+  "Launch follow-up → Send email",
+  "Requested by Operations",
+  "Due today, 16:00"
+) %}
+  {{ link::render("Review exact content", "#example", kind="button") }}
+{% endcall %}

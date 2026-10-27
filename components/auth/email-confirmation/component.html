@@ -1,0 +1,10 @@
+{% macro render(title, description, email, notice) %}
+  <section class="gui-email-confirmation">
+    <span aria-hidden="true">✉</span>
+    <h2>{{ title }}</h2>
+    <p>{{ description }}</p>
+    <strong>{{ email }}</strong>
+    <div>{{ caller() }}</div>
+    <small>{{ notice }}</small>
+  </section>
+{% endmacro %}

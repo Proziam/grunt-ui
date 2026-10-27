@@ -1,0 +1,22 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(
+  name,
+  size,
+  kind,
+  status="Available",
+  href="",
+  action_label="Download",
+  tone="neutral"
+) %}
+  <article class="gui-attachment">
+    <span class="gui-attachment__type" aria-hidden="true">{{ kind }}</span>
+    <div>
+      <strong>{{ name }}</strong>
+      <small>{{ size }}</small>
+    </div>
+    {{ badge::render(status, tone=tone) }}
+    {% if !href.is_empty() %}
+      <a href="{{ href }}">{{ action_label }}</a>
+    {% endif %}
+  </article>
+{% endmacro %}

@@ -1,0 +1,10 @@
+{% import "overlays/popover/component.html" as popover %}
+{% import "navigation/menu/component.html" as menu %}
+{% call popover::render("account-example", "Open account menu") %}
+  <strong>Alex Morgan</strong>
+  <p>alex@example.com</p>
+  {{ menu::render(
+    "Account",
+    [("profile", "Account settings", "#example"), ("help", "Help and shortcuts", "#example")]
+  ) }}
+{% endcall %}

@@ -1,0 +1,8 @@
+{% import "forms/textarea/component.html" as textarea %}
+{{ textarea::render(
+  "task-instructions",
+  "instructions",
+  "Instructions",
+  value="Summarize important changes and include links to the original sources.",
+  help="Describe the outcome you want."
+) }}

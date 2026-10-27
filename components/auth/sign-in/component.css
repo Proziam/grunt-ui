@@ -1,0 +1,50 @@
+.gui-sign-in {
+  box-sizing: border-box;
+  width: min(420px, 100%);
+  margin: auto;
+  padding: 32px;
+  border: 1px solid var(--gui-border);
+  border-radius: 18px;
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow-raised);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-sign-in__mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--gui-accent);
+  color: var(--gui-accent-ink);
+  font-size: 29px;
+  font-weight: 700;
+}
+.gui-sign-in > h1 {
+  margin: 24px 0 8px;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+.gui-sign-in > p {
+  color: var(--gui-muted);
+  margin: 0 0 24px;
+}
+.gui-sign-in form {
+  display: grid;
+  gap: 18px;
+}
+.gui-sign-in__providers {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--gui-border);
+  display: grid;
+  gap: 10px;
+}
+.gui-sign-in > small {
+  display: block;
+  margin-top: 24px;
+  color: var(--gui-muted);
+  font-size: 11px;
+}

@@ -1,0 +1,30 @@
+{% import "overlays/dialog/component.html" as dialog %}
+{% macro render(
+  id,
+  title,
+  trigger_label,
+  commands,
+  search_label="Search commands",
+  empty_label="No matching commands."
+) %}
+  {% call dialog::render(id, title, trigger_label) %}
+    <div class="gui-command" data-gui-command>
+      <label>
+        <span class="gui-sr-only">{{ search_label }}</span>
+        <input type="search" placeholder="{{ search_label }}" autofocus>
+      </label>
+      <ul>
+        {% for (label, description, href) in commands %}
+          <li>
+            <a href="{{ href }}">
+              <strong>{{ label }}</strong>
+              <small>{{ description }}</small>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <p data-command-empty hidden role="status">{{ empty_label }}</p>
+    </div>
+  {% endcall %}
+{% endmacro %}

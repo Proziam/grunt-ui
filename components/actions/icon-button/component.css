@@ -1,0 +1,35 @@
+.gui-icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-muted);
+  cursor: pointer;
+}
+.gui-icon-button:hover {
+  background: var(--gui-soft);
+  color: var(--gui-text);
+}
+.gui-icon-button[aria-pressed='true'] {
+  color: var(--gui-accent);
+  background: var(--gui-accent-soft);
+  border-color: var(--gui-accent);
+}
+.gui-icon-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.gui-icon-button:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+@media (pointer: coarse) {
+  .gui-icon-button {
+    width: 44px;
+    height: 44px;
+  }
+}

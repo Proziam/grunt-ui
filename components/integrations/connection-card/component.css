@@ -1,0 +1,49 @@
+.gui-connection-card {
+  padding: 20px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-connection-card > header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.gui-connection-card > header > div {
+  flex: 1;
+  min-width: 130px;
+}
+.gui-connection-card h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.gui-connection-card header p {
+  margin: 2px 0 0;
+  color: var(--gui-muted);
+  overflow-wrap: anywhere;
+}
+.gui-connection-card__scope {
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: var(--gui-soft);
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-connection-card__detail {
+  color: var(--gui-muted);
+}
+.gui-connection-card > footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--gui-border);
+  padding-top: 16px;
+  margin-top: 18px;
+}

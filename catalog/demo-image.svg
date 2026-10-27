@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" fill="none">
+  <rect width="960" height="360" rx="24" fill="#f2f4f7"/>
+  <path d="M0 300 240 130 440 260 650 90 960 270V360H0Z" fill="#e2e7ee"/>
+  <circle cx="750" cy="100" r="40" fill="#f2b89f"/>
+  <rect x="290" y="144" width="380" height="72" rx="12" fill="white"/>
+  <text x="480" y="188" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#626b7a">Authorized image preview</text>
+</svg>

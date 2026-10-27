@@ -1,0 +1,15 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(email, role, teams, status, expiry, tone="neutral") %}
+  <article class="gui-invitation">
+    <header>
+      <strong>{{ email }}</strong>{{ badge::render(status, tone=tone) }}
+    </header>
+    <p>{{ role }} · {{ teams }}</p>
+    <small>{{ expiry }}</small>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

@@ -1,0 +1,59 @@
+{% macro render(
+  label,
+  rows,
+  create_label="Create",
+  edit_label="Edit",
+  run_label="Run",
+  scope_label="Scope"
+) %}
+  <div class="gui-permission-matrix" role="region" aria-label="{{ label }}" tabindex="0">
+    <table>
+      <caption>{{ label }}</caption>
+      <thead>
+        <tr>
+          <th scope="col">{{ scope_label }}</th>
+          <th scope="col">{{ create_label }}</th>
+          <th scope="col">{{ edit_label }}</th>
+          <th scope="col">{{ run_label }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for (key, scope, create, edit, run, readonly) in rows %}
+          <tr>
+            <th scope="row">{{ scope }}</th>
+            <td>
+              <label>
+                <span class="gui-sr-only">{{ create_label }}: {{ scope }}</span>
+                <input type="checkbox"
+                       name="{{ key }}-create"
+                       value="1"
+                       {% if create %} checked{% endif %}
+                       {% if readonly %} disabled{% endif %}>
+              </label>
+            </td>
+            <td>
+              <label>
+                <span class="gui-sr-only">{{ edit_label }}: {{ scope }}</span>
+                <input type="checkbox"
+                       name="{{ key }}-edit"
+                       value="1"
+                       {% if edit %} checked{% endif %}
+                       {% if readonly %} disabled{% endif %}>
+              </label>
+            </td>
+            <td>
+              <label>
+                <span class="gui-sr-only">{{ run_label }}: {{ scope }}</span>
+                <input type="checkbox"
+                       name="{{ key }}-run"
+                       value="1"
+                       {% if run %} checked{% endif %}
+                       {% if readonly %} disabled{% endif %}>
+              </label>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endmacro %}

@@ -1,0 +1,6 @@
+{% import "layout/stack/component.html" as stack %}
+{% import "actions/button/component.html" as button %}
+{% call stack::render(direction="horizontal", gap="small", align="center") %}
+  {{ button::render("Save", kind="primary") }}
+  {{ button::render("Cancel") }}
+{% endcall %}

@@ -1,0 +1,6 @@
+{% import "navigation/stepper/component.html" as stepper %}
+{{ stepper::render(
+  "Workspace setup",
+  ["Organization", "Goals", "Connections", "First workflow"],
+  current=3
+) }}

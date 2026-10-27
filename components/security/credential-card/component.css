@@ -1,0 +1,38 @@
+.gui-credential {
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-credential header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+.gui-credential h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.gui-credential > code {
+  display: block;
+  margin: 18px 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--gui-soft);
+  color: var(--gui-muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.gui-credential > p,
+.gui-credential > small {
+  color: var(--gui-muted);
+}
+.gui-credential footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}

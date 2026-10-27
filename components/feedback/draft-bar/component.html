@@ -1,0 +1,6 @@
+{% macro render(label) %}
+  <div class="gui-draft-bar">
+    <p role="status">{{ label }}</p>
+    <div>{{ caller() }}</div>
+  </div>
+{% endmacro %}

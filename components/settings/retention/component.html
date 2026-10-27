@@ -1,0 +1,46 @@
+{% import "forms/number/component.html" as number %}
+{% macro render(
+  id,
+  title,
+  description,
+  content_days,
+  history_days,
+  content_label="Keep run content",
+  history_label="Keep run history",
+  unit="days",
+  content_name="content_retention_days",
+  history_name="history_retention_days",
+  content_max="365",
+  history_max=""
+) %}
+  <fieldset class="gui-retention">
+    <legend>{{ title }}</legend>
+    <p>{{ description }}</p>
+    <div>
+      {{ number::render(
+        id ~ "-content",
+        content_name,
+        content_label,
+        content_days,
+        min="0",
+        max=content_max,
+        unit=unit,
+        required=true
+      ) }}{{ number::render(
+        id ~ "-history",
+        history_name,
+        history_label,
+        history_days,
+        min="0",
+        max=history_max,
+        unit=unit,
+        required=true
+      ) }}
+    </div>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </fieldset>
+{% endmacro %}

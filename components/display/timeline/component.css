@@ -1,0 +1,42 @@
+.gui-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-timeline li {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding: 0 0 24px;
+}
+.gui-timeline li:not(:last-child)::before {
+  position: absolute;
+  content: '';
+  left: 5px;
+  top: 14px;
+  bottom: 0;
+  width: 1px;
+  background: var(--gui-border);
+}
+.gui-timeline__dot {
+  width: 9px;
+  height: 9px;
+  margin-top: 6px;
+  border: 1px solid var(--gui-accent);
+  border-radius: 50%;
+  background: var(--gui-accent-soft);
+  flex-shrink: 0;
+}
+.gui-timeline strong {
+  font-weight: 500;
+}
+.gui-timeline p {
+  margin: 3px 0;
+  color: var(--gui-muted);
+}
+.gui-timeline time {
+  font-size: 11px;
+  color: var(--gui-muted);
+}

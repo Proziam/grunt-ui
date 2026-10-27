@@ -1,0 +1,26 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(name, description, price, period, features, badge_label="", featured=false) %}
+  <article class="gui-plan"{% if featured %} data-featured{% endif %}>
+    <header>
+      <h3>{{ name }}</h3>
+      {% if !badge_label.is_empty() %}
+        {{ badge::render(badge_label, tone="accent") }}
+      {% endif %}
+    </header>
+    <p>{{ description }}</p>
+    <div class="gui-plan__price">
+      <strong>{{ price }}</strong>
+      <span>{{ period }}</span>
+    </div>
+    <ul>
+      {% for feature in features %}
+        <li>
+          <span aria-hidden="true">✓</span>{{ feature }}
+        </li>
+      {% endfor %}
+    </ul>
+    <footer>
+      {{ caller() }}
+    </footer>
+  </article>
+{% endmacro %}

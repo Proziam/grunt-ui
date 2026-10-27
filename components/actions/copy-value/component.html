@@ -1,0 +1,19 @@
+{% macro render(
+  value,
+  label,
+  copy_label="Copy",
+  success_text="Copied",
+  error_text="Copy unavailable; select the value instead."
+) %}
+  <div class="gui-copy"
+       data-gui-copy
+       data-success="{{ success_text }}"
+       data-error="{{ error_text }}">
+    <label>
+      <span class="gui-copy__label">{{ label }}</span>
+      <input readonly value="{{ value }}">
+    </label>
+    <button type="button" data-copy-button>{{ copy_label }}</button>
+    <span class="gui-copy__status" role="status"></span>
+  </div>
+{% endmacro %}

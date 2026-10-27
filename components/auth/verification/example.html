@@ -1,0 +1,8 @@
+{% import "auth/verification/component.html" as verification %}
+{{ verification::render(
+  "one-time-code",
+  "#example",
+  "example-only",
+  "One more step",
+  "Enter the six-digit code from your authenticator."
+) }}

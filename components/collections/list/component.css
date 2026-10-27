@@ -1,0 +1,19 @@
+.gui-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--gui-text);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-list__item {
+  padding: 14px 0;
+  min-width: 0;
+}
+.gui-list[data-divided] > .gui-list__item + .gui-list__item {
+  border-top: 1px solid var(--gui-border);
+}
+.gui-list__empty {
+  padding: 24px 0;
+  color: var(--gui-muted);
+  text-align: center;
+}

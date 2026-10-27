@@ -1,0 +1,17 @@
+{% import "display/avatar/component.html" as avatar %}
+{% macro render(title, excerpt, href, author, initials, category, activity, replies) %}
+  <article class="gui-discussion">
+    <header>
+      {{ avatar::render(author, initials, size="small") }}<span>{{ author }}</span>
+      <small>{{ category }}</small>
+    </header>
+    <h3>
+      <a href="{{ href }}">{{ title }}</a>
+    </h3>
+    <p>{{ excerpt }}</p>
+    <footer>
+      <span>{{ replies }}</span>
+      <span>{{ activity }}</span>
+    </footer>
+  </article>
+{% endmacro %}

@@ -1,0 +1,65 @@
+.gui-dialog-trigger,
+.gui-dialog-close {
+  padding: 8px 14px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 500 13px/1.5 var(--gui-font);
+  cursor: pointer;
+}
+.gui-dialog {
+  box-sizing: border-box;
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100dvh - 40px);
+  padding: 0;
+  border: 1px solid var(--gui-border);
+  border-radius: 16px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow-raised);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-dialog::backdrop {
+  background: #10172477;
+}
+.gui-dialog > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gui-border);
+}
+.gui-dialog > header > h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.gui-dialog > header > form {
+  margin: 0;
+}
+.gui-dialog-close {
+  border: 0;
+  padding: 2px 9px;
+  font-size: 24px;
+  font-weight: 400;
+}
+.gui-dialog__body {
+  padding: 24px;
+}
+.gui-dialog[data-sheet] {
+  position: fixed;
+  inset: 0 0 0 auto;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: min(560px, 100vw);
+  margin: 0;
+  border-radius: 0;
+  border-right: 0;
+}
+.gui-dialog-trigger:focus-visible,
+.gui-dialog-close:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}

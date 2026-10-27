@@ -1,0 +1,25 @@
+.gui-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  color: var(--gui-text);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-fieldset > legend {
+  padding: 0 8px;
+  font-weight: 600;
+}
+.gui-fieldset__description {
+  margin: 0 0 18px;
+  color: var(--gui-muted);
+  font-size: 13px;
+}
+.gui-fieldset__fields {
+  display: grid;
+  gap: 18px;
+}
+.gui-fieldset:disabled {
+  opacity: 0.6;
+}

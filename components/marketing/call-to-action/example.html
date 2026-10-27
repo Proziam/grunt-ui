@@ -1,0 +1,8 @@
+{% import "marketing/call-to-action/component.html" as cta %}
+{% import "actions/link/component.html" as link %}
+{% call cta::render(
+  "Let’s lighten your load.",
+  "Start with one recurring task and build from there."
+) %}
+  {{ link::render("Find a workflow idea", "#example", kind="button") }}
+{% endcall %}

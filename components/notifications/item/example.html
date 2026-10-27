@@ -1,0 +1,13 @@
+{% import "notifications/item/component.html" as notification %}
+{% import "actions/link/component.html" as link %}
+{% call notification::render(
+  "Your briefing is ready",
+  "Review the saved briefing before the workflow continues.",
+  "2026-10-27T09:00:30Z",
+  "Today at 09:00 UTC",
+  "Action required",
+  tone="warning",
+  unread=true
+) %}
+  {{ link::render("Open review", "#example", kind="button") }}
+{% endcall %}

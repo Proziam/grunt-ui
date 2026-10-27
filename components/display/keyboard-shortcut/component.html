@@ -1,0 +1,7 @@
+{% macro render(keys, label="") %}
+  <span class="gui-shortcut" {% if !label.is_empty() %} aria-label="{{ label }}"{% endif %}>
+    {% for key in keys %}
+      <kbd>{{ key }}</kbd>
+    {% endfor %}
+  </span>
+{% endmacro %}

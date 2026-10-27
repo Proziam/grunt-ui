@@ -1,0 +1,17 @@
+.gui-save-status {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  color: var(--gui-muted);
+  font: 12px/1.5 var(--gui-font);
+}
+.gui-save-status[data-state='saved'] > span:first-child {
+  color: var(--gui-success);
+}
+.gui-save-status[data-state='error'] {
+  color: var(--gui-danger);
+}
+.gui-save-status small {
+  display: block;
+  font-size: 11px;
+}

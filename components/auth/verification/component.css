@@ -1,0 +1,39 @@
+.gui-verification {
+  max-width: 360px;
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-verification h2 {
+  font-size: 23px;
+  margin: 0 0 10px;
+}
+.gui-verification > p {
+  color: var(--gui-muted);
+  margin-bottom: 24px;
+}
+.gui-verification > label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.gui-verification > input:not([type='hidden']) {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 14px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  color: var(--gui-text);
+  background: var(--gui-surface);
+  font:
+    24px/1.5 ui-monospace,
+    monospace;
+  letter-spacing: 0.25em;
+}
+.gui-verification > input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+.gui-verification footer {
+  margin-top: 20px;
+}

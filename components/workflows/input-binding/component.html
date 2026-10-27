@@ -1,0 +1,14 @@
+{% import "forms/select/component.html" as select %}
+{% macro render(
+  id,
+  name,
+  label,
+  sources,
+  selected="",
+  description="Only explicitly assigned inputs may be used."
+) %}
+  <section class="gui-binding">
+    <span class="gui-binding__arrow" aria-hidden="true">↳</span>
+    <div>{{ select::render(id, name, label, sources, value=selected, help=description) }}</div>
+  </section>
+{% endmacro %}

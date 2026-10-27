@@ -1,0 +1,7 @@
+{% macro render(label, size="normal") %}
+  <div class="gui-scroll-region"
+       data-size="{{ size }}"
+       role="region"
+       aria-label="{{ label }}"
+       tabindex="0">{{ caller() }}</div>
+{% endmacro %}

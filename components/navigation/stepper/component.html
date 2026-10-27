@@ -1,0 +1,11 @@
+{% macro render(label, steps, current) %}
+  <ol class="gui-stepper" aria-label="{{ label }}">
+    {% for step in steps %}
+      <li {% if loop.index == current %} aria-current="step"{% else if loop.index < current %} data-complete{% endif %}>
+        <span class="gui-stepper__number"
+              aria-hidden="true">{% if loop.index < current %}✓{% else %}{{ loop.index }}{% endif %}</span>
+        <span>{{ step }}</span>
+      </li>
+    {% endfor %}
+  </ol>
+{% endmacro %}

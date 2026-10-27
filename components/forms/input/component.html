@@ -1,0 +1,39 @@
+{% macro render(
+  id,
+  name,
+  label,
+  value="",
+  type="text",
+  placeholder="",
+  help="",
+  error="",
+  required=false,
+  disabled=false,
+  readonly=false,
+  autocomplete="off"
+) %}
+  <div class="gui-input"{% if !error.is_empty() %} data-invalid{% endif %}>
+    <label for="{{ id }}">
+      {{ label }}
+      {% if required %}
+        <span aria-hidden="true">*</span>
+      {% endif %}
+    </label>
+    <input id="{{ id }}"
+           name="{{ name }}"
+           type="{{ type }}"
+           value="{{ value }}"
+           placeholder="{{ placeholder }}"
+           autocomplete="{{ autocomplete }}"
+           {% if required %} required{% endif %}
+           {% if disabled %} disabled{% endif %}
+           {% if readonly %} readonly{% endif %}
+           {% if !error.is_empty() %} aria-invalid="true" aria-describedby="{{ id }}-error"{% else if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>
+    {% if !help.is_empty() %}
+      <p class="gui-input__help" id="{{ id }}-help">{{ help }}</p>
+    {% endif %}
+    {% if !error.is_empty() %}
+      <p class="gui-input__error" id="{{ id }}-error">{{ error }}</p>
+    {% endif %}
+  </div>
+{% endmacro %}

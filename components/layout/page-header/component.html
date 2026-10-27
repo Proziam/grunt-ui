@@ -1,0 +1,16 @@
+{% macro render(title, description="", eyebrow="") %}
+  <header class="gui-page-header">
+    <div>
+      {% if !eyebrow.is_empty() %}
+        <span>{{ eyebrow }}</span>
+      {% endif %}
+      <h1>{{ title }}</h1>
+      {% if !description.is_empty() %}
+        <p>{{ description }}</p>
+      {% endif %}
+    </div>
+    {% if caller is defined %}
+      <div class="gui-page-header__actions">{{ caller() }}</div>
+    {% endif %}
+  </header>
+{% endmacro %}

@@ -1,0 +1,5 @@
+{% import "admin/version-list/component.html" as versions %}
+{{ versions::render(
+  "Published versions",
+  [("Version 3", "Current task contract.", "Published", "#example"), ("Version 2", "Kept for existing saved workflows.", "Compatibility only", "#example"), ("Version 1", "Withdrawn from new selections.", "Withdrawn", "#example")]
+) }}

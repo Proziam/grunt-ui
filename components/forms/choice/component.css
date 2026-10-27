@@ -1,0 +1,47 @@
+.gui-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+  cursor: pointer;
+}
+.gui-choice input {
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--gui-accent);
+  flex-shrink: 0;
+}
+.gui-choice input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+.gui-choice input:disabled + span {
+  opacity: 0.5;
+}
+.gui-choice strong {
+  font-weight: 500;
+}
+.gui-choice small {
+  display: block;
+  margin-top: 3px;
+  color: var(--gui-muted);
+  font-size: 12px;
+}
+.gui-choice-group {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+}
+.gui-choice-group legend {
+  padding: 0 6px;
+  font: 500 14px/1.5 var(--gui-font);
+  color: var(--gui-text);
+}
+.gui-choice-group > p {
+  color: var(--gui-muted);
+  font: 12px/1.5 var(--gui-font);
+}

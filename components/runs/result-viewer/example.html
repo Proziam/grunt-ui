@@ -1,0 +1,12 @@
+{% import "runs/result-viewer/component.html" as result %}
+{% call result::render(
+  "Your morning briefing",
+  "Saved document",
+  "Version 3",
+  description="Prepared from three authorized sources."
+) %}
+  <h3>What needs your attention</h3>
+  <p>The launch checklist has two open decisions. A reviewer is needed for the customer announcement.</p>
+  <h3>Recommended next step</h3>
+  <p>Review the proposed announcement and confirm the intended recipients.</p>
+{% endcall %}

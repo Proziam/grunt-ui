@@ -1,0 +1,17 @@
+.gui-binding {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-page);
+}
+.gui-binding__arrow {
+  color: var(--gui-accent);
+  font: 28px/1 var(--gui-font);
+}
+.gui-binding > div {
+  flex: 1;
+  min-width: 0;
+}

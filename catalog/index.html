@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-gui-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grunt UI — component library</title>
+    <link rel="stylesheet" href="grunt-ui.css">
+    <link rel="stylesheet" href="catalog.css">
+  </head>
+  <body>
+    <a class="catalog-skip" href="#components">Skip to components</a>
+    <header class="catalog-header">
+      <a class="catalog-brand" href="index.html">
+        <span class="catalog-mark" aria-hidden="true">g.</span> grunt<span>ui</span>
+      </a>
+      <nav aria-label="Library">
+        <a href="https://github.com/Proziam/grunt-ui">GitHub ↗</a>
+        <button type="button" data-theme-toggle aria-pressed="false">Dark theme</button>
+      </nav>
+    </header>
+    <main class="catalog-main">
+      <section class="catalog-hero">
+        <span class="catalog-eyebrow">THE GRUNT COMPONENT LIBRARY · 0.1</span>
+        <h1>
+          Small pieces.
+          <br>
+          <span>Thoughtfully put together.</span>
+        </h1>
+        <p>
+          Readable HTML. Considered CSS. Just enough JavaScript.
+          <br>
+          Everything you need to build a calmer workspace.
+        </p>
+        <div class="catalog-stats">
+          <span>
+            <strong>{{ components.len() }}</strong> components</span>
+          <span>
+            <strong>{{ scripted }}</strong> optional behavior modules</span>
+          <span>
+            <strong>0</strong> frontend build tools</span>
+        </div>
+      </section>
+      <section id="components" aria-labelledby="library-heading">
+        <div class="catalog-toolbar">
+          <div>
+            <span class="catalog-eyebrow">EXPLORE THE LIBRARY</span>
+            <h2 id="library-heading">Find your next building block.</h2>
+          </div>
+          <label class="catalog-search">
+            <span class="gui-sr-only">Search components</span>
+            <input type="search" placeholder="Search components…" data-catalog-search>
+          </label>
+        </div>
+        <div class="catalog-filter-row">
+          <label>
+            Category
+            <select data-catalog-category>
+              <option value="">All components</option>
+              {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+              {% endfor %}
+            </select>
+          </label>
+          <p class="catalog-count"
+             data-catalog-count
+             role="status">{{ components.len() }} components · examples are illustrative data</p>
+        </div>
+        <div class="catalog-grid">
+          {% for component in components %}
+            <a class="catalog-tile"
+               href="{{ component.id }}.html"
+               data-catalog-item
+               data-category="{{ component.category }}">
+              <span class="catalog-tile-top">
+                <span class="catalog-category">{{ component.category }}</span>
+                <span aria-hidden="true">↗</span>
+              </span>
+              <h3>{{ component.name }}</h3>
+              <p>{{ component.description }}</p>
+              <span class="catalog-tile-bottom">
+                {% if component.script.is_some() %}
+                  HTML + CSS + small JS
+                {% else %}
+                  HTML + CSS
+                {% endif %}
+                <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+    <footer class="catalog-footer">
+      Made for Grunt. Built to be understood.<a href="https://github.com/Proziam/grunt-ui/blob/main/docs/integration.md">Integration guide ↗</a>
+    </footer>
+    <script type="module" src="catalog.mjs"></script>
+  </body>
+</html>

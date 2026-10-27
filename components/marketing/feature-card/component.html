@@ -1,0 +1,13 @@
+{% macro render(title, description, symbol="◇", href="", link_label="Learn more") %}
+  <article class="gui-feature-card">
+    <span class="gui-feature-card__symbol" aria-hidden="true">{{ symbol }}</span>
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+    {% if caller is defined %}
+      <div>{{ caller() }}</div>
+    {% endif %}
+    {% if !href.is_empty() %}
+      <a href="{{ href }}">{{ link_label }} →</a>
+    {% endif %}
+  </article>
+{% endmacro %}

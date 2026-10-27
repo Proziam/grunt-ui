@@ -1,0 +1,13 @@
+{% macro render(title, kind, version, description="") %}
+  <article class="gui-result">
+    <header>
+      <span>{{ kind }}</span>
+      <span>{{ version }}</span>
+    </header>
+    <h2>{{ title }}</h2>
+    {% if !description.is_empty() %}
+      <p class="gui-result__description">{{ description }}</p>
+    {% endif %}
+    <div class="gui-result__content">{{ caller() }}</div>
+  </article>
+{% endmacro %}

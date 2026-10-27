@@ -1,0 +1,19 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(title, description, owner, status, href, tone="neutral", steps="", version="") %}
+  <article class="gui-workflow-card">
+    <header>
+      {{ badge::render(status, tone=tone) }}
+      {% if !version.is_empty() %}
+        <span>{{ version }}</span>
+      {% endif %}
+    </header>
+    <h3>
+      <a href="{{ href }}">{{ title }}</a>
+    </h3>
+    <p>{{ description }}</p>
+    <footer>
+      <span>{{ owner }}</span>
+      <span>{{ steps }}</span>
+    </footer>
+  </article>
+{% endmacro %}

@@ -1,0 +1,17 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(name, masked_value, scope, created, status, tone="neutral") %}
+  <article class="gui-credential">
+    <header>
+      <h3>{{ name }}</h3>
+      {{ badge::render(status, tone=tone) }}
+    </header>
+    <code>{{ masked_value }}</code>
+    <p>{{ scope }}</p>
+    <small>{{ created }}</small>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

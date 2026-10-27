@@ -1,0 +1,11 @@
+{% import "feedback/alert/component.html" as alert %}
+{{ alert::render(
+  "Reconnect your account",
+  "Your saved workflow is safe. Renew this connection before the next run.",
+  tone="warning"
+) }}
+{{ alert::render(
+  "Changes could not be saved",
+  "Your edits are still available. Review the connection and retry.",
+  tone="danger"
+) }}

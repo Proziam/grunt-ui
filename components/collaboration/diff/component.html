@@ -1,0 +1,15 @@
+{% macro render(title, before, after, before_label="Before", after_label="After") %}
+  <section class="gui-diff">
+    <h3>{{ title }}</h3>
+    <div>
+      <section>
+        <h4>{{ before_label }}</h4>
+        <pre><code>{{ before }}</code></pre>
+      </section>
+      <section>
+        <h4>{{ after_label }}</h4>
+        <pre><code>{{ after }}</code></pre>
+      </section>
+    </div>
+  </section>
+{% endmacro %}

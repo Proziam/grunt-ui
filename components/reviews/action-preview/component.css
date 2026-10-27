@@ -1,0 +1,52 @@
+.gui-action-preview {
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  padding: 24px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.7 var(--gui-font);
+}
+.gui-action-preview > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+.gui-action-preview h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.gui-action-preview header span {
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-action-preview dl {
+  padding: 16px 0;
+  margin: 16px 0;
+  border-top: 1px solid var(--gui-border);
+  border-bottom: 1px solid var(--gui-border);
+}
+.gui-action-preview dl > div {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 12px;
+  margin: 4px 0;
+}
+.gui-action-preview dt {
+  color: var(--gui-muted);
+}
+.gui-action-preview dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.gui-action-preview h4 {
+  margin: 16px 0;
+  font-size: 15px;
+}
+.gui-action-preview__content {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.gui-action-preview footer {
+  margin-top: 24px;
+}

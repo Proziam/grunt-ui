@@ -1,0 +1,31 @@
+{% import "forms/select/component.html" as select %}
+{% macro render(
+  id,
+  connection_options,
+  resource_options,
+  connection_value="",
+  resource_value="",
+  connection_label="Account",
+  resource_label="Resource",
+  connection_name="connection_id",
+  resource_name="resource_id",
+  help=""
+) %}
+  <div class="gui-resource-picker">
+    {{ select::render(
+      id ~ "-connection",
+      connection_name,
+      connection_label,
+      connection_options,
+      value=connection_value
+    ) }}
+    {{ select::render(
+      id ~ "-resource",
+      resource_name,
+      resource_label,
+      resource_options,
+      value=resource_value,
+      help=help
+    ) }}
+  </div>
+{% endmacro %}

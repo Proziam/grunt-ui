@@ -1,0 +1,31 @@
+{% macro render(
+  id,
+  name,
+  label,
+  value,
+  min="",
+  max="",
+  step="1",
+  unit="",
+  help="",
+  required=false
+) %}
+  <div class="gui-number">
+    <label for="{{ id }}">{{ label }}</label>
+    <div>
+      <input id="{{ id }}"
+             name="{{ name }}"
+             type="number"
+             value="{{ value }}"
+             step="{{ step }}"
+             {% if !min.is_empty() %} min="{{ min }}"{% endif %}
+             {% if !max.is_empty() %} max="{{ max }}"{% endif %}
+             {% if required %} required{% endif %}
+             {% if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>
+      <span>{{ unit }}</span>
+    </div>
+    {% if !help.is_empty() %}
+      <p id="{{ id }}-help">{{ help }}</p>
+    {% endif %}
+  </div>
+{% endmacro %}

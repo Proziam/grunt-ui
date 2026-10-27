@@ -1,0 +1,9 @@
+{% macro render(title, description, tone="info", urgent=false) %}
+  <div class="gui-alert" data-tone="{{ tone }}"{% if urgent %} role="alert"{% endif %}>
+    <strong>{{ title }}</strong>
+    <p>{{ description }}</p>
+    {% if caller is defined %}
+      <div class="gui-alert__actions">{{ caller() }}</div>
+    {% endif %}
+  </div>
+{% endmacro %}

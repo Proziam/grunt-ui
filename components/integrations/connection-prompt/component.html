@@ -1,0 +1,12 @@
+{% import "integrations/logo-tile/component.html" as logo %}
+{% macro render(provider, initials, title, description, permission_note="") %}
+  <section class="gui-connection-prompt">
+    <div class="gui-connection-prompt__logos" aria-hidden="true">{{ logo::render("Grunt", "g.", size="large") }}<span>···</span>{{ logo::render(provider, initials, size="large") }}</div>
+    <h2>{{ title }}</h2>
+    <p>{{ description }}</p>
+    <div class="gui-connection-prompt__actions">{{ caller() }}</div>
+    {% if !permission_note.is_empty() %}
+      <small>{{ permission_note }}</small>
+    {% endif %}
+  </section>
+{% endmacro %}

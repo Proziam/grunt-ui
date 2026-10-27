@@ -1,0 +1,42 @@
+.gui-schedule {
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  padding: 20px;
+  margin: 0;
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-schedule > legend {
+  padding: 0 6px;
+  font-weight: 600;
+}
+.gui-schedule__clock {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+}
+.gui-schedule__days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  border: 0;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.gui-schedule__days > legend {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.gui-schedule__preview {
+  padding: 12px;
+  border-radius: 7px;
+  background: var(--gui-soft);
+  color: var(--gui-muted);
+  margin: 16px 0 0;
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  .gui-schedule__clock {
+    grid-template-columns: 1fr;
+  }
+}

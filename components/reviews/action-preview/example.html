@@ -1,0 +1,10 @@
+{% import "reviews/action-preview/component.html" as preview %}
+{{ preview::render(
+  "Proposed email",
+  "Alex <alex@example.com>",
+  "Sam <sam@example.com>",
+  "Operations mailbox",
+  "Your launch checklist",
+  "Hi Sam,\n\nThe updated checklist is ready for your review. Please confirm the two remaining decisions.\n\nThanks,\nAlex",
+  "Saved version 3"
+) }}

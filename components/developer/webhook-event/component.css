@@ -1,0 +1,22 @@
+.gui-webhook-event {
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-webhook-event > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.gui-webhook-event h3 {
+  font-size: 17px;
+  margin: 0;
+}
+.gui-webhook-event header p {
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-webhook-event footer {
+  margin-top: 16px;
+}

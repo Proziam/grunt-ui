@@ -1,0 +1,9 @@
+{% import "forms/date-range/component.html" as dates %}
+{{ dates::render(
+  "usage-range",
+  "Reporting period",
+  "start_date",
+  "end_date",
+  start="2026-10-01",
+  end="2026-10-27"
+) }}

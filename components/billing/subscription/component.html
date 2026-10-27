@@ -1,0 +1,16 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(plan, status, renewal, access_note, tone="neutral") %}
+  <section class="gui-subscription">
+    <header>
+      <div>
+        <h3>{{ plan }}</h3>
+        <p>{{ renewal }}</p>
+      </div>
+      {{ badge::render(status, tone=tone) }}
+    </header>
+    <p class="gui-subscription__access">{{ access_note }}</p>
+    <footer>
+      {{ caller() }}
+    </footer>
+  </section>
+{% endmacro %}

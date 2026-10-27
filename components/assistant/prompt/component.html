@@ -1,0 +1,24 @@
+{% import "forms/textarea/component.html" as textarea %}
+{% import "actions/button/component.html" as button %}
+{% macro render(
+  id,
+  action,
+  form_token,
+  label,
+  value="",
+  submit_label="Send request",
+  notice="Review proposed changes before applying them.",
+  busy=false
+) %}
+  <form class="gui-prompt" method="post" action="{{ action }}">
+    <input type="hidden"
+           name="form_token"
+           value="{{ form_token }}">{{ textarea::render(id, "prompt", label, value=value, rows=3, required=true) }}
+    <footer>
+      <small>{{ notice }}</small>{{ button::render(submit_label, kind="primary", type="submit", busy=busy) }}
+    </footer>
+    {% if caller is defined %}
+      <div class="gui-prompt__suggestions">{{ caller() }}</div>
+    {% endif %}
+  </form>
+{% endmacro %}

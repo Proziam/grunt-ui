@@ -1,0 +1,29 @@
+.gui-operation {
+  padding: 24px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-operation header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.gui-operation h3 {
+  font-size: 17px;
+  margin: 0;
+}
+.gui-operation > p {
+  color: var(--gui-muted);
+  margin: 16px 0;
+}
+.gui-operation footer {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}

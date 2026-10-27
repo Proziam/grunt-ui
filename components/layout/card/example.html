@@ -1,0 +1,9 @@
+{% import "layout/card/component.html" as card %}
+{% import "actions/button/component.html" as button %}
+{% call card::render(
+  "A little more room for your work",
+  description="Give repetitive work a reliable home."
+) %}
+  <p>Connect your tools, choose a workflow, and decide what needs your review.</p>
+  {{ button::render("Explore workflows", kind="primary") }}
+{% endcall %}

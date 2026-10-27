@@ -1,0 +1,21 @@
+.gui-composer {
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+}
+.gui-composer footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+.gui-composer footer > span {
+  color: var(--gui-muted);
+  font: 11px/1.5 var(--gui-font);
+}
+.gui-composer > div:last-child:not(.gui-textarea) {
+  margin-top: 14px;
+}

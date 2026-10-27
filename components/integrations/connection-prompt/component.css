@@ -1,0 +1,38 @@
+.gui-connection-prompt {
+  padding: 36px 24px;
+  border: 1px solid var(--gui-border);
+  border-radius: 16px;
+  background: var(--gui-page);
+  text-align: center;
+  color: var(--gui-text);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-connection-prompt__logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.gui-connection-prompt__logos > span {
+  color: var(--gui-muted);
+  letter-spacing: 4px;
+}
+.gui-connection-prompt h2 {
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  margin: 26px 0 8px;
+}
+.gui-connection-prompt > p {
+  max-width: 48ch;
+  margin: auto;
+  color: var(--gui-muted);
+  font-size: 13px;
+}
+.gui-connection-prompt__actions {
+  margin: 24px 0 16px;
+}
+.gui-connection-prompt > small {
+  display: block;
+  color: var(--gui-muted);
+  font-size: 11px;
+}

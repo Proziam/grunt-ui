@@ -1,0 +1,22 @@
+{% macro render(title, items) %}
+  <section class="gui-checklist">
+    <h3>{{ title }}</h3>
+    <ol>
+      {% for (label, detail, href, complete) in items %}
+        <li{% if complete %} data-complete{% endif %}>
+          <span aria-hidden="true">
+            {% if complete %}
+              ✓
+            {% else %}
+              {{ loop.index }}
+            {% endif %}
+          </span>
+          <div>
+            <a href="{{ href }}">{{ label }}</a>
+            <p>{{ detail }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+{% endmacro %}

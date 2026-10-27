@@ -1,0 +1,23 @@
+{% macro render(title, account, permissions, footer) %}
+  <section class="gui-access-summary">
+    <header>
+      <h3>{{ title }}</h3>
+      <p>{{ account }}</p>
+    </header>
+    <ul>
+      {% for (permission, detail) in permissions %}
+        <li>
+          <span aria-hidden="true">✓</span>
+          <div>
+            <strong>{{ permission }}</strong>
+            <p>{{ detail }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <p class="gui-access-summary__footer">{{ footer }}</p>
+    {% if caller is defined %}
+      <div>{{ caller() }}</div>
+    {% endif %}
+  </section>
+{% endmacro %}

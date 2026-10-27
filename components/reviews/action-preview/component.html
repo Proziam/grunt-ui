@@ -1,0 +1,46 @@
+{% macro render(
+  title,
+  sender,
+  recipients,
+  destination,
+  subject,
+  content,
+  version,
+  sender_label="From",
+  recipients_label="To",
+  destination_label="Destination"
+) %}
+  <article class="gui-action-preview">
+    <header>
+      <h3>{{ title }}</h3>
+      <span>{{ version }}</span>
+    </header>
+    <dl>
+      <div>
+        <dt>{{ sender_label }}</dt>
+        <dd>
+          {{ sender }}
+        </dd>
+      </div>
+      <div>
+        <dt>{{ recipients_label }}</dt>
+        <dd>
+          {{ recipients }}
+        </dd>
+      </div>
+      <div>
+        <dt>{{ destination_label }}</dt>
+        <dd>
+          {{ destination }}
+        </dd>
+      </div>
+    </dl>
+    <h4>{{ subject }}</h4>
+    <div class="gui-action-preview__content">{{ content }}</div>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

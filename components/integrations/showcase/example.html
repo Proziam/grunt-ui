@@ -1,0 +1,11 @@
+{% import "integrations/showcase/component.html" as showcase %}
+{% import "integrations/logo-tile/component.html" as logo %}
+{% call showcase::render(
+  "Your tools, together",
+  "A familiar place for every connection.",
+  "Explore ways to bring your existing tools into your workflows.",
+  "#example",
+  "Explore integrations"
+) %}
+  {{ logo::render("Slack", "S", size="large") }}{{ logo::render("Google", "G", size="large") }}{{ logo::render("Notion", "N", size="large") }}{{ logo::render("GitHub", "GH", size="large") }}
+{% endcall %}

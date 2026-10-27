@@ -1,0 +1,21 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(
+  title,
+  workflow,
+  requested_by,
+  deadline,
+  status="Needs your review",
+  tone="warning"
+) %}
+  <article class="gui-review-card">
+    <header>
+      {{ badge::render(status, tone=tone, dot=true) }}<span>{{ deadline }}</span>
+    </header>
+    <h3>{{ title }}</h3>
+    <p>{{ workflow }}</p>
+    <small>{{ requested_by }}</small>
+    <footer>
+      {{ caller() }}
+    </footer>
+  </article>
+{% endmacro %}

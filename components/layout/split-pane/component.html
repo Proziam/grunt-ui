@@ -1,0 +1,11 @@
+{% macro render(label) %}
+  <div class="gui-split" aria-label="{{ label }}">{{ caller() }}</div>
+{% endmacro %}
+{% macro sidebar(label) %}
+  <aside class="gui-split__sidebar" aria-label="{{ label }}">
+    {{ caller() }}
+  </aside>
+{% endmacro %}
+{% macro content() %}
+  <div class="gui-split__content">{{ caller() }}</div>
+{% endmacro %}

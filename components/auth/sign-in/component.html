@@ -1,0 +1,36 @@
+{% import "forms/input/component.html" as input %}
+{% import "actions/button/component.html" as button %}
+{% macro render(
+  id,
+  title,
+  description,
+  action,
+  form_token,
+  email="",
+  email_label="Email address",
+  submit_label="Send sign-in link",
+  notice=""
+) %}
+  <section class="gui-sign-in">
+    <span class="gui-sign-in__mark" aria-hidden="true">g.</span>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+    <form method="post" action="{{ action }}">
+      <input type="hidden" name="form_token" value="{{ form_token }}">{{ input::render(
+      id ~ "-email",
+      "email",
+      email_label,
+      value=email,
+      type="email",
+      autocomplete="email",
+      required=true
+      ) }}{{ button::render(submit_label, type="submit", kind="primary") }}
+    </form>
+    {% if caller is defined %}
+      <div class="gui-sign-in__providers">{{ caller() }}</div>
+    {% endif %}
+    {% if !notice.is_empty() %}
+      <small>{{ notice }}</small>
+    {% endif %}
+  </section>
+{% endmacro %}

@@ -1,0 +1,45 @@
+.gui-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px;
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-copy label {
+  flex: 1;
+  min-width: 160px;
+}
+.gui-copy__label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--gui-muted);
+}
+.gui-copy input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-soft);
+  color: var(--gui-text);
+  font:
+    13px/1.5 ui-monospace,
+    monospace;
+}
+.gui-copy button {
+  padding: 9px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: inherit;
+  cursor: pointer;
+}
+.gui-copy :focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}
+.gui-copy__status {
+  flex-basis: 100%;
+  color: var(--gui-muted);
+}

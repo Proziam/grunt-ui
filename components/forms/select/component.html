@@ -1,0 +1,29 @@
+{% macro render(
+  id,
+  name,
+  label,
+  options,
+  value="",
+  help="",
+  required=false,
+  disabled=false,
+  multiple=false
+) %}
+  <div class="gui-select">
+    <label for="{{ id }}">{{ label }}</label>
+    <select id="{{ id }}"
+            name="{{ name }}"
+            {% if required %} required{% endif %}
+            {% if disabled %} disabled{% endif %}
+            {% if multiple %} multiple{% endif %}
+            {% if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>
+      {% for (key, text) in options %}
+        <option value="{{ key }}"
+                {% if key.as_bytes() == value.as_bytes() %} selected{% endif %}>{{ text }}</option>
+      {% endfor %}
+    </select>
+    {% if !help.is_empty() %}
+      <p id="{{ id }}-help">{{ help }}</p>
+    {% endif %}
+  </div>
+{% endmacro %}

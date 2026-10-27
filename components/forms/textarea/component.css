@@ -1,0 +1,36 @@
+.gui-textarea {
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-textarea label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.gui-textarea textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  resize: vertical;
+  font: inherit;
+  box-shadow: var(--gui-shadow);
+}
+.gui-textarea textarea:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}
+.gui-textarea textarea[aria-invalid='true'] {
+  border-color: var(--gui-danger);
+}
+.gui-textarea p {
+  margin: 6px 0 0;
+  color: var(--gui-muted);
+  font-size: 12px;
+}
+.gui-textarea .gui-textarea__error {
+  color: var(--gui-danger);
+}

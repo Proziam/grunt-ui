@@ -1,0 +1,20 @@
+{% import "forms/number/component.html" as number %}
+{{ number::render(
+  "budget",
+  "budget",
+  "Spending limit",
+  "25.00",
+  min="0",
+  step="0.01",
+  unit="USD",
+  help="A maximum for this operation."
+) }}
+{{ number::render(
+  "retention",
+  "retention_days",
+  "Keep results for",
+  "30",
+  min="0",
+  max="365",
+  unit="days"
+) }}

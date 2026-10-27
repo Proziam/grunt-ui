@@ -1,0 +1,7 @@
+{% import "navigation/disclosure/component.html" as disclosure %}
+{% call disclosure::render("What can this workflow access?", open=true, name="workflow-faq") %}
+  <p>Only the sources and connections you explicitly select.</p>
+{% endcall %}
+{% call disclosure::render("Can I review work before it is sent?", name="workflow-faq") %}
+  <p>Add a review step before the sending action.</p>
+{% endcall %}

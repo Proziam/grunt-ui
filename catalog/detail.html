@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-gui-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ component.name }} · Grunt UI</title>
+    <link rel="stylesheet" href="../grunt-ui.css">
+    <link rel="stylesheet" href="../catalog.css">
+  </head>
+  <body>
+    <a class="catalog-skip" href="#preview">Skip to example</a>
+    <header class="catalog-header">
+      <a class="catalog-brand" href="../index.html">
+        <span class="catalog-mark" aria-hidden="true">g.</span> grunt<span>ui</span>
+      </a>
+      <nav aria-label="Library">
+        <a href="../index.html">All components</a>
+        <button type="button" data-theme-toggle aria-pressed="false">Dark theme</button>
+      </nav>
+    </header>
+    <main class="catalog-main catalog-detail">
+      <p class="catalog-eyebrow">{{ component.category }}</p>
+      <h1>{{ component.name }}</h1>
+      <p class="catalog-lead">{{ component.description }}</p>
+      <div class="catalog-example-heading">
+        <h2 id="preview-heading">Live example</h2>
+        <span>Illustrative data ·
+          {% if component.script.is_some() %}
+            interactive
+          {% else %}
+            native HTML
+          {% endif %}
+        </span>
+      </div>
+      <section class="catalog-preview" id="preview" aria-labelledby="preview-heading">
+        {{ preview|safe }}
+      </section>
+      <p class="catalog-feedback" data-demo-feedback role="status"></p>
+      <div class="catalog-docs">
+        <section>
+          <h2>How to use it</h2>
+          <pre><code>{{ component.example }}</code></pre>
+          <h2>Component notes</h2>
+          <pre class="catalog-readme">{{ component.readme }}</pre>
+        </section>
+        <section>
+          <details open>
+            <summary>HTML template</summary>
+            <pre><code>{{ component.template }}</code></pre>
+          </details>
+          <details>
+            <summary>Scoped CSS</summary>
+            <pre><code>{{ component.css }}</code></pre>
+          </details>
+          {% if let Some(script) = component.script %}
+            <details>
+              <summary>Optional behavior</summary>
+              <pre><code>{{ script }}</code></pre>
+            </details>
+          {% endif %}
+        </section>
+      </div>
+      <p>
+        <a href="https://github.com/Proziam/grunt-ui/tree/main/components/{{ component.id }}">Open this component’s folder on GitHub ↗</a>
+      </p>
+      <section class="catalog-extract">
+        <h2>Extract this component</h2>
+        <pre><code>cargo run --features catalog --bin catalog -- extract {{ component.id }} ./extracted-component</code></pre>
+        <p>Includes its example dependencies and a small standalone stylesheet.</p>
+      </section>
+    </main>
+    <script type="module" src="../auto.mjs"></script>
+    <script type="module" src="../catalog.mjs"></script>
+  </body>
+</html>

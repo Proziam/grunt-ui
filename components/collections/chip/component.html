@@ -1,0 +1,7 @@
+{% macro render(label, remove_href="", remove_label="Remove filter") %}
+  <span class="gui-chip">{{ label }}
+    {% if !remove_href.is_empty() %}
+      <a href="{{ remove_href }}" aria-label="{{ remove_label }}: {{ label }}">×</a>
+    {% endif %}
+  </span>
+{% endmacro %}

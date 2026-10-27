@@ -1,0 +1,11 @@
+{% import "billing/subscription/component.html" as subscription %}
+{% import "actions/link/component.html" as link %}
+{% call subscription::render(
+  "Example subscription",
+  "Active",
+  "Next renewal: 1 November 2026",
+  "Paid operations are enabled by this example subscription.",
+  tone="success"
+) %}
+  {{ link::render("Manage billing", "#example", kind="button") }}{{ link::render("View invoices", "#example") }}
+{% endcall %}

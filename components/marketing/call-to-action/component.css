@@ -1,0 +1,30 @@
+.gui-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 36px;
+  border: 1px solid var(--gui-border);
+  border-radius: 16px;
+  background: var(--gui-accent-soft);
+  color: var(--gui-text);
+  font: 14px/1.7 var(--gui-font);
+}
+.gui-cta h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+.gui-cta p {
+  margin: 0;
+  color: var(--gui-muted);
+  max-width: 52ch;
+}
+.gui-cta__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}

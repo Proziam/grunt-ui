@@ -1,0 +1,11 @@
+{% import "forms/range/component.html" as range %}
+{{ range::render(
+  "preview-zoom",
+  "zoom",
+  "Preview scale",
+  100,
+  min=50,
+  max=150,
+  step=10,
+  help="50% to 150%, in 10% increments."
+) }}

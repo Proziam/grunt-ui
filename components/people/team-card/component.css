@@ -1,0 +1,42 @@
+.gui-team-card {
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-team-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gui-team-card__mark {
+  font-size: 28px;
+  color: var(--gui-accent);
+}
+.gui-team-card h3 {
+  margin: 16px 0 6px;
+  font-size: 17px;
+}
+.gui-team-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.gui-team-card p {
+  color: var(--gui-muted);
+}
+.gui-team-card dl {
+  display: flex;
+  gap: 32px;
+  border-top: 1px solid var(--gui-border);
+  padding-top: 16px;
+  margin-bottom: 0;
+}
+.gui-team-card dt {
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-team-card dd {
+  margin: 3px 0 0;
+}

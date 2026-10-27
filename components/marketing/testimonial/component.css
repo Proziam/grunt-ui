@@ -1,0 +1,30 @@
+.gui-testimonial {
+  margin: 0;
+  padding: 28px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 14px/1.7 var(--gui-font);
+}
+.gui-testimonial blockquote {
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: -0.2px;
+}
+.gui-testimonial figcaption {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.gui-testimonial figcaption strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+.gui-testimonial figcaption :is(span, small) {
+  display: block;
+  font-size: 11px;
+  color: var(--gui-muted);
+}

@@ -1,0 +1,6 @@
+{% import "admin/contract/component.html" as contract %}
+{{ contract::render(
+  "Read email",
+  "task.read-email · version 3",
+  [("Input", "Selected connection and mailbox scope"), ("Output", "Typed messages with source references"), ("Capabilities", "Read messages"), ("Launch requirements", "An authorized account and validated resource scope")]
+) }}

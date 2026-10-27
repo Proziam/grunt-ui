@@ -1,0 +1,16 @@
+{% macro render(items, label="Breadcrumbs") %}
+  <nav class="gui-breadcrumbs" aria-label="{{ label }}">
+    <ol>
+      {% for (text, href) in items %}
+        <li>
+          {% if loop.last %}
+            <span aria-current="page">{{ text }}</span>
+          {% else %}
+            <a href="{{ href }}">{{ text }}</a>
+            <span aria-hidden="true">/</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endmacro %}

@@ -1,0 +1,20 @@
+.gui-divider {
+  border: 0;
+  border-top: 1px solid var(--gui-border);
+  margin: 24px 0;
+}
+.gui-divider-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+  color: var(--gui-muted);
+  font: 11px/1.5 var(--gui-font);
+}
+.gui-divider-label::before,
+.gui-divider-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gui-border);
+}

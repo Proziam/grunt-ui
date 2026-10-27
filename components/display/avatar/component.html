@@ -1,0 +1,12 @@
+{% macro render(name, initials, size="normal", image="") %}
+  <span class="gui-avatar" data-size="{{ size }}" role="img" aria-label="{{ name }}">
+    {% if image.is_empty() %}
+      {{ initials }}
+    {% else %}
+      <img src="{{ image }}" alt="" loading="lazy">
+    {% endif %}
+  </span>
+{% endmacro %}
+{% macro group(label) %}
+  <div class="gui-avatar-group" role="group" aria-label="{{ label }}">{{ caller() }}</div>
+{% endmacro %}

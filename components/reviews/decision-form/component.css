@@ -1,0 +1,17 @@
+.gui-decision-form {
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-decision-form > p {
+  padding: 14px;
+  margin: 0 0 18px;
+  border-radius: 8px;
+  background: var(--gui-warning-soft);
+  color: var(--gui-warning);
+}
+.gui-decision-form > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}

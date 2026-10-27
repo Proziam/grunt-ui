@@ -1,0 +1,3 @@
+{% macro render(columns="auto") %}
+  <div class="gui-grid" data-columns="{{ columns }}">{{ caller() }}</div>
+{% endmacro %}

@@ -1,0 +1,5 @@
+{% import "feedback/draft-bar/component.html" as draft %}
+{% import "actions/button/component.html" as button %}
+{% call draft::render("You have unsaved changes") %}
+  {{ button::render("Discard") }}{{ button::render("Save changes", kind="primary") }}
+{% endcall %}

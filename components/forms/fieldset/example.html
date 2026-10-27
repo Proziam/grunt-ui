@@ -1,0 +1,12 @@
+{% import "forms/fieldset/component.html" as fields %}
+{% import "forms/input/component.html" as input %}
+{% call fields::render("Organization", description="These details appear to your team.") %}
+  {{ input::render("organization-name", "name", "Name", value="Example Studio") }}
+  {{ input::render(
+    "organization-website",
+    "website",
+    "Website",
+    type="url",
+    placeholder="https://example.com"
+  ) }}
+{% endcall %}

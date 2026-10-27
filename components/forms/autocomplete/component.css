@@ -1,0 +1,23 @@
+.gui-autocomplete {
+  font: 13px/1.5 var(--gui-font);
+  color: var(--gui-text);
+}
+.gui-autocomplete label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.gui-autocomplete input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: inherit;
+  font: inherit;
+}
+.gui-autocomplete input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}

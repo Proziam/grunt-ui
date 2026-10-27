@@ -1,0 +1,25 @@
+{% macro render(
+  title,
+  description,
+  action,
+  form_token,
+  submit_label="Save settings",
+  readonly=false
+) %}
+  <section class="gui-settings-panel">
+    <header>
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+    </header>
+    <form method="post" action="{{ action }}">
+      <input type="hidden" name="form_token" value="{{ form_token }}">
+      <fieldset{% if readonly %} disabled{% endif %}>
+        <legend class="gui-sr-only">{{ title }}</legend>
+        <div class="gui-settings-panel__fields">{{ caller() }}</div>
+        <footer>
+          <button type="submit">{{ submit_label }}</button>
+        </footer>
+      </fieldset>
+    </form>
+  </section>
+{% endmacro %}

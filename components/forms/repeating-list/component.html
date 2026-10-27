@@ -1,0 +1,33 @@
+{% macro render(
+  label,
+  name,
+  values,
+  add_label="Add item",
+  remove_label="Remove item",
+  item_label="Value"
+) %}
+  <fieldset class="gui-repeating-list" data-gui-repeating>
+    <legend>{{ label }}</legend>
+    <div data-repeating-items>
+      {% for value in values %}
+        <div class="gui-repeating-list__row">
+          <label>
+            <span class="gui-sr-only">{{ item_label }}</span>
+            <input name="{{ name }}" value="{{ value }}">
+          </label>
+          <button type="button" data-remove-item aria-label="{{ remove_label }}">×</button>
+        </div>
+      {% endfor %}
+    </div>
+    <template data-repeating-template>
+      <div class="gui-repeating-list__row">
+        <label>
+          <span class="gui-sr-only">{{ item_label }}</span>
+          <input name="{{ name }}">
+        </label>
+        <button type="button" data-remove-item aria-label="{{ remove_label }}">×</button>
+      </div>
+    </template>
+    <button type="button" data-add-item>{{ add_label }}</button>
+  </fieldset>
+{% endmacro %}

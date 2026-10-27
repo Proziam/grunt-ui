@@ -1,0 +1,13 @@
+{% import "collections/table/component.html" as table %}
+{% import "display/badge/component.html" as badge %}
+{% let workflows = [("Daily briefing", "Operations", "Ready"), ("Customer follow-up", "Support", "Needs setup")] %}
+{% call(row) table::render(
+  "Workflow directory",
+  ["Workflow", "Owner", "Status"],
+  rows=workflows,
+  empty_text="No workflows yet."
+) %}
+  <th scope="row">{{ row.0 }}</th>
+  <td>{{ row.1 }}</td>
+  <td>{{ badge::render(row.2) }}</td>
+{% endcall %}

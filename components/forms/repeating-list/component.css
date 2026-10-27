@@ -1,0 +1,44 @@
+.gui-repeating-list {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-repeating-list legend {
+  padding: 0 6px;
+  font-weight: 500;
+}
+.gui-repeating-list__row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.gui-repeating-list__row > label {
+  flex: 1;
+  min-width: 0;
+}
+.gui-repeating-list__row input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: 7px;
+  background: var(--gui-surface);
+  color: inherit;
+  font: inherit;
+}
+.gui-repeating-list button {
+  padding: 8px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: 7px;
+  background: var(--gui-soft);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.gui-repeating-list :focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}

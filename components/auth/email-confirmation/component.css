@@ -1,0 +1,41 @@
+.gui-email-confirmation {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  color: var(--gui-text);
+  font: 14px/1.7 var(--gui-font);
+}
+.gui-email-confirmation > span {
+  display: inline-grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--gui-border);
+  border-radius: 16px;
+  background: var(--gui-accent-soft);
+  color: var(--gui-accent);
+  font-size: 28px;
+}
+.gui-email-confirmation h2 {
+  margin: 24px 0 10px;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+.gui-email-confirmation p {
+  color: var(--gui-muted);
+  margin-bottom: 8px;
+}
+.gui-email-confirmation strong {
+  overflow-wrap: anywhere;
+}
+.gui-email-confirmation > div {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.gui-email-confirmation small {
+  color: var(--gui-muted);
+  font-size: 12px;
+}

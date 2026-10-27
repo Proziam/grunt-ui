@@ -1,0 +1,35 @@
+.gui-progress {
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-progress label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.gui-progress label span {
+  color: var(--gui-muted);
+}
+.gui-progress progress {
+  display: block;
+  width: 100%;
+  height: 8px;
+  border: 0;
+  border-radius: 9px;
+  overflow: hidden;
+  accent-color: var(--gui-accent);
+  background: var(--gui-soft);
+}
+.gui-progress progress::-webkit-progress-bar {
+  background: var(--gui-soft);
+  border-radius: 9px;
+}
+.gui-progress progress::-webkit-progress-value {
+  background: var(--gui-accent);
+  border-radius: 9px;
+}
+.gui-progress progress::-moz-progress-bar {
+  background: var(--gui-accent);
+  border-radius: 9px;
+}

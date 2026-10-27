@@ -1,0 +1,27 @@
+.gui-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 13px/1.5 var(--gui-font);
+  color: var(--gui-text);
+}
+.gui-person > div {
+  flex: 1;
+  min-width: 0;
+}
+.gui-person strong {
+  font-weight: 500;
+}
+.gui-person small {
+  display: block;
+  color: var(--gui-muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.gui-person__role {
+  color: var(--gui-muted);
+  font-size: 11px;
+  padding: 3px 8px;
+  border: 1px solid var(--gui-border);
+  border-radius: 5px;
+}

@@ -1,0 +1,49 @@
+.gui-input {
+  min-width: 0;
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-input > label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.gui-input > input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow);
+  font: inherit;
+}
+.gui-input > input::placeholder {
+  color: var(--gui-muted);
+  opacity: 0.8;
+}
+.gui-input > input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}
+.gui-input > input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--gui-soft);
+}
+.gui-input[data-invalid] > input {
+  border-color: var(--gui-danger);
+}
+.gui-input__help,
+.gui-input__error {
+  margin: 6px 0 0;
+  font-size: 12px;
+}
+.gui-input__help {
+  color: var(--gui-muted);
+}
+.gui-input__error {
+  color: var(--gui-danger);
+}

@@ -1,0 +1,59 @@
+.gui-node {
+  box-sizing: border-box;
+  width: 280px;
+  max-width: 100%;
+  padding: 16px;
+  border: 1px solid var(--gui-border);
+  border-top: 3px solid var(--gui-accent);
+  border-radius: 12px;
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
+  color: var(--gui-text);
+  font: 12px/1.6 var(--gui-font);
+}
+.gui-node[data-category='Start'] {
+  border-top-color: var(--gui-success);
+}
+.gui-node[data-category='Find'] {
+  border-top-color: var(--gui-info);
+}
+.gui-node[data-category='Route'] {
+  border-top-color: var(--gui-warning);
+}
+.gui-node[data-category='Make'] {
+  border-top-color: var(--gui-violet);
+}
+.gui-node[data-selected] {
+  outline: 2px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+.gui-node > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.gui-node__category {
+  color: var(--gui-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.gui-node h3 {
+  margin: 16px 0 5px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.gui-node > p {
+  margin: 0;
+  color: var(--gui-muted);
+}
+.gui-node > footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--gui-border);
+}

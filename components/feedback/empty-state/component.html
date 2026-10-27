@@ -1,0 +1,10 @@
+{% macro render(title, description, symbol="◇") %}
+  <div class="gui-empty">
+    <span class="gui-empty__symbol" aria-hidden="true">{{ symbol }}</span>
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+    {% if caller is defined %}
+      <div class="gui-empty__actions">{{ caller() }}</div>
+    {% endif %}
+  </div>
+{% endmacro %}

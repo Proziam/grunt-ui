@@ -1,0 +1,9 @@
+{% import "forms/select/component.html" as select %}
+{% let connections = [("personal", "Personal account"), ("team", "Operations team"), ("company", "Organization")] %}
+{{ select::render(
+  "connection-scope",
+  "connection_scope",
+  "Connection ownership",
+  options=connections,
+  value="team"
+) }}

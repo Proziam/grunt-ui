@@ -1,0 +1,11 @@
+{% import "integrations/connection-prompt/component.html" as prompt %}
+{% import "actions/link/component.html" as link %}
+{% call prompt::render(
+  "Google Workspace",
+  "G",
+  "Connect your mailbox",
+  "Let this workflow read the messages you choose and prepare a useful briefing.",
+  permission_note="You will review the requested permissions with your provider."
+) %}
+  {{ link::render("Connect Google Workspace", "#example", kind="button") }}
+{% endcall %}

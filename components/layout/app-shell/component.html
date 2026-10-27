@@ -1,0 +1,17 @@
+{% macro render(title, home_href, navigation, main_label="Workspace content") %}
+  <div class="gui-app-shell">
+    <header>
+      <a href="{{ home_href }}" class="gui-app-shell__brand">
+        <span aria-hidden="true">g.</span>{{ title }}</a>
+      <div>{{ caller("header") }}</div>
+    </header>
+    <div class="gui-app-shell__layout">
+      <aside aria-label="{{ navigation }}">
+        {{ caller("navigation") }}
+      </aside>
+      <main aria-label="{{ main_label }}">
+        {{ caller("content") }}
+      </main>
+    </div>
+  </div>
+{% endmacro %}

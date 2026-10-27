@@ -1,0 +1,51 @@
+.gui-line-chart {
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-line-chart figcaption strong {
+  font-size: 16px;
+}
+.gui-line-chart figcaption p {
+  font-size: 12px;
+  color: var(--gui-muted);
+  margin: 6px 0 20px;
+}
+.gui-line-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.gui-line-chart__grid {
+  stroke: var(--gui-border);
+  fill: none;
+}
+.gui-line-chart__line {
+  fill: none;
+  stroke: var(--gui-accent);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.gui-line-chart summary {
+  cursor: pointer;
+  color: var(--gui-muted);
+  font-size: 12px;
+  padding-top: 16px;
+}
+.gui-line-chart table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.gui-line-chart th,
+.gui-line-chart td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--gui-border);
+  font-weight: 400;
+}

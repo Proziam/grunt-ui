@@ -1,0 +1,5 @@
+{% import "display/code/component.html" as code %}
+{{ code::render(
+  "{\n  \"status\": \"waiting_for_review\",\n  \"version\": 3\n}",
+  label="Saved result · JSON"
+) }}

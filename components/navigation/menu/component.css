@@ -1,0 +1,28 @@
+.gui-menu {
+  display: grid;
+  gap: 4px;
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-menu a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--gui-control-radius);
+  color: var(--gui-muted);
+  text-decoration: none;
+}
+.gui-menu a:hover {
+  background: var(--gui-soft);
+  color: var(--gui-text);
+}
+.gui-menu a[aria-current] {
+  background: var(--gui-accent-soft);
+  color: var(--gui-accent);
+  font-weight: 500;
+}
+.gui-menu a:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}

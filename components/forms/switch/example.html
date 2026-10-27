@@ -1,0 +1,13 @@
+{% import "forms/switch/component.html" as switch %}
+{{ switch::render(
+  "review_alerts",
+  "Review alerts",
+  checked=true,
+  description="Notify me when a workflow needs a decision."
+) }}
+{{ switch::render(
+  "delivery",
+  "Automatic delivery",
+  disabled=true,
+  description="A verified sending account is required."
+) }}

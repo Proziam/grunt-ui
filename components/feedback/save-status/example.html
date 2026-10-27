@@ -1,0 +1,8 @@
+{% import "feedback/save-status/component.html" as save %}
+{{ save::render("All changes saved") }}
+{{ save::render("Saving changes…", state="saving") }}
+{{ save::render(
+  "Could not confirm the save",
+  state="error",
+  detail="Your edits remain available."
+) }}

@@ -1,0 +1,55 @@
+.gui-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+  cursor: pointer;
+}
+.gui-switch strong {
+  font-weight: 500;
+}
+.gui-switch small {
+  display: block;
+  color: var(--gui-muted);
+  margin-top: 3px;
+}
+.gui-switch input {
+  appearance: none;
+  box-sizing: border-box;
+  width: 36px;
+  height: 22px;
+  margin: 0;
+  padding: 2px;
+  border: 1px solid var(--gui-border);
+  border-radius: 20px;
+  background: var(--gui-soft);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.gui-switch input::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gui-muted);
+  transition: transform var(--gui-motion);
+}
+.gui-switch input:checked {
+  background: var(--gui-accent);
+  border-color: var(--gui-accent);
+}
+.gui-switch input:checked::before {
+  transform: translateX(14px);
+  background: var(--gui-accent-ink);
+}
+.gui-switch input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.gui-switch input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}

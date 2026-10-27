@@ -1,0 +1,13 @@
+{% import "billing/plan-card/component.html" as plan %}
+{% import "actions/link/component.html" as link %}
+{% call plan::render(
+  "Example plan",
+  "For a small team finding its rhythm.",
+  "$99",
+  "/ month · illustrative",
+  ["Shared workflow library", "Human review controls", "Recorded usage"],
+  badge_label="Example",
+  featured=true
+) %}
+  {{ link::render("Review plan details", "#example", kind="button") }}
+{% endcall %}

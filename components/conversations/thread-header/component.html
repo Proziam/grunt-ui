@@ -1,0 +1,15 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(title, participants, state, tone="neutral") %}
+  <header class="gui-thread-header">
+    <div>
+      <h2>{{ title }}</h2>
+      <p>{{ participants }}</p>
+    </div>
+    <div>
+      {{ badge::render(state, tone=tone, dot=true) }}
+      {% if caller is defined %}
+        {{ caller() }}
+      {% endif %}
+    </div>
+  </header>
+{% endmacro %}

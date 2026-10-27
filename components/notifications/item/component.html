@@ -1,0 +1,16 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(title, body, datetime, time_label, status, tone="neutral", unread=false) %}
+  <article class="gui-notification"{% if unread %} data-unread{% endif %}>
+    <header>
+      <h3>{{ title }}</h3>
+      {{ badge::render(status, tone=tone) }}
+    </header>
+    <p>{{ body }}</p>
+    <time datetime="{{ datetime }}">{{ time_label }}</time>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

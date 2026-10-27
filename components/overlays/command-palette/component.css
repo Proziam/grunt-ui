@@ -1,0 +1,56 @@
+.gui-command {
+  font: 13px/1.5 var(--gui-font);
+  color: var(--gui-text);
+}
+.gui-command input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: 8px;
+  background: var(--gui-surface);
+  color: inherit;
+  font: inherit;
+}
+.gui-command ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  max-height: 320px;
+  overflow: auto;
+}
+.gui-command li a {
+  position: relative;
+  display: block;
+  padding: 12px 32px 12px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  color: inherit;
+}
+.gui-command li a:hover {
+  background: var(--gui-soft);
+}
+.gui-command strong {
+  font-weight: 500;
+}
+.gui-command small {
+  display: block;
+  margin-top: 4px;
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-command li a > span {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  color: var(--gui-muted);
+}
+.gui-command :focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: -3px;
+}
+.gui-command [data-command-empty] {
+  color: var(--gui-muted);
+  text-align: center;
+  padding: 20px;
+}

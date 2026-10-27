@@ -1,0 +1,14 @@
+{% import "people/identity/component.html" as person %}
+{% macro render(author, initials, time_label, body, edited="") %}
+  <article class="gui-comment">{{ person::render(author, initials, detail=time_label) }}
+    <p>{{ body }}</p>
+    {% if !edited.is_empty() %}
+      <small>{{ edited }}</small>
+    {% endif %}
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

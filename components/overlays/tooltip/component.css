@@ -1,0 +1,43 @@
+.gui-tooltip {
+  position: relative;
+  display: inline-block;
+  font: 12px/1.5 var(--gui-font);
+}
+.gui-tooltip > button {
+  min-width: 28px;
+  min-height: 28px;
+  padding: 3px 9px;
+  border: 1px solid var(--gui-border);
+  border-radius: 50%;
+  background: var(--gui-surface);
+  color: var(--gui-muted);
+  cursor: help;
+  font: inherit;
+}
+.gui-tooltip [role='tooltip'] {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 100%;
+  min-width: 160px;
+  max-width: 260px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--gui-text);
+  color: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
+  opacity: 0;
+  visibility: hidden;
+}
+.gui-tooltip:is(:hover, :focus-within) [role='tooltip'] {
+  opacity: 1;
+  visibility: visible;
+}
+.gui-tooltip button:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+.gui-tooltip[data-dismissed] [role='tooltip'] {
+  opacity: 0;
+  visibility: hidden;
+}

@@ -1,0 +1,6 @@
+{% macro render(id, label) %}
+  <div class="gui-popover-control">
+    <button type="button" popovertarget="{{ id }}">{{ label }}</button>
+    <div id="{{ id }}" class="gui-popover" popover>{{ caller() }}</div>
+  </div>
+{% endmacro %}

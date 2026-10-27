@@ -1,0 +1,31 @@
+.gui-versions {
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-versions h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+.gui-versions ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gui-versions li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gui-border);
+}
+.gui-versions a {
+  color: inherit;
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
+.gui-versions p {
+  color: var(--gui-muted);
+  margin: 4px 0 0;
+  font-size: 12px;
+}

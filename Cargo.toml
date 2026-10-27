@@ -1,0 +1,29 @@
+[package]
+name = "grunt-ui"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98"
+description = "Readable, separable HTML-first components for Grunt"
+license = "MIT"
+repository = "https://github.com/Proziam/grunt-ui"
+include = ["src/**", "components/**", "foundation/**", "catalog/**", "docs/**", "build.rs", "askama.toml", "Cargo.toml", "README.md", "LICENSE"]
+
+[features]
+default = []
+catalog = ["dep:askama", "dep:axum", "dep:tokio"]
+
+[dependencies]
+askama = { version = "0.16.1", default-features = false, features = ["config", "derive", "std"], optional = true }
+axum = { version = "0.8", optional = true }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"], optional = true }
+
+[[bin]]
+name = "catalog"
+path = "src/bin/catalog.rs"
+required-features = ["catalog"]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"

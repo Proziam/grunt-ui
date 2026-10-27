@@ -1,0 +1,8 @@
+{% import "security/audit-event/component.html" as event %}
+{{ event::render(
+  "Workflow access changed",
+  "Alex Morgan",
+  "2026-10-27T11:20:00Z",
+  "11:20 UTC",
+  [("Subject", "Operations team"), ("Change", "Run access granted"), ("Scope", "Daily briefing"), ("Reference", "event_example_01")]
+) }}

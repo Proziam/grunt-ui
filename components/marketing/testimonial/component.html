@@ -1,0 +1,18 @@
+{% import "display/avatar/component.html" as avatar %}
+{% macro render(quote, name, initials, role, source="") %}
+  <figure class="gui-testimonial">
+    <blockquote>
+      {{ quote }}
+    </blockquote>
+    <figcaption>
+      {{ avatar::render(name, initials) }}
+      <div>
+        <strong>{{ name }}</strong>
+        <span>{{ role }}</span>
+        {% if !source.is_empty() %}
+          <small>{{ source }}</small>
+        {% endif %}
+      </div>
+    </figcaption>
+  </figure>
+{% endmacro %}

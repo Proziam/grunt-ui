@@ -1,0 +1,8 @@
+{% import "feedback/empty-state/component.html" as empty %}
+{% import "actions/button/component.html" as button %}
+{% call empty::render(
+  "Your first workflow starts here",
+  "Choose a task and connect the tools you already use."
+) %}
+  {{ button::render("Create a workflow", kind="primary") }}
+{% endcall %}

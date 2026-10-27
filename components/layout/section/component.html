@@ -1,0 +1,14 @@
+{% macro render(title, description="", eyebrow="") %}
+  <section class="gui-section">
+    <header>
+      {% if !eyebrow.is_empty() %}
+        <p class="gui-section__eyebrow">{{ eyebrow }}</p>
+      {% endif %}
+      <h2>{{ title }}</h2>
+      {% if !description.is_empty() %}
+        <p class="gui-section__description">{{ description }}</p>
+      {% endif %}
+    </header>
+    <div class="gui-section__content">{{ caller() }}</div>
+  </section>
+{% endmacro %}

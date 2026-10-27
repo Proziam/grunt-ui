@@ -1,0 +1,39 @@
+.gui-selectable-card {
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 14px/1.5 var(--gui-font);
+  box-shadow: var(--gui-shadow);
+  cursor: pointer;
+}
+.gui-selectable-card:has(input:checked) {
+  border-color: var(--gui-accent);
+  background: var(--gui-accent-soft);
+}
+.gui-selectable-card:has(input:focus-visible) {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+.gui-selectable-card:has(input:disabled) {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.gui-selectable-card input {
+  accent-color: var(--gui-accent);
+  margin: 3px 0 0;
+  width: 16px;
+  height: 16px;
+}
+.gui-selectable-card strong {
+  font-weight: 600;
+}
+.gui-selectable-card small {
+  display: block;
+  margin-top: 5px;
+  color: var(--gui-muted);
+  font-size: 12px;
+}

@@ -1,0 +1,17 @@
+{% import "workflows/settings-panel/component.html" as settings %}
+{% import "forms/input/component.html" as input %}
+{% import "forms/textarea/component.html" as textarea %}
+{% call settings::render(
+  "Make a briefing",
+  "Configure this task’s declared settings.",
+  "#example",
+  "example-only"
+) %}
+  {{ input::render("briefing-title", "title", "Briefing title", value="Daily operations update") }}
+  {{ textarea::render(
+    "briefing-instructions",
+    "instructions",
+    "Instructions",
+    value="Focus on changes that need a decision."
+  ) }}
+{% endcall %}

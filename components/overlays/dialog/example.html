@@ -1,0 +1,17 @@
+{% import "overlays/dialog/component.html" as dialog %}
+{% import "forms/input/component.html" as input %}
+{% import "actions/button/component.html" as button %}
+{% call dialog::render("invite-example", "Invite a teammate", "Open invitation dialog") %}
+  <form>
+    {{ input::render("invite-email", "email", "Email address", type="email", required=true) }}
+    <p>{{ button::render("Send invitation", type="submit", kind="primary") }}</p>
+  </form>
+{% endcall %}
+{% call dialog::render(
+  "settings-example",
+  "Workflow settings",
+  "Open settings drawer",
+  sheet=true
+) %}
+  {{ input::render("drawer-name", "name", "Workflow name", value="Daily briefing") }}
+{% endcall %}

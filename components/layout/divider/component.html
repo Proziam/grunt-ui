@@ -1,0 +1,9 @@
+{% macro render(label="") %}
+  {% if label.is_empty() %}
+    <hr class="gui-divider">
+  {% else %}
+    <div class="gui-divider-label">
+      <span>{{ label }}</span>
+    </div>
+  {% endif %}
+{% endmacro %}

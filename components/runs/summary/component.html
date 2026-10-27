@@ -1,0 +1,40 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(
+  title,
+  reference,
+  status,
+  started,
+  duration,
+  tone="neutral",
+  started_label="Started",
+  duration_label="Duration"
+) %}
+  <article class="gui-run">
+    <header>
+      <div>
+        <h3>{{ title }}</h3>
+        <p>{{ reference }}</p>
+      </div>
+      {{ badge::render(status, tone=tone, dot=true) }}
+    </header>
+    <dl>
+      <div>
+        <dt>{{ started_label }}</dt>
+        <dd>
+          {{ started }}
+        </dd>
+      </div>
+      <div>
+        <dt>{{ duration_label }}</dt>
+        <dd>
+          {{ duration }}
+        </dd>
+      </div>
+    </dl>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

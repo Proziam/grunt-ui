@@ -1,0 +1,10 @@
+{% import "integrations/resource-picker/component.html" as resource %}
+{{ resource::render(
+  "folder-picker",
+  [("account-1", "Operations account")],
+  [("folder-1", "Weekly reports"), ("folder-2", "Customer research")],
+  connection_value="account-1",
+  resource_value="folder-1",
+  resource_label="Folder",
+  help="Only resources available to this account are listed."
+) }}

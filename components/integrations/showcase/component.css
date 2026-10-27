@@ -1,0 +1,45 @@
+.gui-integration-showcase {
+  padding: 40px 24px;
+  background: var(--gui-page);
+  border: 1px solid var(--gui-border);
+  border-radius: 18px;
+  color: var(--gui-text);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-integration-showcase > header {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+.gui-integration-showcase header > span {
+  color: var(--gui-accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.gui-integration-showcase h2 {
+  margin: 14px 0 10px;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  font-weight: 600;
+}
+.gui-integration-showcase header p {
+  color: var(--gui-muted);
+}
+.gui-integration-showcase__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 32px 0;
+}
+.gui-integration-showcase footer {
+  text-align: center;
+}
+.gui-integration-showcase footer a {
+  color: var(--gui-accent);
+  font-weight: 500;
+  text-underline-offset: 4px;
+}

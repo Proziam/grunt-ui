@@ -1,0 +1,9 @@
+{% import "display/icon/component.html" as icon %}
+{% macro render(name, label, type="button", disabled=false, pressed=false, toggle=false) %}
+  <button class="gui-icon-button"
+          type="{{ type }}"
+          aria-label="{{ label }}"
+          title="{{ label }}"
+          {% if disabled %} disabled{% endif %}
+          {% if toggle %} aria-pressed="{{ pressed }}"{% endif %}>{{ icon::render(name) }}</button>
+{% endmacro %}

@@ -1,0 +1,8 @@
+{% macro render(eyebrow, title, description) %}
+  <section class="gui-hero">
+    <span>{{ eyebrow }}</span>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+    <div class="gui-hero__actions">{{ caller() }}</div>
+  </section>
+{% endmacro %}

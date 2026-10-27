@@ -1,0 +1,12 @@
+{% import "security/credential-card/component.html" as credential %}
+{% import "actions/button/component.html" as button %}
+{% call credential::render(
+  "Reporting access",
+  "grnt_••••••••••42",
+  "Scope: read authorized run summaries",
+  "Created 20 October 2026",
+  "Active",
+  tone="success"
+) %}
+  {{ button::render("Rotate") }}{{ button::render("Revoke", kind="danger") }}
+{% endcall %}

@@ -1,0 +1,9 @@
+{% import "collections/list/component.html" as list %}
+{% let workflow_names = ["Daily briefing", "Customer follow-up", "Weekly report"] %}
+{% call(workflow) list::render(
+  items=workflow_names,
+  empty_text="No workflows yet.",
+  label="Workflows"
+) %}
+  <strong>{{ workflow }}</strong>
+{% endcall %}

@@ -1,0 +1,46 @@
+.gui-file-picker {
+  padding: 28px;
+  border: 1px dashed var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-page);
+  color: var(--gui-text);
+  text-align: center;
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-file-picker label {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  cursor: pointer;
+}
+.gui-file-picker label > span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--gui-surface);
+  border: 1px solid var(--gui-border);
+  box-shadow: var(--gui-shadow);
+  font-size: 23px;
+}
+.gui-file-picker p {
+  color: var(--gui-muted);
+  font-size: 12px;
+}
+.gui-file-picker input {
+  max-width: 100%;
+  font: inherit;
+}
+.gui-file-picker input::file-selector-button {
+  padding: 8px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: 7px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  cursor: pointer;
+}
+.gui-file-picker input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}

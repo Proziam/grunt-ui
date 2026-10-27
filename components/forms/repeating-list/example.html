@@ -1,0 +1,8 @@
+{% import "forms/repeating-list/component.html" as list %}
+{{ list::render(
+  "Approved domains",
+  "domains",
+  ["example.com", "example.org"],
+  add_label="Add domain",
+  item_label="Domain"
+) }}

@@ -1,0 +1,16 @@
+{% import "layout/prose/component.html" as prose %}
+{% call prose::render(
+  "How Grunt uses your information",
+  subtitle="A readable document layout for help, legal terms and product guides."
+) %}
+  <h2>Choose what a workflow may use</h2>
+  <p>Each task uses the sources you explicitly assign to it.</p>
+  <ul>
+    <li>Select an authorized account.</li>
+    <li>Choose the resources the task needs.</li>
+    <li>Review the output before sharing.</li>
+  </ul>
+  <blockquote>
+    Connecting an account does not automatically share its sources.
+  </blockquote>
+{% endcall %}

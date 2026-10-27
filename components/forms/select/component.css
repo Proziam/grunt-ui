@@ -1,0 +1,36 @@
+.gui-select {
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-select label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.gui-select select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 12px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow);
+  font: inherit;
+}
+.gui-select select[multiple] {
+  min-height: 130px;
+}
+.gui-select select:disabled {
+  opacity: 0.55;
+}
+.gui-select select:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}
+.gui-select p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--gui-muted);
+}

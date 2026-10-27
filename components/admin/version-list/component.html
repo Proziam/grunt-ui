@@ -1,0 +1,17 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(title, versions) %}
+  <section class="gui-versions">
+    <h3>{{ title }}</h3>
+    <ol>
+      {% for (version, description, status, href) in versions %}
+        <li>
+          <div>
+            <a href="{{ href }}">{{ version }}</a>
+            <p>{{ description }}</p>
+          </div>
+          {{ badge::render(status) }}
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+{% endmacro %}

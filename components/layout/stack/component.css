@@ -1,0 +1,22 @@
+.gui-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+.gui-stack[data-direction='horizontal'] {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.gui-stack[data-gap='small'] {
+  gap: 8px;
+}
+.gui-stack[data-gap='large'] {
+  gap: 24px;
+}
+.gui-stack[data-align='center'] {
+  align-items: center;
+}
+.gui-stack[data-align='start'] {
+  align-items: flex-start;
+}

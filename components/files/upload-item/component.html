@@ -1,0 +1,14 @@
+{% import "display/progress/component.html" as progress %}
+{% macro render(id, name, state, value, detail, error="") %}
+  <div class="gui-upload-item">{{ progress::render(id, name, value, detail=state) }}<p {% if !error.is_empty() %} class="gui-upload-item__error"{% endif %}>
+    {% if error.is_empty() %}
+      {{ detail }}
+    {% else %}
+      {{ error }}
+    {% endif %}
+    </p>
+    {% if caller is defined %}
+      <div>{{ caller() }}</div>
+    {% endif %}
+  </div>
+{% endmacro %}

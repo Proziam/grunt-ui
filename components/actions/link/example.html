@@ -1,0 +1,4 @@
+{% import "actions/link/component.html" as link %}
+{{ link::render("View integration", "#example") }}
+{{ link::render("Documentation", "https://github.com/Proziam/grunt-ui", external=true) }}
+{{ link::render("Open workflow", "#example", kind="button") }}

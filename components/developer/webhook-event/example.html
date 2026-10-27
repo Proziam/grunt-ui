@@ -1,0 +1,9 @@
+{% import "developer/webhook-event/component.html" as event %}
+{{ event::render(
+  "message.received",
+  "event_example_42",
+  "Accepted",
+  "27 Oct 2026 · 12:00 UTC",
+  "{\n  \"type\": \"message.received\",\n  \"resource_id\": \"message_example_42\"\n}",
+  tone="success"
+) }}

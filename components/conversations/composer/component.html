@@ -1,0 +1,26 @@
+{% import "forms/textarea/component.html" as textarea %}
+{% import "actions/button/component.html" as button %}
+{% macro render(
+  id,
+  action,
+  form_token,
+  reply_to,
+  label,
+  value="",
+  submit_label="Send reply",
+  notice="",
+  disabled=false
+) %}
+  <form class="gui-composer" method="post" action="{{ action }}">
+    <input type="hidden" name="form_token" value="{{ form_token }}">
+    <input type="hidden"
+           name="reply_to"
+           value="{{ reply_to }}">{{ textarea::render(id ~ "-body", "body", label, value=value, rows=4, required=true) }}
+    <footer>
+      <span>{{ notice }}</span>{{ button::render(submit_label, kind="primary", type="submit", disabled=disabled) }}
+    </footer>
+    {% if caller is defined %}
+      <div>{{ caller() }}</div>
+    {% endif %}
+  </form>
+{% endmacro %}

@@ -1,0 +1,24 @@
+.gui-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 9px;
+  border: 1px solid var(--gui-border);
+  border-radius: 7px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 12px/1.5 var(--gui-font);
+}
+.gui-chip > a {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--gui-muted);
+  text-decoration: none;
+  font-size: 17px;
+}
+.gui-chip > a:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}

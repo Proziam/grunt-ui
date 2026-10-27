@@ -1,0 +1,27 @@
+{% macro render(
+  id,
+  name,
+  label,
+  value="",
+  help="",
+  error="",
+  rows=5,
+  required=false,
+  readonly=false
+) %}
+  <div class="gui-textarea">
+    <label for="{{ id }}">{{ label }}</label>
+    <textarea id="{{ id }}"
+              name="{{ name }}"
+              rows="{{ rows }}"
+              {% if required %} required{% endif %}
+              {% if readonly %} readonly{% endif %}
+              {% if !error.is_empty() %} aria-invalid="true" aria-describedby="{{ id }}-error"{% else if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>{{ value }}</textarea>
+    {% if !help.is_empty() %}
+      <p id="{{ id }}-help">{{ help }}</p>
+    {% endif %}
+    {% if !error.is_empty() %}
+      <p id="{{ id }}-error" class="gui-textarea__error">{{ error }}</p>
+    {% endif %}
+  </div>
+{% endmacro %}

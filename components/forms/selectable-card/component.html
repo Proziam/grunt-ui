@@ -1,0 +1,13 @@
+{% macro render(name, value, title, description, checked=false, type="radio", disabled=false) %}
+  <label class="gui-selectable-card">
+    <input type="{{ type }}"
+           name="{{ name }}"
+           value="{{ value }}"
+           {% if checked %} checked{% endif %}
+           {% if disabled %} disabled{% endif %}>
+    <span>
+      <strong>{{ title }}</strong>
+      <small>{{ description }}</small>
+    </span>
+  </label>
+{% endmacro %}

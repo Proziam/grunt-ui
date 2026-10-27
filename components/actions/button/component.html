@@ -1,0 +1,23 @@
+{% macro render(
+  label,
+  kind="secondary",
+  size="normal",
+  type="button",
+  disabled=false,
+  busy=false,
+  name="",
+  value=""
+) %}
+  <button class="gui-button"
+          data-kind="{{ kind }}"
+          data-size="{{ size }}"
+          type="{{ type }}"
+          {% if disabled || busy %} disabled{% endif %}
+          {% if busy %} aria-busy="true"{% endif %}
+          {% if !name.is_empty() %} name="{{ name }}" value="{{ value }}"{% endif %}>
+    {% if busy %}
+      <span class="gui-button__spinner" aria-hidden="true"></span>
+    {% endif %}
+    {{ label }}
+  </button>
+{% endmacro %}

@@ -1,0 +1,35 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(
+  name,
+  description,
+  owner,
+  count,
+  href,
+  role="Member",
+  owner_label="Owner",
+  members_label="Members"
+) %}
+  <article class="gui-team-card">
+    <header>
+      <span class="gui-team-card__mark" aria-hidden="true">◈</span>{{ badge::render(role) }}
+    </header>
+    <h3>
+      <a href="{{ href }}">{{ name }}</a>
+    </h3>
+    <p>{{ description }}</p>
+    <dl>
+      <div>
+        <dt>{{ owner_label }}</dt>
+        <dd>
+          {{ owner }}
+        </dd>
+      </div>
+      <div>
+        <dt>{{ members_label }}</dt>
+        <dd>
+          {{ count }}
+        </dd>
+      </div>
+    </dl>
+  </article>
+{% endmacro %}

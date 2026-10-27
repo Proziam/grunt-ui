@@ -1,0 +1,38 @@
+{% import "forms/textarea/component.html" as textarea %}
+{% import "actions/button/component.html" as button %}
+{% macro render(
+  id,
+  action,
+  form_token,
+  review_id,
+  version,
+  notice,
+  feedback_label="Feedback",
+  approve_label="Approve this version",
+  reject_label="Request changes",
+  disabled=false
+) %}
+  <form class="gui-decision-form" method="post" action="{{ action }}">
+    <input type="hidden" name="form_token" value="{{ form_token }}">
+    <input type="hidden" name="review_id" value="{{ review_id }}">
+    <input type="hidden" name="version" value="{{ version }}">
+    <p>{{ notice }}</p>
+    {{ textarea::render(id ~ "-feedback", "feedback", feedback_label, rows=3) }}
+    <div>
+      {{ button::render(
+        approve_label,
+        kind="primary",
+        type="submit",
+        name="decision",
+        value="approve",
+        disabled=disabled
+      ) }}{{ button::render(
+        reject_label,
+        type="submit",
+        name="decision",
+        value="changes",
+        disabled=disabled
+      ) }}
+    </div>
+  </form>
+{% endmacro %}

@@ -1,0 +1,10 @@
+{% import "conversations/thread-header/component.html" as thread %}
+{% import "actions/button/component.html" as button %}
+{% call thread::render(
+  "Launch checklist",
+  "Sam Rivera · Operations mailbox",
+  "Human takeover",
+  tone="warning"
+) %}
+  {{ button::render("Resume automation", size="compact") }}
+{% endcall %}

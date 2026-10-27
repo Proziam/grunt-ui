@@ -1,0 +1,6 @@
+{% import "layout/scroll-region/component.html" as scroll %}
+{% call scroll::render("Saved activity", size="small") %}
+  {% for index in 1..12 %}
+    <p>Activity item {{ index }} · recorded workflow event.</p>
+  {% endfor %}
+{% endcall %}

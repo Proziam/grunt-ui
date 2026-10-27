@@ -1,0 +1,12 @@
+{% import "runs/summary/component.html" as run %}
+{% import "actions/link/component.html" as link %}
+{% call run::render(
+  "Daily briefing",
+  "run_example_01",
+  "Waiting for review",
+  "27 Oct 2026 · 09:00 UTC",
+  "32 seconds",
+  tone="warning"
+) %}
+  {{ link::render("Review briefing", "#example", kind="button") }}
+{% endcall %}

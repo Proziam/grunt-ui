@@ -1,0 +1,9 @@
+{% import "conversations/composer/component.html" as composer %}
+{{ composer::render(
+  "reply-example",
+  "#example",
+  "example-only",
+  "message_example_42",
+  "Reply to Sam",
+  notice="Human takeover is active for this conversation."
+) }}

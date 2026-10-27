@@ -1,0 +1,23 @@
+{% import "integrations/logo-tile/component.html" as logo %}
+{% import "display/badge/component.html" as badge %}
+{% macro render(provider, initials, account, ownership, status, tone="neutral", detail="") %}
+  <article class="gui-connection-card">
+    <header>
+      {{ logo::render(provider, initials) }}
+      <div>
+        <h3>{{ provider }}</h3>
+        <p>{{ account }}</p>
+      </div>
+      {{ badge::render(status, tone=tone, dot=true) }}
+    </header>
+    <p class="gui-connection-card__scope">{{ ownership }}</p>
+    {% if !detail.is_empty() %}
+      <p class="gui-connection-card__detail">{{ detail }}</p>
+    {% endif %}
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

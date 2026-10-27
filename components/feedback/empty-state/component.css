@@ -1,0 +1,32 @@
+.gui-empty {
+  padding: 36px 24px;
+  text-align: center;
+  font: 14px/1.6 var(--gui-font);
+  color: var(--gui-text);
+}
+.gui-empty__symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--gui-border);
+  border-radius: 15px;
+  background: var(--gui-surface);
+  color: var(--gui-accent);
+  box-shadow: var(--gui-shadow);
+  font-size: 25px;
+}
+.gui-empty h3 {
+  margin: 20px 0 7px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.gui-empty p {
+  max-width: 45ch;
+  margin: auto;
+  color: var(--gui-muted);
+  font-size: 13px;
+}
+.gui-empty__actions {
+  margin-top: 20px;
+}

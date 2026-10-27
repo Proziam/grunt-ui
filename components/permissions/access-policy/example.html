@@ -1,0 +1,6 @@
+{% import "permissions/access-policy/component.html" as access %}
+{{ access::render(
+  "Information access",
+  "Set each kind of access explicitly for this information scope.",
+  [("access", "manage", "Manage access", "Change this scope’s policy.", false, false), ("access", "read", "View results", "Read authorized saved results.", true, false), ("access", "source", "Use sources", "Allow selected tasks to use these sources.", false, false), ("access", "receive", "Allowed destination", "Receive only explicitly shared content.", false, false)]
+) }}

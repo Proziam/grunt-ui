@@ -1,0 +1,29 @@
+.gui-code {
+  margin: 0;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  overflow: hidden;
+}
+.gui-code figcaption {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--gui-border);
+  color: var(--gui-muted);
+  background: var(--gui-surface);
+  font: 12px/1.5 var(--gui-font);
+}
+.gui-code pre {
+  margin: 0;
+  padding: 18px;
+  max-height: 400px;
+  overflow: auto;
+  color: var(--gui-text);
+  background: var(--gui-soft);
+  font:
+    12px/1.7 ui-monospace,
+    monospace;
+  tab-size: 2;
+}
+.gui-code pre:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: -3px;
+}

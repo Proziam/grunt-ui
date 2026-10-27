@@ -1,0 +1,24 @@
+.gui-link {
+  color: var(--gui-accent);
+  font: 500 14px/1.5 var(--gui-font);
+  text-underline-offset: 4px;
+}
+.gui-link:hover {
+  color: var(--gui-accent-hover);
+}
+.gui-link:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+.gui-link[data-kind='button'] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 7px 14px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow);
+  text-decoration: none;
+}

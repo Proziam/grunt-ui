@@ -1,0 +1,38 @@
+.gui-review-card {
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-review-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.gui-review-card header > span:last-child {
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-review-card h3 {
+  margin: 20px 0 6px;
+  font-size: 17px;
+}
+.gui-review-card p {
+  color: var(--gui-muted);
+  margin: 0 0 8px;
+}
+.gui-review-card small {
+  color: var(--gui-muted);
+}
+.gui-review-card footer {
+  border-top: 1px solid var(--gui-border);
+  margin-top: 20px;
+  padding-top: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

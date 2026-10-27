@@ -1,0 +1,11 @@
+{% import "layout/split-pane/component.html" as split %}
+{% call split::render("Workflow workspace") %}
+  {% call split::sidebar("Workflow browser") %}
+    <p>Personal workflows</p>
+    <a href="#example">Daily briefing</a>
+  {% endcall %}
+  {% call split::content() %}
+    <h2>Daily briefing</h2>
+    <p>Configure your workflow here.</p>
+  {% endcall %}
+{% endcall %}

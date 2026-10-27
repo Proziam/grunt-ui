@@ -1,0 +1,20 @@
+{% import "workflows/summary-card/component.html" as workflow %}
+{{ workflow::render(
+  "Daily briefing",
+  "Turn selected updates into a useful summary with links to the evidence.",
+  "Operations team",
+  "Ready",
+  "#example",
+  tone="success",
+  steps="4 steps",
+  version="v3"
+) }}
+{{ workflow::render(
+  "Customer follow-up",
+  "Prepare a reply and ask for approval before sending.",
+  "Template library",
+  "Needs setup",
+  "#example",
+  tone="warning",
+  steps="6 steps"
+) }}

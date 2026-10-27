@@ -1,0 +1,23 @@
+.gui-comment {
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.7 var(--gui-font);
+}
+.gui-comment > p {
+  margin: 16px 0 8px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.gui-comment > small {
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-comment footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}

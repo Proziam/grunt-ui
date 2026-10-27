@@ -1,0 +1,36 @@
+.gui-privacy-request {
+  padding: 24px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-privacy-request header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--gui-muted);
+}
+.gui-privacy-request h3 {
+  font-size: 18px;
+  margin: 20px 0 6px;
+}
+.gui-privacy-request > p {
+  color: var(--gui-muted);
+}
+.gui-privacy-request__scope {
+  background: var(--gui-soft);
+  padding: 12px;
+  border-radius: 8px;
+}
+.gui-privacy-request footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  color: var(--gui-muted);
+}

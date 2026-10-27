@@ -1,0 +1,21 @@
+{% import "workflows/canvas/component.html" as canvas %}
+{% import "workflows/node/component.html" as node %}
+{% call canvas::render(
+  "canvas-example",
+  "Workflow canvas: arrow keys pan, plus and minus zoom, Home resets; arrow keys on a move handle reposition a step"
+) %}
+  {% call canvas::position("start", 35, 45, label="Move Start step") %}
+    {{ node::render("start", "Start", "Run this workflow manually.", category="Start") }}
+  {% endcall %}
+  {% call canvas::position("read", 365, 45, label="Move Read email step") %}
+    {{ node::render("read", "Read email", "Find messages in your selected scope.", category="Find") }}
+  {% endcall %}
+  {% call canvas::position("brief", 695, 45, label="Move Make briefing step") %}
+    {{ node::render(
+      "brief",
+      "Make a briefing",
+      "Summarize findings with evidence.",
+      category="Make"
+    ) }}
+  {% endcall %}
+{% endcall %}

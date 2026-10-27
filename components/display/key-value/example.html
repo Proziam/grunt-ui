@@ -1,0 +1,3 @@
+{% import "display/key-value/component.html" as details %}
+{% let workflow_details = [("Owner", "Operations team"), ("Schedule", "Weekdays at 09:00 · Europe/Berlin"), ("Retention", "30 days")] %}
+{{ details::render(items=workflow_details) }}

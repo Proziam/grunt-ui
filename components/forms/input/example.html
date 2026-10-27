@@ -1,0 +1,19 @@
+{% import "forms/input/component.html" as input %}
+{{ input::render(
+  "workflow-name",
+  "name",
+  "Workflow name",
+  value="Daily briefing",
+  help="Use a name your teammates will recognize.",
+  required=true
+) }}
+{{ input::render(
+  "contact-email",
+  "email",
+  "Email address",
+  type="email",
+  value="not-an-email",
+  error="Enter a valid email address.",
+  autocomplete="email"
+) }}
+{{ input::render("deadline", "deadline", "Deadline", type="datetime-local") }}

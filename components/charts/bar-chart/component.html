@@ -1,0 +1,30 @@
+{% macro render(title, description, rows, maximum, value_label="Value") %}
+  <figure class="gui-bar-chart">
+    <figcaption>
+      <strong>{{ title }}</strong>
+      <p>{{ description }}</p>
+    </figcaption>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">{{ title }}</th>
+          <th scope="col">{{ value_label }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for (label, value, formatted) in rows %}
+          <tr>
+            <th scope="row">{{ label }}</th>
+            <td>
+              <meter min="0"
+                     max="{{ maximum }}"
+                     value="{{ value }}"
+                     aria-label="{{ label }}: {{ formatted }}">{{ formatted }}</meter>
+              <span>{{ formatted }}</span>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </figure>
+{% endmacro %}

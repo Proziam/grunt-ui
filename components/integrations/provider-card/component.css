@@ -1,0 +1,41 @@
+.gui-provider-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: 14px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-provider-card > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.gui-provider-card > h3 {
+  margin: 20px 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+.gui-provider-card > p {
+  margin: 0 0 24px;
+  color: var(--gui-muted);
+}
+.gui-provider-card > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--gui-border);
+}
+.gui-provider-card > footer > span {
+  color: var(--gui-muted);
+  font-size: 11px;
+}

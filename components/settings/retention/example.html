@@ -1,0 +1,8 @@
+{% import "settings/retention/component.html" as retention %}
+{{ retention::render(
+  "retention-policy",
+  "Retained information",
+  "Workflows inherit organization limits and may use shorter durations. Preservation obligations still apply.",
+  "30",
+  "90"
+) }}

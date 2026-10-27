@@ -1,0 +1,28 @@
+{% macro render(id, label, zoom_in="Zoom in", zoom_out="Zoom out", reset="Reset view") %}
+  <section id="{{ id }}" class="gui-canvas" data-gui-canvas aria-label="{{ label }}">
+    <div class="gui-canvas__controls" role="group" aria-label="{{ label }}">
+      <button type="button" data-canvas-action="out" aria-label="{{ zoom_out }}">−</button>
+      <output data-canvas-scale>100%</output>
+      <button type="button" data-canvas-action="in" aria-label="{{ zoom_in }}">+</button>
+      <button type="button" data-canvas-action="reset">{{ reset }}</button>
+    </div>
+    <div class="gui-canvas__viewport"
+         data-canvas-viewport
+         tabindex="0"
+         role="region"
+         aria-label="{{ label }}">
+      <div class="gui-canvas__scene" data-canvas-scene>{{ caller() }}</div>
+    </div>
+  </section>
+{% endmacro %}
+{% macro position(id, x, y, label="Move step", movable=true) %}
+  <div class="gui-canvas__position" data-canvas-node="{{ id }}" data-x="{{ x }}" data-y="{{ y }}">
+    {% if movable %}
+      <button class="gui-canvas__handle"
+              type="button"
+              data-canvas-drag
+              aria-label="{{ label }}">⠿</button>
+    {% endif %}
+    {{ caller() }}
+  </div>
+{% endmacro %}

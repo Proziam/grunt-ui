@@ -1,0 +1,17 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(title, reference, subject, scope, status, deadline, tone="neutral") %}
+  <article class="gui-privacy-request">
+    <header>
+      <span>{{ reference }}</span>{{ badge::render(status, tone=tone) }}
+    </header>
+    <h3>{{ title }}</h3>
+    <p>{{ subject }}</p>
+    <div class="gui-privacy-request__scope">{{ scope }}</div>
+    <footer>
+      <small>{{ deadline }}</small>
+      {% if caller is defined %}
+        {{ caller() }}
+      {% endif %}
+    </footer>
+  </article>
+{% endmacro %}

@@ -1,0 +1,9 @@
+{% import "forms/autocomplete/component.html" as autocomplete %}
+{% let zones = [("Europe/Berlin", "Berlin"), ("America/New_York", "New York"), ("Asia/Tokyo", "Tokyo")] %}
+{{ autocomplete::render(
+  "timezone",
+  "timezone",
+  "Time zone",
+  options=zones,
+  value="Europe/Berlin"
+) }}

@@ -1,0 +1,37 @@
+.gui-feature-card {
+  padding: 28px;
+  border: 1px solid var(--gui-border);
+  border-radius: 16px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 14px/1.7 var(--gui-font);
+}
+.gui-feature-card__symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gui-border);
+  border-radius: 12px;
+  color: var(--gui-accent);
+  box-shadow: var(--gui-shadow);
+  font-size: 24px;
+}
+.gui-feature-card h3 {
+  margin: 22px 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.gui-feature-card p {
+  margin: 0 0 20px;
+  color: var(--gui-muted);
+}
+.gui-feature-card > a {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--gui-accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}

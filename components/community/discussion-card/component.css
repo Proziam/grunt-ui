@@ -1,0 +1,40 @@
+.gui-discussion {
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.7 var(--gui-font);
+}
+.gui-discussion header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--gui-muted);
+}
+.gui-discussion header small {
+  margin-left: auto;
+  padding: 3px 8px;
+  background: var(--gui-soft);
+  border-radius: 5px;
+}
+.gui-discussion h3 {
+  margin: 18px 0 8px;
+  font-size: 18px;
+}
+.gui-discussion h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.gui-discussion > p {
+  color: var(--gui-muted);
+}
+.gui-discussion footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--gui-muted);
+}

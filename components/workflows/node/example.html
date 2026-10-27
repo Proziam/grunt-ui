@@ -1,0 +1,24 @@
+{% import "workflows/node/component.html" as node %}
+{% import "layout/stack/component.html" as stack %}
+{% import "actions/button/component.html" as button %}
+{% call stack::render(direction="horizontal") %}
+  {{ node::render(
+    "start",
+    "Start",
+    "Weekdays at 09:00 · Europe/Berlin",
+    category="Start",
+    status="Scheduled",
+    tone="success"
+  ) }}
+  {% call node::render(
+    "read-email",
+    "Read email",
+    "Use the selected mailbox and date range.",
+    category="Find",
+    status="Needs setup",
+    tone="warning",
+    selected=true
+  ) %}
+    {{ button::render("Configure", size="compact") }}{{ button::render("Add step", size="compact") }}
+  {% endcall %}
+{% endcall %}

@@ -1,0 +1,6 @@
+{% macro render(id, label, description) %}
+  <span class="gui-tooltip">
+    <button type="button" aria-describedby="{{ id }}">{{ label }}</button>
+    <span role="tooltip" id="{{ id }}">{{ description }}</span>
+  </span>
+{% endmacro %}

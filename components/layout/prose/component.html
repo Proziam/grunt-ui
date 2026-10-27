@@ -1,0 +1,12 @@
+{% macro render(title="", subtitle="") %}
+  <article class="gui-prose">
+    {% if !title.is_empty() %}
+      <header>
+        <h1>{{ title }}</h1>
+        {% if !subtitle.is_empty() %}
+          <p>{{ subtitle }}</p>
+        {% endif %}
+      </header>
+    {% endif %}
+  {{ caller() }}</article>
+{% endmacro %}

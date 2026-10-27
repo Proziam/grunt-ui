@@ -1,0 +1,20 @@
+{% import "forms/choice/component.html" as choice %}
+{% call choice::group("Allowed workflow actions") %}
+  {{ choice::render(
+    "permissions",
+    "edit",
+    "Edit workflows",
+    checked=true,
+    description="Change the steps and their settings."
+  ) }}
+  {{ choice::render(
+    "permissions",
+    "run",
+    "Run workflows",
+    description="Start configured workflows."
+  ) }}
+{% endcall %}
+{% call choice::group("Launch mode") %}
+  {{ choice::render("launch", "manual", "Run manually", type="radio", checked=true) }}
+  {{ choice::render("launch", "schedule", "On a schedule", type="radio") }}
+{% endcall %}

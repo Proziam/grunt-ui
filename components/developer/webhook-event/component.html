@@ -1,0 +1,27 @@
+{% import "display/badge/component.html" as badge %}
+{% import "display/code/component.html" as code %}
+{% macro render(
+  event_name,
+  reference,
+  status,
+  received,
+  payload,
+  tone="neutral",
+  payload_label="Authorized payload"
+) %}
+  <article class="gui-webhook-event">
+    <header>
+      <div>
+        <h3>{{ event_name }}</h3>
+        <p>{{ reference }} · {{ received }}</p>
+      </div>
+      {{ badge::render(status, tone=tone) }}
+    </header>
+    {{ code::render(payload, label=payload_label) }}
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

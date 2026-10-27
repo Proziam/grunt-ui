@@ -1,0 +1,78 @@
+/* Shared foundation. Component selectors never reset the host document. */
+:root,
+[data-gui-theme='light'] {
+  color-scheme: light;
+  --gui-font:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  --gui-page: #f8f9fb;
+  --gui-surface: #fff;
+  --gui-soft: #f2f4f7;
+  --gui-text: #20242c;
+  --gui-muted: #626b7a;
+  --gui-border: #e3e6ec;
+  --gui-accent: #bd421e;
+  --gui-accent-hover: #a93614;
+  --gui-accent-soft: #fff0e9;
+  --gui-accent-ink: #fff;
+  --gui-success: #187451;
+  --gui-success-soft: #eaf7ef;
+  --gui-warning: #926416;
+  --gui-warning-soft: #fff6df;
+  --gui-danger: #be3647;
+  --gui-danger-soft: #fff0f1;
+  --gui-info: #3564c4;
+  --gui-info-soft: #eef3ff;
+  --gui-violet: #8869c4;
+  --gui-radius: 12px;
+  --gui-control-radius: 8px;
+  --gui-shadow: 0 1px 2px #161d2910, 0 4px 12px #161d2905;
+  --gui-shadow-raised: 0 12px 32px #161d2918, 0 2px 8px #161d2910;
+  --gui-focus: #d95126;
+  --gui-motion: 150ms;
+}
+[data-gui-theme='dark'],
+:root[data-workspace-theme='dark'] {
+  color-scheme: dark;
+  --gui-page: #13161c;
+  --gui-surface: #1d222b;
+  --gui-soft: #272e39;
+  --gui-text: #f0f2f6;
+  --gui-muted: #a4afbf;
+  --gui-border: #384150;
+  --gui-accent: #f0784f;
+  --gui-accent-hover: #f79574;
+  --gui-accent-soft: #3c2924;
+  --gui-accent-ink: #17191e;
+  --gui-success: #78d8ad;
+  --gui-success-soft: #1b352c;
+  --gui-warning: #edc36d;
+  --gui-warning-soft: #392f1b;
+  --gui-danger: #ff9aa5;
+  --gui-danger-soft: #3c252d;
+  --gui-info: #9dbdff;
+  --gui-info-soft: #232f47;
+  --gui-violet: #b59aeb;
+  --gui-focus: #f79574;
+  --gui-shadow: 0 1px 3px #0003;
+  --gui-shadow-raised: 0 12px 32px #0005;
+}
+:where([class^='gui-'], [class*=' gui-']) {
+  box-sizing: border-box;
+}
+.gui-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --gui-motion: 0ms;
+  }
+}

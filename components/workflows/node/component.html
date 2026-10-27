@@ -1,0 +1,26 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(
+  id,
+  title,
+  description,
+  category="Act",
+  status="Ready",
+  tone="neutral",
+  selected=false
+) %}
+  <article class="gui-node"
+           data-node-id="{{ id }}"
+           data-category="{{ category }}"
+           {% if selected %} data-selected{% endif %}>
+    <header>
+      <span class="gui-node__category">{{ category }}</span>{{ badge::render(status, tone=tone, dot=true) }}
+    </header>
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

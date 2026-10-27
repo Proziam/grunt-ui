@@ -1,0 +1,47 @@
+.gui-checklist {
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-checklist > h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+.gui-checklist ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gui-checklist li {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gui-border);
+}
+.gui-checklist li > span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--gui-border);
+  border-radius: 50%;
+  background: var(--gui-soft);
+  color: var(--gui-muted);
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.gui-checklist [data-complete] > span {
+  color: var(--gui-success);
+  background: var(--gui-success-soft);
+  border-color: transparent;
+}
+.gui-checklist a {
+  color: inherit;
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
+.gui-checklist p {
+  margin: 4px 0 0;
+  color: var(--gui-muted);
+  font-size: 12px;
+}

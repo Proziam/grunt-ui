@@ -1,0 +1,7 @@
+{% macro render(label, tone="neutral", dot=false) %}
+  <span class="gui-badge" data-tone="{{ tone }}">
+    {% if dot %}
+      <span class="gui-badge__dot" aria-hidden="true"></span>
+    {% endif %}
+  {{ label }}</span>
+{% endmacro %}

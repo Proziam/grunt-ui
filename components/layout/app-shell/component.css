@@ -1,0 +1,59 @@
+.gui-app-shell {
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  overflow: hidden;
+  color: var(--gui-text);
+  background: var(--gui-page);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-app-shell > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  gap: 20px;
+  border-bottom: 1px solid var(--gui-border);
+  background: var(--gui-surface);
+}
+.gui-app-shell__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+.gui-app-shell__brand > span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--gui-accent);
+  color: var(--gui-accent-ink);
+  font-size: 22px;
+}
+.gui-app-shell__layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 320px;
+}
+.gui-app-shell__layout > aside {
+  padding: 20px 12px;
+  background: var(--gui-surface);
+  border-right: 1px solid var(--gui-border);
+}
+.gui-app-shell__layout > main {
+  min-width: 0;
+  padding: 28px;
+}
+@media (max-width: 700px) {
+  .gui-app-shell__layout {
+    grid-template-columns: 1fr;
+  }
+  .gui-app-shell__layout > aside {
+    border-right: 0;
+    border-bottom: 1px solid var(--gui-border);
+  }
+}

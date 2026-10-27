@@ -1,0 +1,34 @@
+.gui-notification {
+  padding: 20px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-notification[data-unread] {
+  border-left: 3px solid var(--gui-accent);
+}
+.gui-notification header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.gui-notification h3 {
+  font-size: 15px;
+  margin: 0;
+}
+.gui-notification > p {
+  white-space: pre-wrap;
+  color: var(--gui-muted);
+}
+.gui-notification time {
+  font-size: 11px;
+  color: var(--gui-muted);
+}
+.gui-notification footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}

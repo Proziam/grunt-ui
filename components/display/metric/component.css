@@ -1,0 +1,33 @@
+.gui-metric {
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
+  font-family: var(--gui-font);
+}
+.gui-metric__label {
+  margin: 0;
+  color: var(--gui-muted);
+  font-size: 13px;
+}
+.gui-metric__value {
+  margin: 12px 0;
+  color: var(--gui-text);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+}
+.gui-metric__detail {
+  margin: 0;
+  font-size: 12px;
+  color: var(--gui-muted);
+}
+.gui-metric__detail [data-tone='success'] {
+  color: var(--gui-success);
+}
+.gui-metric__detail [data-tone='danger'] {
+  color: var(--gui-danger);
+}

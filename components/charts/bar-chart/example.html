@@ -1,0 +1,8 @@
+{% import "charts/bar-chart/component.html" as chart %}
+{{ chart::render(
+  "Work by workflow",
+  "Confirmed charges in the selected reporting period.",
+  [("Daily briefing", 1200, "1,200"), ("Follow-up", 840, "840"), ("Weekly report", 420, "420")],
+  maximum=1500,
+  value_label="Work"
+) }}

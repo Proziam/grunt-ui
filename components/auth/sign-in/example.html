@@ -1,0 +1,12 @@
+{% import "auth/sign-in/component.html" as signin %}
+{% import "actions/link/component.html" as link %}
+{% call signin::render(
+  "signin",
+  "Welcome to Grunt",
+  "A little more room for the work that matters.",
+  "#example",
+  "example-only",
+  notice="Use the email address associated with your workspace."
+) %}
+  {{ link::render("Continue with Google", "#example", kind="button") }}
+{% endcall %}

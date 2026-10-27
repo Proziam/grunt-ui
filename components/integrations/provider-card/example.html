@@ -1,0 +1,26 @@
+{% import "integrations/provider-card/component.html" as provider %}
+{% import "layout/grid/component.html" as grid %}
+{% call grid::render() %}
+  {{ provider::render(
+    "Slack",
+    "S",
+    "Bring updates into the channels where your team works.",
+    "Communication",
+    "#example"
+  ) }}
+  {{ provider::render(
+    "Google Drive",
+    "G",
+    "Find and use the documents you explicitly select.",
+    "Files and knowledge",
+    "#example"
+  ) }}
+  {{ provider::render(
+    "Example CRM",
+    "C",
+    "Explore ideas for keeping customer records up to date.",
+    "Customer relationships",
+    "#example",
+    availability="Research"
+  ) }}
+{% endcall %}

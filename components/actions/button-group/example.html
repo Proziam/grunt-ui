@@ -1,0 +1,7 @@
+{% import "actions/button-group/component.html" as group %}
+{% import "actions/button/component.html" as button %}
+{% call group::render("Workflow actions") %}
+  {{ button::render("Run", kind="primary") }}
+  {{ button::render("Configure") }}
+  {{ button::render("Remove", kind="danger") }}
+{% endcall %}

@@ -1,0 +1,21 @@
+.gui-date-range {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+}
+.gui-date-range > legend {
+  padding: 0 6px;
+  color: var(--gui-text);
+  font: 500 13px/1.5 var(--gui-font);
+}
+.gui-date-range > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 480px) {
+  .gui-date-range > div {
+    grid-template-columns: 1fr;
+  }
+}

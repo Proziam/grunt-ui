@@ -1,0 +1,11 @@
+{% macro render(title, description="", raised=false) %}
+  <section class="gui-card"{% if raised %} data-raised{% endif %}>
+    <header class="gui-card__header">
+      <h2>{{ title }}</h2>
+      {% if !description.is_empty() %}
+        <p>{{ description }}</p>
+      {% endif %}
+    </header>
+    <div class="gui-card__body">{{ caller() }}</div>
+  </section>
+{% endmacro %}

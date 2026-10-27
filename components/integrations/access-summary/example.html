@@ -1,0 +1,7 @@
+{% import "integrations/access-summary/component.html" as access %}
+{{ access::render(
+  "Requested access",
+  "alex@example.com",
+  [("Read selected messages", "Only the mailbox scope configured for this task."), ("View account identity", "Identify this connection in your workspace.")],
+  "Connecting an account does not automatically share its information with your teammates."
+) }}

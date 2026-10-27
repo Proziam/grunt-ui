@@ -1,0 +1,17 @@
+.gui-scroll-region {
+  overflow: auto;
+  max-height: 360px;
+  scrollbar-color: var(--gui-border) transparent;
+  min-width: 0;
+  padding: 2px;
+}
+.gui-scroll-region[data-size='small'] {
+  max-height: 180px;
+}
+.gui-scroll-region[data-size='large'] {
+  max-height: 600px;
+}
+.gui-scroll-region:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: -3px;
+}

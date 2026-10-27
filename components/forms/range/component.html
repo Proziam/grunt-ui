@@ -1,0 +1,16 @@
+{% macro render(id, name, label, value, min=0, max=100, step=1, help="") %}
+  <div class="gui-range">
+    <label for="{{ id }}">{{ label }}</label>
+    <input id="{{ id }}"
+           name="{{ name }}"
+           type="range"
+           min="{{ min }}"
+           max="{{ max }}"
+           step="{{ step }}"
+           value="{{ value }}"
+           {% if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>
+    {% if !help.is_empty() %}
+      <p id="{{ id }}-help">{{ help }}</p>
+    {% endif %}
+  </div>
+{% endmacro %}

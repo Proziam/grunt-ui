@@ -1,0 +1,21 @@
+.gui-access-policy {
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-access-policy h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.gui-access-policy > p {
+  color: var(--gui-muted);
+  margin: 8px 0 18px;
+}
+.gui-access-policy footer {
+  border-top: 1px solid var(--gui-border);
+  margin-top: 16px;
+  padding-top: 14px;
+}

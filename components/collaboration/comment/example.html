@@ -1,0 +1,10 @@
+{% import "collaboration/comment/component.html" as comment %}
+{% import "actions/button/component.html" as button %}
+{% call comment::render(
+  "Alex Morgan",
+  "AM",
+  "Today at 10:20",
+  "Please include the original source link in the summary so reviewers can check the context."
+) %}
+  {{ button::render("Reply", kind="quiet", size="compact") }}
+{% endcall %}

@@ -1,0 +1,9 @@
+{% macro render(name, initials, image="", size="normal") %}
+  <span class="gui-logo-tile" data-size="{{ size }}" role="img" aria-label="{{ name }}">
+    {% if image.is_empty() %}
+      {{ initials }}
+    {% else %}
+      <img src="{{ image }}" alt="" loading="lazy">
+    {% endif %}
+  </span>
+{% endmacro %}

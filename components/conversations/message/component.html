@@ -1,0 +1,25 @@
+{% macro render(
+  sender,
+  content,
+  datetime,
+  time_label,
+  direction="incoming",
+  subject="",
+  delivery=""
+) %}
+  <article class="gui-message" data-direction="{{ direction }}">
+    <header>
+      <strong>{{ sender }}</strong>
+      <time datetime="{{ datetime }}">{{ time_label }}</time>
+    </header>
+    {% if !subject.is_empty() %}
+      <h3>{{ subject }}</h3>
+    {% endif %}
+    <div class="gui-message__body">{{ content }}</div>
+    {% if !delivery.is_empty() %}
+      <footer>
+        {{ delivery }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

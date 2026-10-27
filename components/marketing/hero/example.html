@@ -1,0 +1,9 @@
+{% import "marketing/hero/component.html" as hero %}
+{% import "actions/link/component.html" as link %}
+{% call hero::render(
+  "A little help from Grunt",
+  "A little more room for the work that matters.",
+  "Put repetitive work in a dependable workflow. Keep the decisions that matter in your hands."
+) %}
+  {{ link::render("Explore workflow ideas", "#example", kind="button") }}{{ link::render("See how it works", "#example") }}
+{% endcall %}

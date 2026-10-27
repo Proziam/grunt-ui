@@ -1,0 +1,26 @@
+.gui-alert {
+  padding: 16px 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-info-soft);
+  color: var(--gui-info);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-alert[data-tone='success'] {
+  background: var(--gui-success-soft);
+  color: var(--gui-success);
+}
+.gui-alert[data-tone='warning'] {
+  background: var(--gui-warning-soft);
+  color: var(--gui-warning);
+}
+.gui-alert[data-tone='danger'] {
+  background: var(--gui-danger-soft);
+  color: var(--gui-danger);
+}
+.gui-alert p {
+  margin: 4px 0 0;
+}
+.gui-alert__actions {
+  margin-top: 12px;
+}

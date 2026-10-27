@@ -1,0 +1,7 @@
+{% import "actions/button/component.html" as button %}
+{{ button::render("Create workflow", kind="primary") }}
+{{ button::render("Save changes") }}
+{{ button::render("Remove", kind="danger") }}
+{{ button::render("More options", kind="quiet") }}
+{{ button::render("Saving…", busy=true) }}
+{{ button::render("Unavailable", disabled=true) }}

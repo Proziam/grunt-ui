@@ -1,0 +1,8 @@
+{% import "admin/operation-card/component.html" as operation %}
+{{ operation::render(
+  "Account transfer",
+  "Outcome unconfirmed",
+  "Keep the original request reference while checking its outcome.",
+  [("Request", "request_example_01"), ("Account", "Operations mailbox"), ("Recorded stage", "Provider response pending")],
+  tone="warning"
+) }}

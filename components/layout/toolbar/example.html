@@ -1,0 +1,7 @@
+{% import "layout/toolbar/component.html" as toolbar %}
+{% import "actions/button/component.html" as button %}
+{% call toolbar::render("Directory actions") %}
+  {{ button::render("Filter") }}
+  {{ button::render("Sort") }}
+  {{ button::render("Add connection", kind="primary") }}
+{% endcall %}

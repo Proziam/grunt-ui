@@ -1,0 +1,32 @@
+.gui-tabs {
+  color: var(--gui-text);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-tabs__nav {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--gui-border);
+}
+.gui-tabs__nav > a {
+  padding: 10px 2px;
+  border-bottom: 2px solid transparent;
+  color: var(--gui-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 13px;
+}
+.gui-tabs__nav > a[aria-selected='true'] {
+  color: var(--gui-accent);
+  border-bottom-color: var(--gui-accent);
+}
+.gui-tabs__nav > a:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: -3px;
+}
+.gui-tabs__panel {
+  padding: 22px 0;
+}
+.gui-tabs__panel[hidden] {
+  display: none;
+}

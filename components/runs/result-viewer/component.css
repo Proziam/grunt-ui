@@ -1,0 +1,29 @@
+.gui-result {
+  padding: 28px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 14px/1.8 var(--gui-font);
+}
+.gui-result > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-result > h2 {
+  margin: 18px 0 10px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  line-height: 1.3;
+}
+.gui-result__description {
+  color: var(--gui-muted);
+  margin: 0 0 24px;
+}
+.gui-result__content {
+  overflow-wrap: anywhere;
+}

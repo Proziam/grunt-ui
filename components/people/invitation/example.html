@@ -1,0 +1,12 @@
+{% import "people/invitation/component.html" as invite %}
+{% import "actions/button/component.html" as button %}
+{% call invite::render(
+  "sam@example.com",
+  "Member",
+  "Operations",
+  "Pending",
+  "Expires 3 November 2026",
+  tone="warning"
+) %}
+  {{ button::render("Resend", size="compact") }}{{ button::render("Revoke", kind="danger", size="compact") }}
+{% endcall %}

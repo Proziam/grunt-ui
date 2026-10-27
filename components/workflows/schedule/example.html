@@ -1,0 +1,10 @@
+{% import "workflows/schedule/component.html" as schedule %}
+{{ schedule::render(
+  "local-schedule",
+  "Local-time schedule",
+  [("Europe/Berlin", "Europe/Berlin"), ("America/New_York", "America/New_York")],
+  "Europe/Berlin",
+  "09:00",
+  [("mon", "Mon", true), ("tue", "Tue", true), ("wed", "Wed", true), ("thu", "Thu", true), ("fri", "Fri", true), ("sat", "Sat", false), ("sun", "Sun", false)],
+  "Example next run: Wednesday, 28 October at 09:00 Europe/Berlin."
+) }}

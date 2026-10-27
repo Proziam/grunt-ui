@@ -1,0 +1,3 @@
+{% import "feedback/loading/component.html" as loading %}
+{{ loading::render("Opening your workspace…") }}
+{{ loading::render("Loading saved results…", skeleton=true) }}

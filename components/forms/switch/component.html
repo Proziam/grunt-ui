@@ -1,0 +1,16 @@
+{% macro render(name, label, checked=false, disabled=false, value="on", description="") %}
+  <label class="gui-switch">
+    <span>
+      <strong>{{ label }}</strong>
+      {% if !description.is_empty() %}
+        <small>{{ description }}</small>
+      {% endif %}
+    </span>
+    <input type="checkbox"
+           role="switch"
+           name="{{ name }}"
+           value="{{ value }}"
+           {% if checked %} checked{% endif %}
+           {% if disabled %} disabled{% endif %}>
+  </label>
+{% endmacro %}

@@ -1,0 +1,13 @@
+{% import "navigation/tabs/component.html" as tabs %}
+{% call(key) tabs::render(
+  "connections-example",
+  "Connection ownership",
+  [("personal", "Personal"), ("organization", "Organization")],
+  selected="personal"
+) %}
+  {% if key.as_bytes() == "personal".as_bytes() %}
+    <p>Accounts connected for your own workflows.</p>
+  {% else %}
+    <p>Accounts managed for the organization.</p>
+  {% endif %}
+{% endcall %}

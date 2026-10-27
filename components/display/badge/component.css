@@ -1,0 +1,43 @@
+.gui-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border: 1px solid var(--gui-border);
+  border-radius: 6px;
+  background: var(--gui-soft);
+  color: var(--gui-muted);
+  font: 500 11px/1.5 var(--gui-font);
+  white-space: nowrap;
+}
+.gui-badge[data-tone='success'] {
+  color: var(--gui-success);
+  background: var(--gui-success-soft);
+  border-color: transparent;
+}
+.gui-badge[data-tone='warning'] {
+  color: var(--gui-warning);
+  background: var(--gui-warning-soft);
+  border-color: transparent;
+}
+.gui-badge[data-tone='danger'] {
+  color: var(--gui-danger);
+  background: var(--gui-danger-soft);
+  border-color: transparent;
+}
+.gui-badge[data-tone='info'] {
+  color: var(--gui-info);
+  background: var(--gui-info-soft);
+  border-color: transparent;
+}
+.gui-badge[data-tone='accent'] {
+  color: var(--gui-accent);
+  background: var(--gui-accent-soft);
+  border-color: transparent;
+}
+.gui-badge__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}

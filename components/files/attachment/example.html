@@ -1,0 +1,3 @@
+{% import "files/attachment/component.html" as file %}
+{{ file::render("launch-briefing.pdf", "240 KB", "PDF", href="#example") }}
+{{ file::render("older-result.txt", "18 KB", "TXT", status="Expired", tone="warning") }}

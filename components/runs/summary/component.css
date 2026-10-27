@@ -1,0 +1,45 @@
+.gui-run {
+  padding: 22px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-run header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.gui-run h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.gui-run header p {
+  margin: 4px 0;
+  color: var(--gui-muted);
+  font:
+    11px/1.6 ui-monospace,
+    monospace;
+}
+.gui-run dl {
+  display: flex;
+  gap: 36px;
+  margin: 20px 0;
+}
+.gui-run dt {
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-run dd {
+  margin: 4px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+.gui-run footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--gui-border);
+  display: flex;
+  gap: 8px;
+}

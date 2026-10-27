@@ -1,0 +1,43 @@
+.gui-attachment {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+  flex-wrap: wrap;
+}
+.gui-attachment__type {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 46px;
+  background: var(--gui-soft);
+  border: 1px solid var(--gui-border);
+  border-radius: 6px;
+  color: var(--gui-muted);
+  font-size: 9px;
+  font-weight: 600;
+}
+.gui-attachment > div {
+  flex: 1;
+  min-width: 140px;
+}
+.gui-attachment strong {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.gui-attachment small {
+  display: block;
+  color: var(--gui-muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+.gui-attachment > a {
+  color: var(--gui-accent);
+  font-size: 12px;
+  text-underline-offset: 3px;
+}

@@ -1,0 +1,16 @@
+.gui-preferences {
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-preferences h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.gui-preferences > p {
+  color: var(--gui-muted);
+  margin: 8px 0 16px;
+}
+.gui-preferences > div > div {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gui-border);
+}

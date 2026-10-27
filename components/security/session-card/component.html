@@ -1,0 +1,19 @@
+{% import "display/badge/component.html" as badge %}
+{% macro render(device, location, last_active, status, tone="neutral") %}
+  <article class="gui-session">
+    <header>
+      <span aria-hidden="true">▣</span>
+      <div>
+        <h3>{{ device }}</h3>
+        <p>{{ location }}</p>
+      </div>
+      {{ badge::render(status, tone=tone) }}
+    </header>
+    <small>{{ last_active }}</small>
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

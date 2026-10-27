@@ -1,0 +1,22 @@
+.gui-range {
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-range label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.gui-range input {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--gui-accent);
+}
+.gui-range input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 4px;
+}
+.gui-range p {
+  color: var(--gui-muted);
+  font-size: 12px;
+}

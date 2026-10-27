@@ -1,0 +1,17 @@
+{% import "display/badge/component.html" as badge %}
+{% import "display/key-value/component.html" as details %}
+{% macro render(title, status, explanation, fields, tone="neutral") %}
+  <article class="gui-operation">
+    <header>
+      <h3>{{ title }}</h3>
+      {{ badge::render(status, tone=tone) }}
+    </header>
+    <p>{{ explanation }}</p>
+    {{ details::render(fields) }}
+    {% if caller is defined %}
+      <footer>
+        {{ caller() }}
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

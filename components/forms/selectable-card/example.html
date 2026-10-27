@@ -1,0 +1,14 @@
+{% import "forms/selectable-card/component.html" as choice %}
+{{ choice::render(
+  "goal",
+  "briefing",
+  "Keep me informed",
+  "Bring important updates into a daily briefing.",
+  checked=true
+) }}
+{{ choice::render(
+  "goal",
+  "follow-up",
+  "Follow up consistently",
+  "Prepare thoughtful replies for review."
+) }}

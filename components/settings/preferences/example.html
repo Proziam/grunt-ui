@@ -1,0 +1,6 @@
+{% import "settings/preferences/component.html" as preferences %}
+{{ preferences::render(
+  "Notification preferences",
+  "Choose which workflow events need your attention.",
+  [("reviews", "Review requests", "When a workflow needs your decision.", true, false), ("failures", "Failed runs", "When an operation could not complete.", true, false), ("completed", "Completed runs", "When a workflow finishes successfully.", false, false)]
+) }}

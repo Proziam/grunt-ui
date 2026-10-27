@@ -1,0 +1,24 @@
+{% macro render(title, excerpt, source_label, source_href="", basis="", coverage="") %}
+  <aside class="gui-evidence">
+    <header>
+      <span aria-hidden="true">↗</span>
+      <strong>{{ title }}</strong>
+    </header>
+    <blockquote>
+      {{ excerpt }}
+    </blockquote>
+    <footer>
+      {% if source_href.is_empty() %}
+        <span>{{ source_label }}</span>
+      {% else %}
+        <a href="{{ source_href }}"
+           target="_blank"
+           rel="noopener noreferrer">{{ source_label }} ↗</a>
+      {% endif %}
+      <span>{{ basis }}</span>
+    </footer>
+    {% if !coverage.is_empty() %}
+      <p>{{ coverage }}</p>
+    {% endif %}
+  </aside>
+{% endmacro %}

@@ -1,0 +1,8 @@
+{% import "runs/evidence/component.html" as evidence %}
+{{ evidence::render(
+  "Launch review requested",
+  "Please review the announcement before Thursday’s release.",
+  "Saved source · message 42",
+  basis="Directly stated",
+  coverage="Examined: 3 messages. Attachments were not included."
+) }}

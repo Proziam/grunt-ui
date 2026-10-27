@@ -1,0 +1,3 @@
+{% macro render(label) %}
+  <div class="gui-toolbar" role="group" aria-label="{{ label }}">{{ caller() }}</div>
+{% endmacro %}

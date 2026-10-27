@@ -1,0 +1,13 @@
+.gui-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+}
+.gui-toolbar > :last-child {
+  margin-inline-start: auto;
+}

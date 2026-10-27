@@ -1,0 +1,39 @@
+.gui-toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: 10px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow-raised);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-toast[hidden] {
+  display: none;
+}
+.gui-toast[data-tone='success'] {
+  border-left: 3px solid var(--gui-success);
+}
+.gui-toast[data-tone='danger'] {
+  border-left: 3px solid var(--gui-danger);
+}
+.gui-toast p {
+  margin: 0;
+}
+.gui-toast button {
+  padding: 2px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--gui-muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+.gui-toast button:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 2px;
+}

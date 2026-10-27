@@ -1,0 +1,17 @@
+.gui-shortcut {
+  display: inline-flex;
+  gap: 4px;
+}
+.gui-shortcut > kbd {
+  padding: 2px 6px;
+  min-width: 14px;
+  border: 1px solid var(--gui-border);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--gui-surface);
+  color: var(--gui-muted);
+  text-align: center;
+  font:
+    11px/1.5 ui-monospace,
+    monospace;
+}

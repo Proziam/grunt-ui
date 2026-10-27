@@ -1,0 +1,9 @@
+{% macro render(label, value, detail="", trend="", tone="neutral") %}
+  <div class="gui-metric">
+    <p class="gui-metric__label">{{ label }}</p>
+    <p class="gui-metric__value">{{ value }}</p>
+    <p class="gui-metric__detail">
+      <span data-tone="{{ tone }}">{{ trend }}</span> {{ detail }}
+    </p>
+  </div>
+{% endmacro %}

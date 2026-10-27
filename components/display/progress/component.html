@@ -1,0 +1,10 @@
+{% macro render(id, label, value, maximum=100, detail="") %}
+  <div class="gui-progress">
+    <label for="{{ id }}">
+      {{ label }} <span>{{ detail }}</span>
+    </label>
+    <progress id="{{ id }}"
+              value="{{ value }}"
+              max="{{ maximum }}">{{ value }} / {{ maximum }}</progress>
+  </div>
+{% endmacro %}

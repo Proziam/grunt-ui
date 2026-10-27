@@ -1,0 +1,30 @@
+.gui-invitation {
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-invitation header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.gui-invitation header strong {
+  overflow-wrap: anywhere;
+  font-weight: 500;
+}
+.gui-invitation p {
+  margin: 8px 0 4px;
+  color: var(--gui-muted);
+}
+.gui-invitation small {
+  color: var(--gui-muted);
+}
+.gui-invitation footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}

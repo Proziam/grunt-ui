@@ -1,0 +1,12 @@
+{% macro render(items) %}
+  <dl class="gui-key-value">
+    {% for (label, value) in items %}
+      <div>
+        <dt>{{ label }}</dt>
+        <dd>
+          {{ value }}
+        </dd>
+      </div>
+    {% endfor %}
+  </dl>
+{% endmacro %}

@@ -1,0 +1,26 @@
+.gui-section {
+  color: var(--gui-text);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-section > header > h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.gui-section__eyebrow {
+  margin: 0 0 8px;
+  color: var(--gui-accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.gui-section__description {
+  max-width: 65ch;
+  margin: 8px 0 0;
+  color: var(--gui-muted);
+}
+.gui-section__content {
+  margin-top: 24px;
+}

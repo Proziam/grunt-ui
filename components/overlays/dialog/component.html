@@ -1,0 +1,19 @@
+{% macro render(id, title, trigger_label, close_label="Close", sheet=false) %}
+  <div class="gui-dialog-launcher">
+    <button type="button"
+            class="gui-dialog-trigger"
+            data-gui-open="{{ id }}">{{ trigger_label }}</button>
+    <dialog id="{{ id }}"
+            class="gui-dialog"
+            {% if sheet %} data-sheet{% endif %}
+            aria-labelledby="{{ id }}-title">
+      <header>
+        <h2 id="{{ id }}-title">{{ title }}</h2>
+        <form method="dialog">
+          <button type="submit" class="gui-dialog-close" aria-label="{{ close_label }}">×</button>
+        </form>
+      </header>
+      <div class="gui-dialog__body">{{ caller() }}</div>
+    </dialog>
+  </div>
+{% endmacro %}

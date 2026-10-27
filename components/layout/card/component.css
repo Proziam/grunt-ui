@@ -1,0 +1,34 @@
+.gui-card {
+  min-width: 0;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow);
+  font: 14px/1.6 var(--gui-font);
+}
+.gui-card[data-raised] {
+  box-shadow: var(--gui-shadow-raised);
+}
+.gui-card__header {
+  padding: 22px 24px 0;
+}
+.gui-card__header > h2 {
+  margin: 0;
+  font: 600 17px/1.4 var(--gui-font);
+  letter-spacing: -0.3px;
+}
+.gui-card__header > p {
+  margin: 7px 0 0;
+  color: var(--gui-muted);
+  font-size: 13px;
+}
+.gui-card__body {
+  padding: 20px 24px 24px;
+}
+.gui-card__body > :first-child {
+  margin-top: 0;
+}
+.gui-card__body > :last-child {
+  margin-bottom: 0;
+}

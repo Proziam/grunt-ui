@@ -1,0 +1,15 @@
+{% import "display/avatar/component.html" as avatar %}
+{% macro render(name, initials, detail="", role="") %}
+  <div class="gui-person">
+    {{ avatar::render(name, initials) }}
+    <div>
+      <strong>{{ name }}</strong>
+      {% if !detail.is_empty() %}
+        <small>{{ detail }}</small>
+      {% endif %}
+    </div>
+    {% if !role.is_empty() %}
+      <span class="gui-person__role">{{ role }}</span>
+    {% endif %}
+  </div>
+{% endmacro %}

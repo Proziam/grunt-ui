@@ -1,0 +1,9 @@
+{% import "charts/line-chart/component.html" as chart %}
+{{ chart::render(
+  "run-trend",
+  "Completed runs",
+  "Illustrative daily counts. Expand the data for exact values.",
+  "0,140 100,110 200,125 300,70 400,90 500,40 600,20",
+  [("Monday", "8"), ("Tuesday", "14"), ("Wednesday", "11"), ("Thursday", "22"), ("Friday", "18"), ("Saturday", "28"), ("Sunday", "32")],
+  value_label="View data table"
+) }}

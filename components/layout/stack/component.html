@@ -1,0 +1,6 @@
+{% macro render(direction="vertical", gap="normal", align="stretch") %}
+  <div class="gui-stack"
+       data-direction="{{ direction }}"
+       data-gap="{{ gap }}"
+       data-align="{{ align }}">{{ caller() }}</div>
+{% endmacro %}

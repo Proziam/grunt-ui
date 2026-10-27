@@ -1,0 +1,16 @@
+{% macro render(action, label, query="", name="q", search_label="Search", submit_label="Apply") %}
+  <form class="gui-filter-bar"
+        action="{{ action }}"
+        method="get"
+        role="search"
+        aria-label="{{ label }}">
+    <label>
+      <span class="gui-sr-only">{{ search_label }}</span>
+      <input type="search" name="{{ name }}" value="{{ query }}" placeholder="{{ search_label }}">
+    </label>
+    {% if caller is defined %}
+      {{ caller() }}
+    {% endif %}
+    <button type="submit">{{ submit_label }}</button>
+  </form>
+{% endmacro %}

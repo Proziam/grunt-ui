@@ -1,0 +1,13 @@
+{% macro render(category, title, summary, href, author, datetime, date_label) %}
+  <article class="gui-article-card">
+    <span>{{ category }}</span>
+    <h3>
+      <a href="{{ href }}">{{ title }}</a>
+    </h3>
+    <p>{{ summary }}</p>
+    <footer>
+      <span>{{ author }}</span>
+      <time datetime="{{ datetime }}">{{ date_label }}</time>
+    </footer>
+  </article>
+{% endmacro %}

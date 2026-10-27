@@ -1,0 +1,17 @@
+.gui-upload-item {
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  font: 12px/1.6 var(--gui-font);
+}
+.gui-upload-item > p {
+  margin: 10px 0 0;
+  color: var(--gui-muted);
+}
+.gui-upload-item > .gui-upload-item__error {
+  color: var(--gui-danger);
+}
+.gui-upload-item > div:last-child:not(.gui-progress) {
+  margin-top: 12px;
+}

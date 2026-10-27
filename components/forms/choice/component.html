@@ -1,0 +1,32 @@
+{% macro render(
+  name,
+  value,
+  label,
+  type="checkbox",
+  checked=false,
+  disabled=false,
+  description=""
+) %}
+  <label class="gui-choice">
+    <input type="{{ type }}"
+           name="{{ name }}"
+           value="{{ value }}"
+           {% if checked %} checked{% endif %}
+           {% if disabled %} disabled{% endif %}>
+    <span>
+      <strong>{{ label }}</strong>
+      {% if !description.is_empty() %}
+        <small>{{ description }}</small>
+      {% endif %}
+    </span>
+  </label>
+{% endmacro %}
+{% macro group(legend, help="") %}
+  <fieldset class="gui-choice-group">
+    <legend>{{ legend }}</legend>
+    {% if !help.is_empty() %}
+      <p>{{ help }}</p>
+    {% endif %}
+    {{ caller() }}
+  </fieldset>
+{% endmacro %}

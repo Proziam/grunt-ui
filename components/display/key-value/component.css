@@ -1,0 +1,23 @@
+.gui-key-value {
+  margin: 0;
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-key-value > div {
+  display: grid;
+  grid-template-columns: minmax(100px, 35%) minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gui-border);
+}
+.gui-key-value > div:last-child {
+  border-bottom: 0;
+}
+.gui-key-value dt {
+  color: var(--gui-muted);
+}
+.gui-key-value dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}

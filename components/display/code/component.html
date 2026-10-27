@@ -1,0 +1,6 @@
+{% macro render(value, label="Code") %}
+  <figure class="gui-code">
+    <figcaption>{{ label }}</figcaption>
+    <pre tabindex="0"><code>{{ value }}</code></pre>
+  </figure>
+{% endmacro %}

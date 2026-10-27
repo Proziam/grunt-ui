@@ -1,0 +1,37 @@
+{% macro render(
+  title,
+  available,
+  reserved,
+  charged,
+  notice="",
+  available_label="Available",
+  reserved_label="Reserved",
+  charged_label="Charged"
+) %}
+  <section class="gui-balance">
+    <h3>{{ title }}</h3>
+    <dl>
+      <div>
+        <dt>{{ available_label }}</dt>
+        <dd>
+          {{ available }}
+        </dd>
+      </div>
+      <div>
+        <dt>{{ reserved_label }}</dt>
+        <dd>
+          {{ reserved }}
+        </dd>
+      </div>
+      <div>
+        <dt>{{ charged_label }}</dt>
+        <dd>
+          {{ charged }}
+        </dd>
+      </div>
+    </dl>
+    {% if !notice.is_empty() %}
+      <p>{{ notice }}</p>
+    {% endif %}
+  </section>
+{% endmacro %}

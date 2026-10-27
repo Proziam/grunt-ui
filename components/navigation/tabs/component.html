@@ -1,0 +1,19 @@
+{% macro render(id, label, items, selected="") %}
+  <div class="gui-tabs" data-gui-tabs data-selected="{{ selected }}">
+    <nav class="gui-tabs__nav" aria-label="{{ label }}">
+      {% for (key, text) in items %}
+        <a id="{{ id }}-tab-{{ key }}"
+           href="#{{ id }}-panel-{{ key }}"
+           data-tab="{{ key }}">{{ text }}</a>
+      {% endfor %}
+    </nav>
+    {% for (key, text) in items %}
+      <section id="{{ id }}-panel-{{ key }}"
+               class="gui-tabs__panel"
+               data-panel="{{ key }}"
+               aria-labelledby="{{ id }}-tab-{{ key }}">
+        {{ caller(key) }}
+      </section>
+    {% endfor %}
+  </div>
+{% endmacro %}

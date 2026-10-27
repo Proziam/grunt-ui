@@ -1,0 +1,23 @@
+{% import "integrations/connection-card/component.html" as connection %}
+{% import "actions/link/component.html" as link %}
+{% call connection::render(
+  "Slack",
+  "S",
+  "Example Studio",
+  "Organization account",
+  "Connected",
+  tone="success"
+) %}
+  {{ link::render("Manage connection", "#example", kind="button") }}
+{% endcall %}
+{% call connection::render(
+  "Google Workspace",
+  "G",
+  "alex@example.com",
+  "Personal account",
+  "Needs authorization",
+  tone="warning",
+  detail="Renew authorization before using this account in a workflow."
+) %}
+  {{ link::render("Reconnect account", "#example", kind="button") }}
+{% endcall %}

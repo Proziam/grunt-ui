@@ -1,0 +1,7 @@
+{% import "overlays/command-palette/component.html" as command %}
+{{ command::render(
+  "command-example",
+  "Go to…",
+  "Open command palette",
+  [("Workflows", "Browse your saved workflows", "#example"), ("Integrations", "Manage connected accounts", "#example"), ("Usage", "Inspect recorded Work", "#example")]
+) }}

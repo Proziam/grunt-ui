@@ -1,0 +1,26 @@
+.gui-split {
+  display: grid;
+  grid-template-columns: minmax(180px, 28%) minmax(0, 1fr);
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  overflow: hidden;
+}
+.gui-split__sidebar {
+  padding: 20px;
+  border-right: 1px solid var(--gui-border);
+  background: var(--gui-soft);
+}
+.gui-split__content {
+  min-width: 0;
+  padding: 24px;
+  background: var(--gui-surface);
+}
+@media (max-width: 680px) {
+  .gui-split {
+    grid-template-columns: 1fr;
+  }
+  .gui-split__sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--gui-border);
+  }
+}

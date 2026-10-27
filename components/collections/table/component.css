@@ -1,0 +1,49 @@
+.gui-table-scroll {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+}
+.gui-table-scroll:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}
+.gui-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-table > caption {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+.gui-table th,
+.gui-table td {
+  padding: 12px 16px;
+  border-top: 1px solid var(--gui-border);
+}
+.gui-table thead th {
+  background: var(--gui-soft);
+  color: var(--gui-muted);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.gui-table tbody th {
+  font-weight: 500;
+}
+.gui-table tbody tr:hover {
+  background: var(--gui-page);
+}
+.gui-table__empty {
+  text-align: center;
+  color: var(--gui-muted);
+}
+.gui-table .gui-table__numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

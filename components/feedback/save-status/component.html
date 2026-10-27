@@ -1,0 +1,18 @@
+{% macro render(label, state="saved", detail="") %}
+  <div class="gui-save-status" data-state="{{ state }}" role="status">
+    <span aria-hidden="true">
+      {% if state == "saved" %}
+        ✓
+      {% else if state == "error" %}
+        !
+      {% else %}
+        ○
+      {% endif %}
+    </span>
+    <span>{{ label }}
+      {% if !detail.is_empty() %}
+        <small>{{ detail }}</small>
+      {% endif %}
+    </span>
+  </div>
+{% endmacro %}

@@ -1,0 +1,16 @@
+{% macro render(id, name, label, options, value="", placeholder="") %}
+  <div class="gui-autocomplete">
+    <label for="{{ id }}">{{ label }}</label>
+    <input id="{{ id }}"
+           name="{{ name }}"
+           list="{{ id }}-options"
+           value="{{ value }}"
+           placeholder="{{ placeholder }}"
+           autocomplete="off">
+    <datalist id="{{ id }}-options">
+      {% for (key, text) in options %}
+        <option value="{{ key }}">{{ text }}</option>
+      {% endfor %}
+    </datalist>
+  </div>
+{% endmacro %}

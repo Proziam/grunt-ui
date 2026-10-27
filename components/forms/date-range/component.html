@@ -1,0 +1,19 @@
+{% import "forms/input/component.html" as input %}
+{% macro render(
+  id,
+  label,
+  start_name,
+  end_name,
+  start="",
+  end="",
+  start_label="From",
+  end_label="To"
+) %}
+  <fieldset class="gui-date-range">
+    <legend>{{ label }}</legend>
+    <div>
+      {{ input::render(id ~ "-start", start_name, start_label, value=start, type="date") }}
+      {{ input::render(id ~ "-end", end_name, end_label, value=end, type="date") }}
+    </div>
+  </fieldset>
+{% endmacro %}

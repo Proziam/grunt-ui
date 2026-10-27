@@ -1,0 +1,11 @@
+{% macro render(items, empty_text, label="", divided=true) %}
+  <ul class="gui-list"
+      {% if !label.is_empty() %} aria-label="{{ label }}"{% endif %}
+      {% if divided %} data-divided{% endif %}>
+    {% for item in items %}
+      <li class="gui-list__item">{{ caller(item) }}</li>
+    {% else %}
+      <li class="gui-list__empty">{{ empty_text }}</li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

@@ -1,0 +1,25 @@
+.gui-media {
+  margin: 0;
+  color: var(--gui-muted);
+  font: 12px/1.6 var(--gui-font);
+}
+.gui-media :is(img, video) {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-soft);
+}
+.gui-media audio {
+  width: 100%;
+}
+.gui-media figcaption {
+  margin-top: 10px;
+}
+.gui-media a {
+  color: var(--gui-accent);
+  text-underline-offset: 3px;
+}

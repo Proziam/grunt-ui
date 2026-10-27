@@ -1,0 +1,39 @@
+.gui-session {
+  padding: 20px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-session header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.gui-session header > span:first-child {
+  font-size: 28px;
+  color: var(--gui-muted);
+}
+.gui-session header > div {
+  flex: 1;
+  min-width: 140px;
+}
+.gui-session h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.gui-session p {
+  margin: 4px 0;
+  color: var(--gui-muted);
+  font-size: 12px;
+}
+.gui-session > small {
+  display: block;
+  margin-top: 14px;
+  color: var(--gui-muted);
+}
+.gui-session footer {
+  margin-top: 16px;
+}

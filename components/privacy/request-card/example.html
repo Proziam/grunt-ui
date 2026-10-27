@@ -1,0 +1,10 @@
+{% import "privacy/request-card/component.html" as request %}
+{{ request::render(
+  "Export personal information",
+  "request_example_01",
+  "Verified requester",
+  "Account information and authorized saved content.",
+  "In progress",
+  "Requested 27 October 2026",
+  tone="info"
+) }}

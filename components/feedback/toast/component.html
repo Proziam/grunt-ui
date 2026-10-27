@@ -1,0 +1,6 @@
+{% macro render(message, close_label="Dismiss", tone="neutral") %}
+  <div class="gui-toast" data-tone="{{ tone }}" data-gui-toast>
+    <p role="status">{{ message }}</p>
+    <button type="button" data-toast-close aria-label="{{ close_label }}">×</button>
+  </div>
+{% endmacro %}

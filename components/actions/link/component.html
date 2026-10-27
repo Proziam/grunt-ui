@@ -1,0 +1,10 @@
+{% macro render(label, href, external=false, kind="text") %}
+  <a class="gui-link"
+     data-kind="{{ kind }}"
+     href="{{ href }}"
+     {% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ label }}
+    {% if external %}
+      <span aria-hidden="true">↗</span>
+    {% endif %}
+  </a>
+{% endmacro %}

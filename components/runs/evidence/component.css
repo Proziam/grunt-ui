@@ -1,0 +1,39 @@
+.gui-evidence {
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-left: 3px solid var(--gui-accent);
+  border-radius: 0 var(--gui-control-radius) var(--gui-control-radius) 0;
+  background: var(--gui-page);
+  color: var(--gui-text);
+  font: 13px/1.7 var(--gui-font);
+}
+.gui-evidence header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+.gui-evidence header > span {
+  color: var(--gui-accent);
+}
+.gui-evidence blockquote {
+  margin: 14px 0;
+  white-space: pre-wrap;
+}
+.gui-evidence footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--gui-muted);
+}
+.gui-evidence a {
+  color: var(--gui-accent);
+  text-underline-offset: 3px;
+}
+.gui-evidence > p {
+  margin: 12px 0 0;
+  color: var(--gui-muted);
+  font-size: 11px;
+}

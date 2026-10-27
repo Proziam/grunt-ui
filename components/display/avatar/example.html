@@ -1,0 +1,6 @@
+{% import "display/avatar/component.html" as avatar %}
+{% call avatar::group("Assigned reviewers") %}
+  {{ avatar::render("Alex Morgan", "AM") }}
+  {{ avatar::render("Sam Rivera", "SR") }}
+  {{ avatar::render("Taylor Chen", "TC") }}
+{% endcall %}

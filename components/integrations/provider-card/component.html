@@ -1,0 +1,24 @@
+{% import "integrations/logo-tile/component.html" as logo %}
+{% import "display/badge/component.html" as badge %}
+{% import "actions/link/component.html" as link %}
+{% macro render(
+  name,
+  initials,
+  description,
+  category,
+  href,
+  action_label="View integration",
+  availability="Available",
+  image=""
+) %}
+  <article class="gui-provider-card">
+    <header>
+      {{ logo::render(name, initials, image=image) }}{{ badge::render(availability) }}
+    </header>
+    <h3>{{ name }}</h3>
+    <p>{{ description }}</p>
+    <footer>
+      <span>{{ category }}</span>{{ link::render(action_label, href) }}
+    </footer>
+  </article>
+{% endmacro %}

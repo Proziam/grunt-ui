@@ -1,0 +1,41 @@
+.gui-number {
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-number > label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.gui-number > div {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  overflow: hidden;
+  background: var(--gui-surface);
+}
+.gui-number input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+}
+.gui-number input:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: -3px;
+}
+.gui-number > div > span {
+  padding: 0 12px;
+  color: var(--gui-muted);
+  white-space: nowrap;
+}
+.gui-number > p {
+  margin: 6px 0 0;
+  color: var(--gui-muted);
+  font-size: 12px;
+}

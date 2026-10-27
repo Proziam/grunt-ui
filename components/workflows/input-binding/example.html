@@ -1,0 +1,8 @@
+{% import "workflows/input-binding/component.html" as binding %}
+{{ binding::render(
+  "briefing-input",
+  "source_output",
+  "Messages to summarize",
+  [("email.messages", "Read email → Messages"), ("manual.notes", "Manual input → Notes")],
+  selected="email.messages"
+) }}

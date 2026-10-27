@@ -1,0 +1,24 @@
+.gui-popover-control > button {
+  padding: 8px 14px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 500 13px/1.5 var(--gui-font);
+  cursor: pointer;
+}
+.gui-popover {
+  box-sizing: border-box;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 18px;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow-raised);
+  font: 13px/1.6 var(--gui-font);
+}
+.gui-popover-control > button:focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}

@@ -1,0 +1,16 @@
+{% macro render(id, name, label, help, accept="", multiple=false, required=false) %}
+  <div class="gui-file-picker">
+    <label for="{{ id }}">
+      <span aria-hidden="true">↑</span>
+      <strong>{{ label }}</strong>
+    </label>
+    <p id="{{ id }}-help">{{ help }}</p>
+    <input id="{{ id }}"
+           type="file"
+           name="{{ name }}"
+           accept="{{ accept }}"
+           aria-describedby="{{ id }}-help"
+           {% if multiple %} multiple{% endif %}
+           {% if required %} required{% endif %}>
+  </div>
+{% endmacro %}

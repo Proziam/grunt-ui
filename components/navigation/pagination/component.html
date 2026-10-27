@@ -1,0 +1,24 @@
+{% macro render(
+  label,
+  summary,
+  previous_href="",
+  next_href="",
+  previous_label="Previous",
+  next_label="Next"
+) %}
+  <nav class="gui-pagination" aria-label="{{ label }}">
+    <span>{{ summary }}</span>
+    <div>
+      {% if !previous_href.is_empty() %}
+        <a href="{{ previous_href }}">← {{ previous_label }}</a>
+      {% else %}
+        <span aria-disabled="true">← {{ previous_label }}</span>
+      {% endif %}
+      {% if !next_href.is_empty() %}
+        <a href="{{ next_href }}">{{ next_label }} →</a>
+      {% else %}
+        <span aria-disabled="true">{{ next_label }} →</span>
+      {% endif %}
+    </div>
+  </nav>
+{% endmacro %}

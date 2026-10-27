@@ -1,0 +1,10 @@
+{% import "layout/grid/component.html" as grid %}
+{% import "layout/card/component.html" as card %}
+{% call grid::render() %}
+  {% call card::render("Personal") %}
+    <p>Your workflows and connections.</p>
+  {% endcall %}
+  {% call card::render("Organization") %}
+    <p>Shared tools for your team.</p>
+  {% endcall %}
+{% endcall %}

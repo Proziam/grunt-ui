@@ -1,0 +1,39 @@
+.gui-permission-matrix {
+  overflow: auto;
+  border: 1px solid var(--gui-border);
+  border-radius: var(--gui-radius);
+}
+.gui-permission-matrix table {
+  border-collapse: collapse;
+  width: 100%;
+  color: var(--gui-text);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-permission-matrix caption {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+}
+.gui-permission-matrix th,
+.gui-permission-matrix td {
+  padding: 12px 16px;
+  border-top: 1px solid var(--gui-border);
+}
+.gui-permission-matrix th {
+  text-align: left;
+  font-weight: 500;
+}
+.gui-permission-matrix thead {
+  background: var(--gui-soft);
+  color: var(--gui-muted);
+  font-size: 11px;
+}
+.gui-permission-matrix input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--gui-accent);
+}
+.gui-permission-matrix :focus-visible {
+  outline: 3px solid var(--gui-focus);
+  outline-offset: 3px;
+}

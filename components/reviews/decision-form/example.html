@@ -1,0 +1,9 @@
+{% import "reviews/decision-form/component.html" as decision %}
+{{ decision::render(
+  "review-decision",
+  "#example",
+  "example-only",
+  "review_example_01",
+  "3",
+  "Your decision applies to the displayed saved version. Approval does not confirm delivery."
+) }}

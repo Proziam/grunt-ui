@@ -1,0 +1,40 @@
+.gui-loading {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: 16px 0;
+  color: var(--gui-muted);
+  font: 13px/1.5 var(--gui-font);
+}
+.gui-loading__spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gui-border);
+  border-top-color: var(--gui-accent);
+  border-radius: 50%;
+  animation: gui-loading-spin 1s linear infinite;
+}
+.gui-loading__skeleton {
+  display: grid;
+  gap: 10px;
+  width: min(400px, 100%);
+}
+.gui-loading__skeleton span {
+  display: block;
+  height: 13px;
+  border-radius: 5px;
+  background: var(--gui-soft);
+}
+.gui-loading__skeleton span:last-child {
+  width: 65%;
+}
+@keyframes gui-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gui-loading__spinner {
+    animation: none;
+  }
+}

@@ -1,0 +1,9 @@
+{% import "layout/page-header/component.html" as header %}
+{% import "actions/button/component.html" as button %}
+{% call header::render(
+  "Integrations",
+  description="Connect once. Choose where each account can be used.",
+  eyebrow="Workspace"
+) %}
+  {{ button::render("Add connection", kind="primary") }}
+{% endcall %}

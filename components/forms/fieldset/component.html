@@ -1,0 +1,9 @@
+{% macro render(legend, description="", disabled=false) %}
+  <fieldset class="gui-fieldset"{% if disabled %} disabled{% endif %}>
+    <legend>{{ legend }}</legend>
+    {% if !description.is_empty() %}
+      <p class="gui-fieldset__description">{{ description }}</p>
+    {% endif %}
+    <div class="gui-fieldset__fields">{{ caller() }}</div>
+  </fieldset>
+{% endmacro %}

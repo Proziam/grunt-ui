@@ -1,0 +1,10 @@
+{% import "auth/email-confirmation/component.html" as email %}
+{% import "actions/button/component.html" as button %}
+{% call email::render(
+  "Check your inbox",
+  "A sign-in link was requested for",
+  "alex@example.com",
+  "Use the newest link. If it has expired, request another."
+) %}
+  {{ button::render("Resend link", disabled=true) }}{{ button::render("Change email", kind="quiet") }}
+{% endcall %}

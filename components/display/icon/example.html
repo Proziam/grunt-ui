@@ -1,0 +1,7 @@
+{% import "display/icon/component.html" as icon %}
+{{ icon::render("workflow", label="Workflow") }}
+{{ icon::render("mail", label="Mail") }}
+{{ icon::render("lock", label="Restricted") }}
+{% let status_icon = "check".to_owned() %}
+{{ icon::render(status_icon, label="Complete") }}
+{{ icon::render("settings", label="Settings") }}

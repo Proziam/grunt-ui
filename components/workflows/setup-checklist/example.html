@@ -1,0 +1,5 @@
+{% import "workflows/setup-checklist/component.html" as setup %}
+{{ setup::render(
+  "Finish setting up your workflow",
+  [("Choose an account", "Operations mailbox connected.", "#example", true), ("Choose source folders", "Select which messages the workflow may read.", "#example", false), ("Choose a reviewer", "Decide who approves the briefing.", "#example", false)]
+) }}

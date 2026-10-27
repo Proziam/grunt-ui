@@ -1,0 +1,35 @@
+.gui-article-card {
+  padding: 26px;
+  border: 1px solid var(--gui-border);
+  border-radius: 14px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  font: 13px/1.7 var(--gui-font);
+}
+.gui-article-card > span {
+  color: var(--gui-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+}
+.gui-article-card h3 {
+  font-size: 21px;
+  line-height: 1.35;
+  margin: 16px 0 12px;
+  letter-spacing: -0.5px;
+}
+.gui-article-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.gui-article-card > p {
+  color: var(--gui-muted);
+}
+.gui-article-card footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  color: var(--gui-muted);
+  font-size: 11px;
+}

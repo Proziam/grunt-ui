@@ -1,0 +1,13 @@
+{% import "display/key-value/component.html" as details %}
+{% macro render(action, actor, datetime, time_label, fields) %}
+  <article class="gui-audit">
+    <header>
+      <span aria-hidden="true">◷</span>
+      <div>
+        <h3>{{ action }}</h3>
+        <p>{{ actor }}</p>
+      </div>
+      <time datetime="{{ datetime }}">{{ time_label }}</time>
+    </header>
+  {{ details::render(fields) }}</article>
+{% endmacro %}

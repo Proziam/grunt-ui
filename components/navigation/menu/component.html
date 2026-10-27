@@ -1,0 +1,13 @@
+{% macro render(label, items, current="") %}
+  <nav class="gui-menu" aria-label="{{ label }}">
+    {% for (key, text, href) in items %}
+      <a href="{{ href }}"
+         {% if key.as_bytes() == current.as_bytes() %} aria-current="page"{% endif %}>
+        <span>{{ text }}</span>
+        {% if key.as_bytes() == current.as_bytes() %}
+          <span aria-hidden="true">›</span>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </nav>
+{% endmacro %}

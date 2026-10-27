@@ -1,0 +1,10 @@
+{% import "files/upload-item/component.html" as upload %}
+{{ upload::render("upload-briefing", "briefing.pdf", "Uploading · 65%", 65, "156 KB of 240 KB") }}
+{{ upload::render(
+  "upload-notes",
+  "notes.txt",
+  "Could not finish",
+  30,
+  "",
+  error="The connection was interrupted. The original upload can be resumed."
+) }}

@@ -1,0 +1,12 @@
+{% import "forms/switch/component.html" as switch %}
+{% macro render(title, description, items) %}
+  <section class="gui-preferences">
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+    <div>
+      {% for (name, label, detail, checked, disabled) in items %}
+        <div>{{ switch::render(name, label, checked=checked, disabled=disabled, description=detail) }}</div>
+      {% endfor %}
+    </div>
+  </section>
+{% endmacro %}

@@ -1,0 +1,17 @@
+{% import "layout/app-shell/component.html" as shell %}
+{% import "navigation/menu/component.html" as menu %}
+{% import "people/identity/component.html" as person %}
+{% call(slot) shell::render("Example Studio", "#example", "Main navigation") %}
+  {% if slot == "header" %}
+    {{ person::render("Alex", "AM") }}
+  {% else if slot == "navigation" %}
+    {{ menu::render(
+      "Workspace",
+      [("workflows", "Workflows", "#example"), ("integrations", "Integrations", "#example")],
+      current="workflows"
+    ) }}
+  {% else %}
+    <h2>Your workflows</h2>
+    <p>A shared home for the work your team delegates.</p>
+  {% endif %}
+{% endcall %}

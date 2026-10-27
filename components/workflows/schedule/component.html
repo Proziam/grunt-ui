@@ -1,0 +1,33 @@
+{% import "forms/input/component.html" as input %}
+{% import "forms/select/component.html" as select %}
+{% import "forms/choice/component.html" as choice %}
+{% macro render(
+  id,
+  title,
+  zones,
+  zone,
+  time,
+  days,
+  preview,
+  zone_label="Time zone",
+  time_label="Time",
+  days_label="Days",
+  time_name="local_time",
+  zone_name="time_zone",
+  days_name="weekdays"
+) %}
+  <fieldset class="gui-schedule">
+    <legend>{{ title }}</legend>
+    <div class="gui-schedule__clock">
+      {{ input::render(id ~ "-time", time_name, time_label, value=time, type="time", required=true) }}
+      {{ select::render(id ~ "-zone", zone_name, zone_label, zones, value=zone, required=true) }}
+    </div>
+    <fieldset class="gui-schedule__days">
+      <legend>{{ days_label }}</legend>
+      {% for (value, label, checked) in days %}
+        {{ choice::render(days_name, value, label, checked=checked) }}
+      {% endfor %}
+    </fieldset>
+    <p class="gui-schedule__preview">{{ preview }}</p>
+  </fieldset>
+{% endmacro %}

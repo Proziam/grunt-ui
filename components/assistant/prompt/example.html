@@ -1,0 +1,8 @@
+{% import "assistant/prompt/component.html" as prompt %}
+{{ prompt::render(
+  "assistant-request",
+  "#example",
+  "example-only",
+  "What would you like help with?",
+  value="Help me prepare a daily briefing from the sources I select."
+) }}

@@ -1,0 +1,57 @@
+.gui-plan {
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  border: 1px solid var(--gui-border);
+  border-radius: 15px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow);
+  font: 13px/1.7 var(--gui-font);
+}
+.gui-plan[data-featured] {
+  border-color: var(--gui-accent);
+  box-shadow: 0 0 0 3px var(--gui-accent-soft);
+}
+.gui-plan header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+.gui-plan h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.gui-plan > p {
+  color: var(--gui-muted);
+}
+.gui-plan__price {
+  margin: 18px 0;
+}
+.gui-plan__price strong {
+  font-size: 38px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.gui-plan__price span {
+  margin-left: 6px;
+  color: var(--gui-muted);
+  font-size: 12px;
+}
+.gui-plan ul {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+}
+.gui-plan li {
+  display: flex;
+  gap: 10px;
+  padding: 7px 0;
+}
+.gui-plan li > span {
+  color: var(--gui-accent);
+}
+.gui-plan footer {
+  margin-top: auto;
+}

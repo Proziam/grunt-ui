@@ -1,0 +1,53 @@
+.gui-prose {
+  max-width: 72ch;
+  color: var(--gui-text);
+  font: 15px/1.85 var(--gui-font);
+  overflow-wrap: anywhere;
+}
+.gui-prose h1 {
+  font-size: 36px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+.gui-prose h2 {
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 32px 0 14px;
+  letter-spacing: -0.5px;
+}
+.gui-prose h3 {
+  font-size: 18px;
+  margin: 26px 0 10px;
+}
+.gui-prose > header > p {
+  color: var(--gui-muted);
+  font-size: 16px;
+}
+.gui-prose :is(ul, ol) {
+  padding-inline-start: 24px;
+}
+.gui-prose li {
+  margin: 6px 0;
+}
+.gui-prose a {
+  color: var(--gui-accent);
+  text-underline-offset: 4px;
+}
+.gui-prose blockquote {
+  margin-inline: 0;
+  padding: 6px 20px;
+  border-left: 3px solid var(--gui-border);
+  color: var(--gui-muted);
+}
+.gui-prose code {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--gui-soft);
+  font-size: 0.85em;
+}
+.gui-prose hr {
+  border: 0;
+  border-top: 1px solid var(--gui-border);
+  margin: 28px 0;
+}

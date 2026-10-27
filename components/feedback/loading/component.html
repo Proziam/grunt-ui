@@ -1,0 +1,14 @@
+{% macro render(label, skeleton=false) %}
+  <div class="gui-loading" role="status" aria-busy="true">
+    {% if skeleton %}
+      <div class="gui-loading__skeleton" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    {% else %}
+      <span class="gui-loading__spinner" aria-hidden="true"></span>
+    {% endif %}
+    <span>{{ label }}</span>
+  </div>
+{% endmacro %}

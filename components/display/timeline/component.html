@@ -1,0 +1,14 @@
+{% macro render(label, items) %}
+  <ol class="gui-timeline" aria-label="{{ label }}">
+    {% for (title, description, datetime, time_label) in items %}
+      <li>
+        <span class="gui-timeline__dot" aria-hidden="true"></span>
+        <div>
+          <strong>{{ title }}</strong>
+          <p>{{ description }}</p>
+          <time datetime="{{ datetime }}">{{ time_label }}</time>
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+{% endmacro %}

@@ -1,0 +1,13 @@
+{% import "display/key-value/component.html" as details %}
+{% macro render(title, identity, fields) %}
+  <section class="gui-contract">
+    <header>
+      <h3>{{ title }}</h3>
+      <code>{{ identity }}</code>
+    </header>
+    {{ details::render(fields) }}
+    {% if caller is defined %}
+      <div class="gui-contract__content">{{ caller() }}</div>
+    {% endif %}
+  </section>
+{% endmacro %}

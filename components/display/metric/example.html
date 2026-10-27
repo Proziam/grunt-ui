@@ -1,0 +1,7 @@
+{% import "display/metric/component.html" as metric %}
+{% import "layout/grid/component.html" as grid %}
+{% call grid::render() %}
+  {{ metric::render("Completed runs", "128", detail="this month", trend="↑ 12%", tone="success") }}
+  {{ metric::render("Work used", "2,460", detail="confirmed charges") }}
+  {{ metric::render("Awaiting review", "4", detail="your decisions needed") }}
+{% endcall %}

@@ -1,0 +1,23 @@
+{% macro render(caption, columns, rows, empty_text) %}
+  <div class="gui-table-scroll" role="region" aria-label="{{ caption }}" tabindex="0">
+    <table class="gui-table">
+      <caption>{{ caption }}</caption>
+      <thead>
+        <tr>
+          {% for column in columns %}
+            <th scope="col">{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>{{ caller(row) }}</tr>
+        {% else %}
+          <tr>
+            <td colspan="{{ columns.len() }}" class="gui-table__empty">{{ empty_text }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endmacro %}

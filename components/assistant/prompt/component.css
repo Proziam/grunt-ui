@@ -1,0 +1,25 @@
+.gui-prompt {
+  border: 1px solid var(--gui-border);
+  border-radius: 14px;
+  background: var(--gui-surface);
+  padding: 18px;
+  box-shadow: var(--gui-shadow);
+}
+.gui-prompt footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.gui-prompt footer small {
+  color: var(--gui-muted);
+  font: 11px/1.5 var(--gui-font);
+}
+.gui-prompt__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}

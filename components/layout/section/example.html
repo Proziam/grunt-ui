@@ -1,0 +1,8 @@
+{% import "layout/section/component.html" as section %}
+{% call section::render(
+  "Your connected tools",
+  description="Choose the accounts this workspace can use.",
+  eyebrow="Integrations"
+) %}
+  <p>Place a connection grid or setup prompt here.</p>
+{% endcall %}

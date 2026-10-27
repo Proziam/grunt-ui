@@ -1,0 +1,34 @@
+{% macro render(
+  kind,
+  source,
+  title,
+  caption="",
+  poster="",
+  transcript_url="",
+  transcript_label="Read transcript"
+) %}
+  <figure class="gui-media">
+    {% if kind == "image" %}
+      <img src="{{ source }}" alt="{{ title }}" loading="lazy">
+    {% else if kind == "video" %}
+      <video controls
+             preload="metadata"
+             src="{{ source }}"
+             poster="{{ poster }}"
+             aria-label="{{ title }}">
+        {% if caller is defined %}
+          {{ caller() }}
+        {% endif %}
+      </video>
+    {% else if kind == "audio" %}
+      <audio controls preload="metadata" src="{{ source }}" aria-label="{{ title }}">
+      </audio>
+    {% endif %}
+    <figcaption>
+      {{ caption }}
+      {% if !transcript_url.is_empty() %}
+        <a href="{{ transcript_url }}">{{ transcript_label }}</a>
+      {% endif %}
+    </figcaption>
+  </figure>
+{% endmacro %}

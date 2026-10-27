@@ -1,0 +1,37 @@
+.gui-stepper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--gui-muted);
+  font: 12px/1.5 var(--gui-font);
+}
+.gui-stepper li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gui-stepper__number {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--gui-border);
+  border-radius: 50%;
+  background: var(--gui-surface);
+}
+.gui-stepper [aria-current] {
+  color: var(--gui-text);
+  font-weight: 600;
+}
+.gui-stepper [aria-current] .gui-stepper__number {
+  background: var(--gui-accent);
+  border-color: var(--gui-accent);
+  color: var(--gui-accent-ink);
+}
+.gui-stepper [data-complete] .gui-stepper__number {
+  background: var(--gui-success-soft);
+  color: var(--gui-success);
+}
