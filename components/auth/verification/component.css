@@ -37,3 +37,4 @@
 .gui-verification footer {
   margin-top: 20px;
 }
+.gui-verification > .gui-verification-code { margin-bottom: 20px; }

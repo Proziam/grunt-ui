@@ -1,26 +1,13 @@
 {% import "integrations/provider-card/component.html" as provider %}
 {% import "layout/grid/component.html" as grid %}
 {% call grid::render() %}
-  {{ provider::render(
-    "Slack",
-    "S",
-    "Bring updates into the channels where your team works.",
-    "Communication",
-    "#example"
-  ) }}
-  {{ provider::render(
-    "Google Drive",
-    "G",
-    "Find and use the documents you explicitly select.",
-    "Files and knowledge",
-    "#example"
-  ) }}
-  {{ provider::render(
-    "Example CRM",
-    "C",
-    "Explore ideas for keeping customer records up to date.",
-    "Customer relationships",
-    "#example",
-    availability="Research"
-  ) }}
+  {% call provider::render("Slack", "Send workflow updates to channels and teammates.", "#example") %}
+    <img src="../images/integrations/slack.svg" width="32" height="32" alt="">
+  {% endcall %}
+  {% call provider::render("Google Drive", "Find documents and save workflow outputs.", "#example", connected=true) %}
+    <img src="../images/integrations/google-drive.svg" width="32" height="32" alt="">
+  {% endcall %}
+  {% call provider::render("Gmail", "Read emails, prepare drafts, and send approved messages.", "#example") %}
+    <img src="../images/integrations/gmail.svg" width="32" height="32" alt="">
+  {% endcall %}
 {% endcall %}

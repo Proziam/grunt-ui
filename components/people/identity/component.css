@@ -1,8 +1,9 @@
 .gui-person {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font: 13px/1.5 var(--gui-font);
+  gap: 8px;
+  min-width: 0;
+  font: 14px/20px var(--gui-font);
   color: var(--gui-text);
 }
 .gui-person > div {
@@ -10,12 +11,12 @@
   min-width: 0;
 }
 .gui-person strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 .gui-person small {
   display: block;
   color: var(--gui-muted);
-  font-size: 11px;
+  font-size: 14px;
   overflow-wrap: anywhere;
 }
 .gui-person__role {

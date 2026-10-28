@@ -1,19 +1,32 @@
+{% import "display/icon/component.html" as icon %}
+{% import "actions/button/component.html" as button %}
 {% macro render(
   value,
   label,
   copy_label="Copy",
   success_text="Copied",
-  error_text="Copy unavailable; select the value instead."
+  error_text="Copy unavailable; select the value instead.",
+  icon_only=false,
+  inset=false,
+  label_visible=true,
+  icon_image="../../images/modals/icon-copy.svg"
 ) %}
   <div class="gui-copy"
+       {% if icon_only %} data-icon-only{% endif %}{% if inset %} data-inset{% endif %}
        data-gui-copy
        data-success="{{ success_text }}"
        data-error="{{ error_text }}">
     <label>
-      <span class="gui-copy__label">{{ label }}</span>
+      <span class="{% if label_visible %}gui-copy__label{% else %}gui-sr-only{% endif %}">{{ label }}</span>
       <input readonly value="{{ value }}">
     </label>
-    <button type="button" data-copy-button>{{ copy_label }}</button>
+    <button type="button" data-copy-button{% if icon_only %} aria-label="{{ copy_label }}"{% endif %}>{% if icon_only %}{{ icon::render("copy", image=icon_image) }}{% else %}{{ copy_label }}{% endif %}</button>
+    <span class="gui-copy__status" role="status"></span>
+  </div>
+{% endmacro %}
+{% macro button(value, label="Copy link", success_text="Link copied", error_text="Copy unavailable. Link: ") %}
+  <div class="gui-copy-action" data-gui-copy data-copy-value="{{ value }}" data-success="{{ success_text }}" data-error="{{ error_text }}">
+    <button class="gui-button" type="button" data-copy-button>{{ icon::render("copy", image="../../images/modals/icon-copy.svg") }}{{ label }}</button>
     <span class="gui-copy__status" role="status"></span>
   </div>
 {% endmacro %}

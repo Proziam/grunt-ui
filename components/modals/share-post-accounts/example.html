@@ -1,0 +1,2 @@
+{% import "modals/share-post-accounts/component.html" as modal %}
+{{ modal::render("share-accounts-example", [("x", "Share on X", "@yourcompany", true), ("medium", "Share on Medium", "yourcompany.medium.com", true), ("facebook", "Share on Facebook", "@yourcompany", false)], preview=true) }}

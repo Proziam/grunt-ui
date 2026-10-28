@@ -1,3 +1,4 @@
+{% import "display/icon/component.html" as icon %}
 {% macro render(
   label,
   kind="secondary",
@@ -6,18 +7,23 @@
   disabled=false,
   busy=false,
   name="",
-  value=""
+  value="",
+  leading_icon="",
+  icon_image="",
+  action=""
 ) %}
   <button class="gui-button"
           data-kind="{{ kind }}"
           data-size="{{ size }}"
-          type="{{ type }}"
+           type="{{ type }}"
+           {% if !action.is_empty() %} data-gui-modal-action="{{ action }}"{% endif %}
           {% if disabled || busy %} disabled{% endif %}
           {% if busy %} aria-busy="true"{% endif %}
           {% if !name.is_empty() %} name="{{ name }}" value="{{ value }}"{% endif %}>
     {% if busy %}
       <span class="gui-button__spinner" aria-hidden="true"></span>
     {% endif %}
+    {% if !leading_icon.is_empty() || !icon_image.is_empty() %}{{ icon::render(leading_icon, image=icon_image) }}{% endif %}
     {{ label }}
   </button>
 {% endmacro %}

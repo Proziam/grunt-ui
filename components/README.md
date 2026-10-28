@@ -8,11 +8,12 @@ beside them. [Run the visual catalog](../README.md#browse-the-library) to try th
 | --- | --- |
 | [Actions](actions/) | button, icon-button, link, button-group, copy-value |
 | [Layout](layout/) | app-shell, page-header, section, card, stack, grid, split-pane, toolbar, prose, scroll-region, divider |
-| [Forms](forms/) | input, textarea, number, select, autocomplete, choice, switch, range, date-range, file-picker, secret, fieldset, selectable-card, repeating-list |
+| [Forms](forms/) | input, textarea, number, select, person-select, autocomplete, choice, switch, range, date-range, calendar, verification-code, file-picker, secret, fieldset, selectable-card, repeating-list |
 | [Navigation](navigation/) | menu, breadcrumbs, tabs, disclosure, pagination, stepper |
 | [Overlays](overlays/) | dialog/drawer, popover, tooltip, command-palette |
+| [Modals](modals/) | modal-template and [22 purpose-named dialogs](modals/README.md) |
 | [Collections](collections/) | list, table, filter-bar, chip, tree |
-| [Display](display/) | avatar, badge, icon, metric, key-value, code, progress, timeline, keyboard-shortcut |
+| [Display](display/) | avatar, badge, icon, feature-icon, dashboard-preview, metric, key-value, code, progress, timeline, keyboard-shortcut |
 | [Feedback](feedback/) | alert, empty-state, loading, save-status, draft-bar, toast |
 | [Integrations](integrations/) | logo-tile, provider-card, connection-card, connection-prompt, access-summary, resource-picker, showcase |
 | [Workflows](workflows/) | node, canvas, summary-card, setup-checklist, settings-panel, schedule, input-binding |

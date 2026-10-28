@@ -1,9 +1,11 @@
 .gui-textarea {
   color: var(--gui-text);
-  font: 13px/1.5 var(--gui-font);
+  font: 14px/20px var(--gui-font);
 }
 .gui-textarea label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   margin-bottom: 6px;
   font-weight: 500;
 }
@@ -11,14 +13,15 @@
   box-sizing: border-box;
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--gui-border);
+  border: 1px solid var(--gui-control-border);
   border-radius: var(--gui-control-radius);
   background: var(--gui-surface);
   color: var(--gui-text);
   resize: vertical;
-  font: inherit;
+  font: 16px/24px var(--gui-font);
   box-shadow: var(--gui-shadow);
 }
+.gui-textarea textarea::placeholder { color: var(--gui-placeholder); opacity: 1; }
 .gui-textarea textarea:focus-visible {
   outline: 3px solid var(--gui-focus);
   outline-offset: 2px;

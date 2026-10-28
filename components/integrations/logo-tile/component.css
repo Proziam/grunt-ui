@@ -11,7 +11,7 @@
   box-shadow: var(--gui-shadow);
   font: 700 17px/1 var(--gui-font);
 }
-.gui-logo-tile img {
+.gui-logo-tile > img {
   width: 26px;
   height: 26px;
   object-fit: contain;
@@ -22,7 +22,9 @@
   border-radius: 17px;
   font-size: 24px;
 }
-.gui-logo-tile[data-size='large'] img {
+.gui-logo-tile[data-size='large'] > img {
   width: 38px;
   height: 38px;
 }
+.gui-logo-tile[data-size='modal'] { width: 56px; height: 56px; border-color: var(--gui-control-border); border-radius: 14px; }
+.gui-logo-tile__inset { position: relative; display: block; width: 48px; height: 48px; border-radius: 10px; background: var(--gui-inverse-surface); overflow: hidden; }

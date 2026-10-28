@@ -1,0 +1,24 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "display/dashboard-preview/component.html" as dashboard %}
+{% import "navigation/stepper/component.html" as stepper %}
+{% import "actions/button/component.html" as button %}
+{% macro render(id, slides, preview=false) %}
+  {% call modal::surface(id, "Dashboard tour", preview=preview, close=false) %}
+    <div class="gui-dashboard-tour" data-gui-tour>
+      {{ dashboard::render() }}
+      <div class="gui-dashboard-tour__slides" aria-live="polite">
+        {% for (title, description) in slides %}
+          <section data-tour-slide{% if !loop.first %} hidden{% endif %}>
+            <h2{% if loop.first %} id="{{ id }}-title"{% endif %}>{{ title }}</h2><p>{{ description }}</p>
+          </section>
+        {% endfor %}
+      </div>
+      {{ stepper::dots("Tour slides", slides.len()) }}
+      <footer class="gui-modal__actions">
+        {{ button::render("Skip", action="cancel") }}
+        <button class="gui-button" type="button" data-kind="primary" data-tour-next>Next</button>
+      </footer>
+      <button type="submit" name="action" value="finish-tour" hidden>Finish tour</button>
+    </div>
+  {% endcall %}
+{% endmacro %}

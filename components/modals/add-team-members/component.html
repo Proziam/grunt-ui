@@ -1,0 +1,24 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "modals/team-welcome/component.html" as team %}
+{% import "people/identity/component.html" as person %}
+{% import "forms/choice/component.html" as choice %}
+{% macro render(id, portraits, members, title="Add your team members", description="You've created a new project! Invite colleagues to collaborate on this project.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview, close=false, divided=true) %}
+    <div class="gui-modal__content">
+      <div class="gui-modal__center">
+        {{ team::portraits(portraits) }}
+        {{ modal::heading(id, title, description, centered=true) }}
+      </div>
+      <fieldset class="gui-add-team-members"><legend class="gui-sr-only">Choose team members</legend>
+        {% for (key, name, handle, initials, image, role, checked) in members %}
+          <label class="gui-add-team-members__row">
+            {{ choice::control("members", key, checked=checked, label="Select " ~ name) }}
+            {{ person::render(name, initials, detail=handle, image=image) }}
+            <span class="gui-add-team-members__role">{{ role }}</span>
+          </label>
+        {% endfor %}
+      </fieldset>
+    </div>
+    {{ modal::actions(confirm="Add to project", confirm_action="add-members") }}
+  {% endcall %}
+{% endmacro %}

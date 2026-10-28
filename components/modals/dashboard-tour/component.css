@@ -1,0 +1,5 @@
+.gui-dashboard-tour { display: grid; gap: 20px; }
+.gui-dashboard-tour__slides { margin-top: 6px; text-align: center; }
+.gui-dashboard-tour__slides h2 { margin: 0 0 4px; font: 600 16px/20px var(--gui-font); }
+.gui-dashboard-tour__slides p { margin: 0; color: var(--gui-muted); }
+.gui-dashboard-tour .gui-modal__actions { margin-top: 12px; }

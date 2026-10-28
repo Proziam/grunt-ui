@@ -1,19 +1,24 @@
+{% import "display/icon/component.html" as icon %}
 {% macro render(
   label,
   name,
   values,
   add_label="Add item",
   remove_label="Remove item",
-  item_label="Value"
+  item_label="Value",
+  type="text",
+  placeholder="",
+  compact=false
 ) %}
-  <fieldset class="gui-repeating-list" data-gui-repeating>
+  <fieldset class="gui-repeating-list" data-gui-repeating{% if compact %} data-compact{% endif %}>
     <legend>{{ label }}</legend>
     <div data-repeating-items>
       {% for value in values %}
         <div class="gui-repeating-list__row">
           <label>
             <span class="gui-sr-only">{{ item_label }}</span>
-            <input name="{{ name }}" value="{{ value }}">
+             {% if compact %}{{ icon::render("mail", image="../../images/modals/icon-mail.svg") }}{% endif %}
+             <input name="{{ name }}" value="{{ value }}" type="{{ type }}" placeholder="{{ placeholder }}">
           </label>
           <button type="button" data-remove-item aria-label="{{ remove_label }}">×</button>
         </div>
@@ -23,11 +28,12 @@
       <div class="gui-repeating-list__row">
         <label>
           <span class="gui-sr-only">{{ item_label }}</span>
-          <input name="{{ name }}">
+           {% if compact %}{{ icon::render("mail", image="../../images/modals/icon-mail.svg") }}{% endif %}
+           <input name="{{ name }}" type="{{ type }}" placeholder="{{ placeholder }}">
         </label>
         <button type="button" data-remove-item aria-label="{{ remove_label }}">×</button>
       </div>
     </template>
-    <button type="button" data-add-item>{{ add_label }}</button>
+    <button type="button" data-add-item>{% if compact %}{{ icon::render("plus", image="../../images/modals/icon-plus.svg") }}{% endif %}{{ add_label }}</button>
   </fieldset>
 {% endmacro %}

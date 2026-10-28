@@ -3,7 +3,7 @@
   font: 500 14px/1.5 var(--gui-font);
   text-underline-offset: 4px;
 }
-.gui-link:hover {
+.gui-link:not([aria-disabled='true']):hover:not(:active) {
   color: var(--gui-accent-hover);
 }
 .gui-link:focus-visible {
@@ -21,4 +21,8 @@
   color: var(--gui-text);
   box-shadow: var(--gui-shadow);
   text-decoration: none;
+}
+.gui-link[data-kind='button']:not([aria-disabled='true']):hover:not(:active) {
+  background: var(--gui-surface-hover);
+  color: var(--gui-text);
 }

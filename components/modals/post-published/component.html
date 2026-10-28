@@ -1,0 +1,10 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% macro heading(id, title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", image="../../images/modals/icon-success.svg") %}
+  {{ modal::heading(id, title, description, image=image) }}
+{% endmacro %}
+{% macro render(id, title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">{{ heading(id, title, description) }}</div>
+    {{ modal::actions() }}
+  {% endcall %}
+{% endmacro %}

@@ -35,3 +35,8 @@
   background: var(--gui-success-soft);
   color: var(--gui-success);
 }
+.gui-step-dots { display: flex; align-items: center; justify-content: center; gap: 2px; height: 10px; }
+.gui-step-dots > button { display: grid; place-items: center; width: 24px; height: 32px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.gui-step-dots > button > span { width: 10px; height: 10px; border-radius: 50%; background: var(--gui-border); }
+.gui-step-dots > button[aria-current] > span { background: var(--gui-accent); }
+.gui-step-dots > button:focus-visible { outline: 2px solid var(--gui-focus); outline-offset: 1px; border-radius: 6px; }

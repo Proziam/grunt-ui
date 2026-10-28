@@ -12,6 +12,7 @@ fn directories(path: &Path) -> Result<Vec<std::path::PathBuf>, Box<dyn Error>> {
 fn main() -> Result<(), Box<dyn Error>> {
     println!("cargo:rerun-if-changed=components");
     println!("cargo:rerun-if-changed=foundation");
+    println!("cargo:rerun-if-changed=images");
     println!("cargo:rerun-if-changed=catalog");
     println!("cargo:rerun-if-changed=askama.toml");
     let root = env::current_dir()?;
@@ -105,6 +106,49 @@ fn main() -> Result<(), Box<dyn Error>> {
             )?;
             count += 1;
         }
+    }
+    registry.push_str("];\n");
+    registry.push_str("pub static IMAGES: &[(&str, &str)] = &[\n");
+    let mut pending = vec![root.join("images")];
+    let mut images = Vec::new();
+    let mut rasters = Vec::new();
+    while let Some(directory) = pending.pop() {
+        for entry in fs::read_dir(directory)? {
+            let path = entry?.path();
+            if path.is_dir() {
+                pending.push(path);
+            } else if path.extension().is_some_and(|extension| extension == "svg") {
+                images.push(path);
+            } else if path.extension().is_some_and(|extension| extension == "png") {
+                rasters.push(path);
+            }
+        }
+    }
+    images.sort();
+    for path in images {
+        let name = path
+            .strip_prefix(&root)?
+            .to_string_lossy()
+            .replace('\\', "/");
+        writeln!(
+            registry,
+            "({name:?}, include_str!({:?})),",
+            path.to_string_lossy()
+        )?;
+    }
+    registry.push_str("];\n");
+    registry.push_str("pub static RASTERS: &[(&str, &[u8])] = &[\n");
+    rasters.sort();
+    for path in rasters {
+        let name = path
+            .strip_prefix(&root)?
+            .to_string_lossy()
+            .replace('\\', "/");
+        writeln!(
+            registry,
+            "({name:?}, include_bytes!({:?})),",
+            path.to_string_lossy()
+        )?;
     }
     registry.push_str("];\n");
     dispatch.push_str("_ => Err(askama::Error::Custom(Box::new(std::io::Error::new(std::io::ErrorKind::NotFound, \"Unknown component\")))) } }\n");

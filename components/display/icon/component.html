@@ -1,4 +1,7 @@
-{% macro render(name, label="", size=20) %}
+{% macro render(name, label="", size=20, image="") %}
+  {% if !image.is_empty() %}
+  <img class="gui-icon" src="{{ image }}" alt="{{ label }}"{% if label.is_empty() %} aria-hidden="true"{% endif %}>
+  {% else %}
   <svg class="gui-icon"
        width="{{ size }}"
        height="{{ size }}"
@@ -41,5 +44,6 @@
     <circle cx="12" cy="12" r="9" />
     <path d="M12 8h.01M12 11v6" />
 {% endmatch %}
-</svg>
+  </svg>
+  {% endif %}
 {% endmacro %}

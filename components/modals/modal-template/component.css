@@ -1,0 +1,86 @@
+.gui-modal-host { width: 100%; }
+.gui-modal {
+  container: gui-modal / inline-size;
+  position: relative;
+  width: min(400px, calc(100vw - 32px));
+  max-width: 100%;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow-raised);
+  font: 14px/20px var(--gui-font);
+  overflow: auto;
+}
+.gui-modal::backdrop { background: color-mix(in srgb, var(--gui-text) 40%, transparent); }
+.gui-modal[data-preview] { width: 400px; max-height: none; overflow: visible; }
+.gui-modal[data-size='assistant'] { width: 480px; }
+.gui-modal[data-size='verification'] { width: 408px; }
+.gui-modal[data-size='authentication'] { width: 512px; }
+.gui-modal[data-size='experience'] { width: 640px; }
+.gui-modal[data-size='integration'] { width: 440px; }
+.gui-modal[data-size='calendar'] { width: 328px; }
+.gui-modal:not([data-preview]) { max-width: calc(100vw - 32px); }
+.gui-modal__form { display: flex; flex-direction: column; gap: 32px; margin: 0; padding: 24px; }
+.gui-modal__content { display: grid; gap: 20px; min-width: 0; }
+.gui-modal__heading { display: grid; justify-items: start; gap: 18px; }
+.gui-modal__heading[data-centered] { justify-items: center; text-align: center; }
+.gui-modal__copy { display: grid; gap: 4px; min-width: 0; width: 100%; }
+.gui-modal__copy h2 { margin: 0; font: 600 16px/20px var(--gui-font); }
+.gui-modal__copy p { margin: 0; color: var(--gui-muted); }
+.gui-modal__copy strong { font-weight: 600; }
+.gui-modal [class*='__heading'] { overflow-wrap: anywhere; }
+.gui-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--gui-control-radius);
+  background: transparent;
+  color: var(--gui-muted);
+  cursor: pointer;
+}
+.gui-modal__close:hover:not(:active) { background: var(--gui-surface-hover); }
+.gui-modal :focus-visible { outline: 3px solid var(--gui-focus); outline-offset: 2px; }
+.gui-modal__actions { display: flex; gap: 12px; min-width: 0; }
+.gui-modal__actions > .gui-button { flex: 1; }
+.gui-modal__actions[data-align='end'] { justify-content: flex-end; }
+.gui-modal__actions[data-align='between'] { justify-content: space-between; }
+.gui-modal__actions:is([data-align='end'], [data-align='between']) > .gui-button { flex: initial; }
+.gui-modal[data-divided] .gui-modal__actions { margin: 0 -24px -24px; padding: 24px; border-top: 1px solid var(--gui-border); }
+.gui-modal__link { color: var(--gui-modal-link); text-decoration: none; font-weight: 600; }
+.gui-modal__text-action { padding: 0; border: 0; background: transparent; color: var(--gui-modal-link); font: 600 14px/20px var(--gui-font); cursor: pointer; }
+.gui-modal__text-action:hover { text-decoration: underline; }
+.gui-modal__options { display: grid; gap: 12px; margin: 0; padding: 0; border: 0; }
+.gui-modal__options .gui-choice { padding: 0; gap: 8px; }
+.gui-modal__row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.gui-modal__row > .gui-person { flex: 1; }
+.gui-modal__row > .gui-choice { padding: 0; }
+.gui-modal__list { display: grid; gap: 12px; }
+.gui-modal__center { display: grid; justify-items: center; gap: 20px; text-align: center; }
+.gui-modal__note { margin: 0; color: var(--gui-muted); }
+.gui-modal__resend { padding: 0; border: 0; background: transparent; color: inherit; text-decoration: underline; font: inherit; cursor: pointer; }
+.gui-modal__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.gui-modal__stack {
+  display: grid;
+  gap: 16px;
+}
+.gui-modal [hidden], .gui-modal-host > [hidden] { display: none; }
+@container gui-modal (max-width: 300px) {
+  .gui-modal__actions { flex-direction: column; align-items: stretch; }
+  .gui-modal__actions > .gui-button,
+  .gui-modal__actions > .gui-copy-action { width: 100%; flex: none; }
+}
+@media (max-width: 480px) {
+  .gui-modal__grid { grid-template-columns: 1fr; }
+  .gui-modal__actions { flex-wrap: wrap; }
+  .gui-modal__actions > .gui-button { min-width: 90px; }
+}

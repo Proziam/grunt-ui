@@ -6,7 +6,7 @@ rust-version = "1.98"
 description = "Readable, separable HTML-first components for Grunt"
 license = "MIT"
 repository = "https://github.com/Proziam/grunt-ui"
-include = ["src/**", "components/**", "foundation/**", "catalog/**", "docs/**", "build.rs", "askama.toml", "Cargo.toml", "README.md", "LICENSE"]
+include = ["src/**", "components/**", "foundation/**", "images/**", "catalog/**", "docs/**", "build.rs", "askama.toml", "Cargo.toml", "README.md", "LICENSE"]
 
 [features]
 default = []

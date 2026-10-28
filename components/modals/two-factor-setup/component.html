@@ -1,0 +1,18 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "forms/verification-code/component.html" as code %}
+{% macro render(id, qr_image, title="Set up two-factor authentication", description="To authorize transactions, please scan this QR code with your Google Authenticator App and enter the verification code below.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview, size="authentication") %}
+    <div class="gui-modal__content">
+      {{ modal::heading(id, title, description, image="../../images/modals/icon-lock.svg") }}
+      <div class="gui-two-factor__scanner">
+        <div class="gui-two-factor__corners"><img src="../../images/modals/scan-corners.svg" alt=""></div>
+        <div class="gui-two-factor__qr"><img src="{{ qr_image }}" alt="Authenticator setup QR code"></div>
+      </div>
+      <div class="gui-two-factor__entry">
+        {{ code::render(id ~ "-code", "code", digits=6) }}
+        <p class="gui-modal__note">Didn't get a code? <button class="gui-modal__resend" type="button" data-gui-modal-action="resend">Click to resend.</button></p>
+      </div>
+    </div>
+    {{ modal::actions(confirm_action="verify-two-factor") }}
+  {% endcall %}
+{% endmacro %}

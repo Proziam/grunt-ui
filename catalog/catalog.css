@@ -1,3 +1,10 @@
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('foundation/fonts/InterVariable.woff2') format('woff2');
+}
 * {
   box-sizing: border-box;
 }
@@ -75,6 +82,9 @@ input {
   color: var(--gui-text);
   box-shadow: var(--gui-shadow);
   cursor: pointer;
+}
+.catalog-header button:enabled:hover:not(:active) {
+  background: var(--gui-surface-hover);
 }
 .catalog-main {
   max-width: 1280px;
@@ -298,6 +308,73 @@ input {
 .catalog-preview > * + * {
   margin-top: 16px;
 }
+.gui-preview-stage {
+  min-width: 0;
+  border-radius: 14px;
+  background: var(--gui-soft);
+}
+.gui-preview-canvas {
+  position: relative;
+  max-width: 100%;
+  border-radius: 14px;
+  box-shadow: var(--gui-shadow);
+}
+.gui-preview-canvas iframe {
+  display: block;
+  width: 100%;
+  min-height: 160px;
+  border: 1px solid var(--gui-border);
+  border-radius: inherit;
+  background: var(--gui-surface);
+}
+.gui-preview-handle {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 0 14px 14px 0;
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+  background: var(--gui-soft);
+  border: 1px solid var(--gui-border);
+}
+.gui-preview-handle::after {
+  content: '';
+  width: 4px;
+  height: 32px;
+  border-radius: 2px;
+  background: var(--gui-muted);
+}
+.gui-preview-handle:hover::after,
+.gui-preview-handle:focus-visible::after,
+.gui-preview-canvas[data-resizing] .gui-preview-handle::after {
+  background: var(--gui-accent);
+}
+.gui-preview-canvas[data-resizing] iframe {
+  pointer-events: none;
+}
+.gui-preview-size {
+  display: block;
+  margin-top: 8px;
+  color: var(--gui-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.gui-preview-document {
+  display: flow-root;
+  padding: 36px;
+  padding-right: 40px;
+  min-height: 158px;
+  background: var(--gui-surface);
+}
+.gui-preview-document > * + * {
+  margin-top: 16px;
+}
+.gui-preview-document .catalog-feedback:empty {
+  display: none;
+}
 .catalog-docs {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -359,6 +436,10 @@ input {
   }
   .catalog-preview {
     padding: 20px;
+  }
+  .gui-preview-document {
+    padding: 20px;
+    padding-right: 32px;
   }
   .catalog-docs {
     grid-template-columns: 1fr;

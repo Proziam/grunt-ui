@@ -1,5 +1,7 @@
 {% import "forms/textarea/component.html" as textarea %}
 {% import "actions/button/component.html" as button %}
+{% import "display/avatar/component.html" as avatar %}
+{% import "display/icon/component.html" as icon %}
 {% macro render(
   id,
   action,
@@ -21,4 +23,21 @@
       <div class="gui-prompt__suggestions">{{ caller() }}</div>
     {% endif %}
   </form>
+{% endmacro %}
+
+{% macro composer(id, user, initials, image="", placeholder="Ask me anything...") %}
+  <div class="gui-prompt-composer" data-gui-prompt-composer>
+    <div class="gui-prompt-composer__entry">
+      <label class="gui-sr-only" for="{{ id }}">Message</label>
+      <textarea id="{{ id }}" name="prompt" rows="4" placeholder="{{ placeholder }}" required data-prompt-input></textarea>
+      <button type="button" class="gui-prompt-composer__voice" aria-label="Use voice input" data-gui-modal-action="voice-input">{{ icon::render("mic", image="../../images/modals/icon-mic.svg") }}</button>
+    </div>
+    <div class="gui-prompt-composer__tools">
+      <button type="button" class="gui-prompt-composer__tool" data-gui-modal-action="switch-account">{{ avatar::render(user, initials, size="tiny", image=image) }}{{ user }}{{ icon::render("chevron", image="../../images/modals/icon-chevron.svg") }}</button>
+      <div class="gui-prompt-composer__spacer"></div>
+      <details class="gui-prompt-composer__shortcuts"><summary>{{ icon::render("slash", image="../../images/modals/icon-slash.svg") }}Shortcuts</summary><p>Ctrl + Enter (⌘ + Enter on Mac) sends your message.</p></details>
+      <label class="gui-prompt-composer__tool gui-prompt-composer__attach">{{ icon::render("paperclip", image="../../images/modals/icon-paperclip.svg") }}<span data-attachment-label>Attach</span><input type="file" name="attachment" class="gui-sr-only" aria-label="Attach a file"></label>
+    </div>
+    <div class="gui-prompt-composer__send" data-prompt-send hidden>{{ button::render("Send request", kind="primary", type="submit", name="action", value="prompt") }}</div>
+  </div>
 {% endmacro %}

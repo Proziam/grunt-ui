@@ -1,0 +1,20 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "people/identity/component.html" as person %}
+{% import "forms/person-select/component.html" as select %}
+{% macro render(id, people, members, title="Share with people", description="The following users have access to this project:", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">
+      {{ modal::heading(id, title, description, image="../../images/modals/icon-userplus.svg") }}
+      <div class="gui-modal__list">
+        {% for (key, name, email, initials, image) in people %}
+          <div class="gui-modal__row">
+            {{ person::render(name, initials, detail=email, image=image) }}
+            <button class="gui-project-access__remove gui-modal__text-action" type="button" data-gui-modal-action="remove-person" value="{{ key }}" aria-label="Remove {{ name }}">Remove</button>
+          </div>
+        {% endfor %}
+      </div>
+      {{ select::render(id ~ "-member", "member", "Team member", members) }}
+    </div>
+    {{ modal::actions(confirm="Done", confirm_action="update-access") }}
+  {% endcall %}
+{% endmacro %}

@@ -1,0 +1,16 @@
+.gui-person-select { min-width: 0; font: 14px/20px var(--gui-font); color: var(--gui-text); }
+.gui-person-select__label { display: block; margin-bottom: 6px; font-weight: 500; }
+.gui-person-select details { position: relative; }
+.gui-person-select summary { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 7px 12px; border: 1px solid var(--gui-control-border); border-radius: var(--gui-control-radius); box-shadow: var(--gui-shadow); background: var(--gui-surface); font-size: 16px; line-height: 24px; cursor: pointer; list-style: none; }
+.gui-person-select summary::-webkit-details-marker { display: none; }
+.gui-person-select summary > span { flex: 1; min-width: 0; }
+.gui-person-select details[open] summary { outline: 2px solid var(--gui-focus); outline-offset: -2px; }
+.gui-person-select__menu { position: absolute; bottom: calc(100% + 4px); inset-inline: 0; z-index: 3; display: grid; gap: 2px; max-height: 256px; padding: 6px; overflow-y: auto; border: 1px solid var(--gui-control-border); border-radius: var(--gui-control-radius); background: var(--gui-surface); box-shadow: var(--gui-shadow-raised); }
+.gui-person-select__option { position: relative; display: flex; align-items: center; gap: 8px; padding: 8px; min-height: 40px; border-radius: 5px; font-size: 16px; line-height: 24px; cursor: pointer; }
+.gui-person-select__option > input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.gui-person-select__option > span:not(.gui-person-select__check) { flex: 1; }
+.gui-person-select__option:has(:checked), .gui-person-select__option:hover { background: var(--gui-soft); }
+.gui-person-select__option:has(:focus-visible) { outline: 2px solid var(--gui-focus); outline-offset: -2px; }
+.gui-person-select__check { visibility: hidden; color: var(--gui-accent); }
+.gui-person-select__option:has(:checked) .gui-person-select__check { visibility: visible; }
+.gui-person-select summary:focus-visible { outline: 3px solid var(--gui-focus); outline-offset: 2px; }

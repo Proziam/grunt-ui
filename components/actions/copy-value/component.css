@@ -35,6 +35,9 @@
   font: inherit;
   cursor: pointer;
 }
+.gui-copy button:enabled:hover:not(:active) {
+  background: var(--gui-surface-hover);
+}
 .gui-copy :focus-visible {
   outline: 3px solid var(--gui-focus);
   outline-offset: 2px;
@@ -43,3 +46,15 @@
   flex-basis: 100%;
   color: var(--gui-muted);
 }
+.gui-copy__status:empty { display: none; }
+.gui-copy-action > .gui-button { width: 100%; }
+.gui-copy-action > .gui-copy__status { display: block; margin-top: 8px; font: 12px/18px var(--gui-font); overflow-wrap: anywhere; }
+.gui-copy-action > .gui-copy__status:empty { display: none; }
+.gui-copy[data-icon-only] { gap: 12px; font-size: 14px; line-height: 20px; }
+.gui-copy[data-icon-only] label { min-width: 0; }
+.gui-copy[data-icon-only] .gui-copy__label { color: var(--gui-text); font-weight: 500; }
+.gui-copy[data-icon-only] input { height: 40px; background: var(--gui-surface); border-color: var(--gui-control-border); font: 16px/24px var(--gui-font); }
+.gui-copy[data-icon-only] button { display: grid; place-items: center; width: 32px; height: 40px; padding: 0; border: 0; background: transparent; }
+.gui-copy[data-icon-only] button:hover:not(:active) { background: var(--gui-surface-hover); }
+.gui-copy[data-inset] { padding: 2px 8px; border: 1px solid var(--gui-border); border-radius: var(--gui-control-radius); background: var(--gui-soft); }
+.gui-copy[data-inset] input { padding: 8px 4px; border: 0; background: transparent; font-size: 14px; font-weight: 600; }

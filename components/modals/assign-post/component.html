@@ -1,0 +1,14 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "modals/post-published/component.html" as post %}
+{% import "forms/person-select/component.html" as select %}
+{% macro render(id, members, value="", title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", preview=false, expanded=false) %}
+  <div class="gui-assign-post"{% if expanded %} data-expanded{% endif %}>
+    {% call modal::surface(id, title, preview=preview) %}
+      <div class="gui-modal__content">
+        {{ post::heading(id, title, description) }}
+        {{ select::render(id ~ "-member", "member", "Team member", members, value=value, expanded=expanded) }}
+      </div>
+      {{ modal::actions(confirm_action="assign") }}
+    {% endcall %}
+  </div>
+{% endmacro %}

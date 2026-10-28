@@ -1,0 +1,38 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="32" fill="#1E1E1E"/>
+<g id="Grunt / Integrations">
+<path d="M-775 -831C-775 -832.105 -774.105 -833 -773 -833H2323C2324.1 -833 2325 -832.105 2325 -831V1465C2325 1466.1 2324.1 1467 2323 1467H-773C-774.105 1467 -775 1466.1 -775 1465V-831Z" fill="#444444"/>
+<path d="M-773 -833V-832H2323V-833V-834H-773V-833ZM2325 -831H2324V1465H2325H2326V-831H2325ZM2323 1467V1466H-773V1467V1468H2323V1467ZM-775 1465H-774V-831H-775H-776V1465H-775ZM-773 1467V1466C-773.552 1466 -774 1465.55 -774 1465H-775H-776C-776 1466.66 -774.657 1468 -773 1468V1467ZM2325 1465H2324C2324 1465.55 2323.55 1466 2323 1466V1467V1468C2324.66 1468 2326 1466.66 2326 1465H2325ZM2323 -833V-832C2323.55 -832 2324 -831.552 2324 -831H2325H2326C2326 -832.657 2324.66 -834 2323 -834V-833ZM-773 -833V-834C-774.657 -834 -776 -832.657 -776 -831H-775H-774C-774 -831.552 -773.552 -832 -773 -832V-833Z" fill="white" fill-opacity="0.1"/>
+<g id="Integrations / Desktop / Light">
+<rect width="1280" height="1120" transform="translate(-775 -793)" fill="white"/>
+<g id="Catalog / Two columns">
+<g id="Row 5">
+<g id="Jira">
+<rect x="-16.5" y="-20.5" width="505" height="147" rx="7.5" fill="white"/>
+<rect x="-16.5" y="-20.5" width="505" height="147" rx="7.5" stroke="#E7E7EC"/>
+<g id="Brand">
+<g id="Jira logo" clip-path="url(#clip0_0_1)">
+<path id="Vector" d="M30.6625 0.462524H15.2438C15.2438 4.18752 18.3625 7.21252 22.1938 7.21252H25.0438V9.85003C25.0438 13.575 28.1625 16.6 31.9938 16.6V1.75627C32 1.02502 31.4188 0.462524 30.6625 0.462524Z" fill="#2684FF"/>
+<path id="Vector_2" d="M23.0438 7.90625H7.61877C7.61877 11.6312 10.7375 14.6562 14.5688 14.6562H17.4188V17.3375C17.4188 21.0625 20.5375 24.0875 24.3688 24.0875V9.20625C24.3813 8.5125 23.8 7.90625 23.0438 7.90625Z" fill="url(#paint0_linear_0_1)"/>
+<path id="Vector_3" d="M15.4187 15.3937H0C0 19.1187 3.11875 22.1437 6.95 22.1437H9.8V24.7812C9.8 28.5062 12.9187 31.5312 16.75 31.5312V16.6937C16.7563 15.9562 16.1313 15.3937 15.4187 15.3937Z" fill="url(#paint1_linear_0_1)"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_1" x1="23.806" y1="7.71194" x2="17.4466" y2="14.4641" gradientUnits="userSpaceOnUse">
+<stop offset="0.176" stop-color="#0052CC"/>
+<stop offset="1" stop-color="#2684FF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_1" x1="16.6228" y1="15.2087" x2="9.25731" y2="22.587" gradientUnits="userSpaceOnUse">
+<stop offset="0.176" stop-color="#0052CC"/>
+<stop offset="1" stop-color="#2684FF"/>
+</linearGradient>
+<clipPath id="clip0_0_1">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>

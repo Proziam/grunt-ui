@@ -1,0 +1,6 @@
+{% macro render(members="1,210", customers="2,420", growth="40%") %}
+  <div class="gui-dashboard-preview" role="img" aria-label="Dashboard illustration: {{ members }} members, {{ customers }} customers, {{ growth }} growth">
+    <div class="gui-dashboard-preview__card" data-card="members"><strong>Members</strong><b>{{ members }}</b><span aria-hidden="true">⋮</span><img src="../../images/modals/trend-chart.svg" alt=""></div>
+    <div class="gui-dashboard-preview__card" data-card="customers"><strong>Total customers</strong><b>{{ customers }}</b><span aria-hidden="true">⋮</span><img src="../../images/modals/trend-chart1.svg" alt=""><small><em>↑ {{ growth }}</em> &nbsp;vs last month</small></div>
+  </div>
+{% endmacro %}

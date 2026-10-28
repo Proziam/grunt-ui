@@ -1,3 +1,4 @@
+{% import "display/icon/component.html" as icon %}
 {% macro render(
   id,
   name,
@@ -10,15 +11,23 @@
   required=false,
   disabled=false,
   readonly=false,
-  autocomplete="off"
+  autocomplete="off",
+  leading_icon="",
+  icon_image="",
+  prefix="",
+  required_indicator=true,
+  suffix=""
 ) %}
   <div class="gui-input"{% if !error.is_empty() %} data-invalid{% endif %}>
     <label for="{{ id }}">
       {{ label }}
-      {% if required %}
+      {% if required && required_indicator %}
         <span aria-hidden="true">*</span>
       {% endif %}
     </label>
+    <div class="gui-input__control">
+    {% if !prefix.is_empty() %}<span class="gui-input__prefix">{{ prefix }}</span>{% endif %}
+    {% if !leading_icon.is_empty() || !icon_image.is_empty() %}{{ icon::render(leading_icon, image=icon_image) }}{% endif %}
     <input id="{{ id }}"
            name="{{ name }}"
            type="{{ type }}"
@@ -29,6 +38,8 @@
            {% if disabled %} disabled{% endif %}
            {% if readonly %} readonly{% endif %}
            {% if !error.is_empty() %} aria-invalid="true" aria-describedby="{{ id }}-error"{% else if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>
+    {% if !suffix.is_empty() %}<kbd class="gui-input__suffix">{{ suffix }}</kbd>{% endif %}
+    </div>
     {% if !help.is_empty() %}
       <p class="gui-input__help" id="{{ id }}-help">{{ help }}</p>
     {% endif %}

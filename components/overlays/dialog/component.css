@@ -8,6 +8,10 @@
   font: 500 13px/1.5 var(--gui-font);
   cursor: pointer;
 }
+.gui-dialog-trigger:enabled:hover:not(:active),
+.gui-dialog-close:enabled:hover:not(:active) {
+  background: var(--gui-surface-hover);
+}
 .gui-dialog {
   box-sizing: border-box;
   width: min(560px, calc(100vw - 32px));

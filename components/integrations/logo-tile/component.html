@@ -7,3 +7,6 @@
     {% endif %}
   </span>
 {% endmacro %}
+{% macro framed(name) %}
+  <span class="gui-logo-tile" data-size="modal" role="img" aria-label="{{ name }}"><span class="gui-logo-tile__inset">{{ caller() }}</span></span>
+{% endmacro %}

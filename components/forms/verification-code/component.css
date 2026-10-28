@@ -1,0 +1,13 @@
+.gui-verification-code { min-width: 0; margin: 0; padding: 0; border: 0; font: 14px/20px var(--gui-font); }
+.gui-verification-code > legend { margin-bottom: 6px; padding: 0; font-weight: 500; }
+.gui-verification-code__digits { display: flex; justify-content: center; align-items: center; gap: 12px; }
+.gui-verification-code input { box-sizing: border-box; min-width: 0; width: 80px; height: 96px; flex: 1; padding: 0; border: 1px solid var(--gui-control-border); border-radius: 12px; background: var(--gui-surface); box-shadow: var(--gui-shadow); color: var(--gui-text); text-align: center; font: 500 60px/1 var(--gui-font); caret-color: var(--gui-accent); }
+.gui-verification-code input::placeholder { color: var(--gui-digit-placeholder); opacity: 1; }
+.gui-verification-code input:focus-visible { outline: 3px solid var(--gui-focus); outline-offset: 2px; }
+.gui-verification-code[data-digits='6'] input { width: 61px; height: 80px; font-size: 48px; }
+.gui-verification-code__separator { color: var(--gui-control-border); font-size: 40px; }
+@media (max-width: 480px) {
+  .gui-verification-code__digits { gap: 6px; }
+  .gui-verification-code input, .gui-verification-code[data-digits='6'] input { height: 64px; font-size: 32px; border-radius: 8px; }
+  .gui-verification-code__separator { font-size: 20px; }
+}

@@ -1,0 +1,4 @@
+{% import "modals/assign-post/component.html" as assign %}
+{% macro render(id, members, value="", title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", preview=false) %}
+  {{ assign::render(id, members, value=value, title=title, description=description, preview=preview, expanded=true) }}
+{% endmacro %}

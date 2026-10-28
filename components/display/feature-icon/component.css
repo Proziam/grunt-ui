@@ -1,0 +1,14 @@
+.gui-feature-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid var(--gui-control-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  color: var(--gui-text);
+  box-shadow: var(--gui-shadow);
+}
+[data-gui-theme='dark'] .gui-feature-icon img:not([src$='icon-success.svg']):not([src$='icon-trash.svg']),
+[data-workspace-theme='dark'] .gui-feature-icon img:not([src$='icon-success.svg']):not([src$='icon-trash.svg']) { filter: brightness(2.5); }

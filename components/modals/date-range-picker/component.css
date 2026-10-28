@@ -1,0 +1,4 @@
+.gui-modal[data-size='calendar'] .gui-modal__form { gap: 16px; }
+.gui-modal[data-size='calendar'] .gui-modal__form > .gui-sr-only { margin: 0; }
+.gui-modal[data-size='calendar'][data-divided] .gui-modal__actions { padding: 16px; }
+.gui-modal[data-size='calendar'] .gui-button { min-height: 36px; padding: 7px 12px; }

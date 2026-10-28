@@ -1,7 +1,7 @@
 {% import "display/avatar/component.html" as avatar %}
-{% macro render(name, initials, detail="", role="") %}
+{% macro render(name, initials, detail="", role="", image="") %}
   <div class="gui-person">
-    {{ avatar::render(name, initials) }}
+    {{ avatar::render(name, initials, image=image, tone="neutral") }}
     <div>
       <strong>{{ name }}</strong>
       {% if !detail.is_empty() %}

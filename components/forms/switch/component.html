@@ -1,5 +1,5 @@
-{% macro render(name, label, checked=false, disabled=false, value="on", description="") %}
-  <label class="gui-switch">
+{% macro render(name, label, checked=false, disabled=false, value="on", description="", leading=false) %}
+  <label class="gui-switch"{% if leading %} data-leading{% endif %}>
     <span>
       <strong>{{ label }}</strong>
       {% if !description.is_empty() %}

@@ -4,17 +4,17 @@
   gap: 10px;
   padding: 8px 0;
   color: var(--gui-text);
-  font: 13px/1.5 var(--gui-font);
+  font: 14px/20px var(--gui-font);
   cursor: pointer;
 }
-.gui-choice input {
+.gui-choice input, .gui-choice-control {
   width: 16px;
   height: 16px;
   margin: 2px 0 0;
   accent-color: var(--gui-accent);
   flex-shrink: 0;
 }
-.gui-choice input:focus-visible {
+.gui-choice input:focus-visible, .gui-choice-control:focus-visible {
   outline: 3px solid var(--gui-focus);
   outline-offset: 3px;
 }

@@ -1,4 +1,5 @@
 {% import "actions/button/component.html" as button %}
+{% import "forms/verification-code/component.html" as code %}
 {% macro render(
   id,
   action,
@@ -7,12 +8,16 @@
   description,
   label="Verification code",
   submit_label="Verify",
-  length=6
+  length=6,
+  segmented=false
 ) %}
   <form class="gui-verification" method="post" action="{{ action }}">
     <input type="hidden" name="form_token" value="{{ form_token }}">
     <h2>{{ title }}</h2>
     <p>{{ description }}</p>
+    {% if segmented %}
+      {{ code::render(id, "code", label=label, digits=length) }}
+    {% else %}
     <label for="{{ id }}">{{ label }}</label>
     <input id="{{ id }}"
            name="code"
@@ -21,7 +26,9 @@
            pattern="[0-9]+"
            minlength="{{ length }}"
            maxlength="{{ length }}"
-           required>{{ button::render(submit_label, kind="primary", type="submit") }}
+           required>
+    {% endif %}
+    {{ button::render(submit_label, kind="primary", type="submit") }}
     {% if caller is defined %}
       <footer>
         {{ caller() }}

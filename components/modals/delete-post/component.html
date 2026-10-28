@@ -1,0 +1,7 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% macro render(id, title="Delete blog post", description="Are you sure you want to delete this post? This action cannot be undone.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">{{ modal::heading(id, title, description, image="../../images/modals/icon-trash.svg") }}</div>
+    {{ modal::actions(confirm="Delete", kind="destructive", confirm_action="delete") }}
+  {% endcall %}
+{% endmacro %}

@@ -4,12 +4,15 @@
   justify-content: space-between;
   gap: 24px;
   color: var(--gui-text);
-  font: 13px/1.5 var(--gui-font);
+  font: 14px/20px var(--gui-font);
   cursor: pointer;
 }
 .gui-switch strong {
   font-weight: 500;
 }
+.gui-switch[data-leading] { justify-content: flex-end; flex-direction: row-reverse; gap: 8px; align-items: flex-start; }
+.gui-switch[data-leading] input { margin-top: 1px; }
+.gui-switch[data-leading] small { margin-top: 0; font-size: 14px; }
 .gui-switch small {
   display: block;
   color: var(--gui-muted);
@@ -19,9 +22,9 @@
   appearance: none;
   box-sizing: border-box;
   width: 36px;
-  height: 22px;
+  height: 20px;
   margin: 0;
-  padding: 2px;
+  padding: 1px;
   border: 1px solid var(--gui-border);
   border-radius: 20px;
   background: var(--gui-soft);
@@ -34,7 +37,8 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--gui-muted);
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
   transition: transform var(--gui-motion);
 }
 .gui-switch input:checked {
@@ -42,7 +46,7 @@
   border-color: var(--gui-accent);
 }
 .gui-switch input:checked::before {
-  transform: translateX(14px);
+  transform: translateX(16px);
   background: var(--gui-accent-ink);
 }
 .gui-switch input:disabled {

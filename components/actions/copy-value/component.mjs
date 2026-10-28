@@ -8,13 +8,13 @@ export function enhance(root = document, signal) {
       const input = field.querySelector('input');
       const status = field.querySelector('[role="status"]');
       try {
-        await navigator.clipboard.writeText(input.value);
+        await navigator.clipboard.writeText(input?.value ?? field.dataset.copyValue);
         if (!signal?.aborted) status.textContent = field.dataset.success;
       } catch {
         if (signal?.aborted) return;
-        input.focus();
-        input.select();
-        status.textContent = field.dataset.error;
+        input?.focus();
+        input?.select();
+        status.textContent = field.dataset.error + (input ? '' : field.dataset.copyValue);
       }
     },
     { signal }

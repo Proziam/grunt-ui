@@ -1,0 +1,14 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "modals/post-published/component.html" as post %}
+{% import "forms/choice/component.html" as choice %}
+{% macro render(id, channels, title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">
+      {{ post::heading(id, title, description) }}
+      <fieldset class="gui-modal__options"><legend class="gui-sr-only">Sharing channels</legend>
+        {% for (value, label, checked) in channels %}{{ choice::render("channels", value, label, checked=checked) }}{% endfor %}
+      </fieldset>
+    </div>
+    {{ modal::actions(confirm_action="share") }}
+  {% endcall %}
+{% endmacro %}

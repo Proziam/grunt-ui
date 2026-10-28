@@ -66,6 +66,16 @@ fn catalog_asset(path: &str) -> Option<(&'static str, &'static str)> {
 }
 
 async fn serve(Path(path): Path<String>) -> impl IntoResponse {
+    if let Some((content_type, content)) = grunt_ui::binary_asset(&path) {
+        return (
+            [
+                (header::CONTENT_TYPE, content_type),
+                (header::X_CONTENT_TYPE_OPTIONS, "nosniff"),
+            ],
+            content,
+        )
+            .into_response();
+    }
     let response = if path == "index.html" {
         index().map(|body| ("text/html; charset=utf-8", body))
     } else if let Some((content_type, content)) = catalog_asset(&path) {
@@ -91,7 +101,7 @@ async fn serve(Path(path): Path<String>) -> impl IntoResponse {
     }
 }
 
-fn write(root: &FilePath, name: &str, content: &str) -> Result<(), Box<dyn Error>> {
+fn write(root: &FilePath, name: &str, content: impl AsRef<[u8]>) -> Result<(), Box<dyn Error>> {
     let path = root.join(name);
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent)?;
@@ -102,6 +112,18 @@ fn write(root: &FilePath, name: &str, content: &str) -> Result<(), Box<dyn Error
 
 fn export(root: &FilePath) -> Result<(), Box<dyn Error>> {
     write(root, "index.html", &index()?)?;
+    write(
+        root,
+        "foundation/fonts/InterVariable.woff2",
+        grunt_ui::INTER,
+    )?;
+    write(root, "foundation/fonts/OFL.txt", grunt_ui::INTER_LICENSE)?;
+    for (name, content) in grunt_ui::IMAGES {
+        write(root, name, content)?;
+    }
+    for (name, content) in grunt_ui::RASTERS {
+        write(root, name, content)?;
+    }
     for asset in [
         "grunt-ui.css",
         "grunt-ui.mjs",
@@ -189,11 +211,17 @@ fn extract(id: &str, root: &FilePath) -> Result<(), Box<dyn Error>> {
         }
     }
     write(root, "foundation/tokens.css", grunt_ui::TOKENS)?;
+    write(
+        root,
+        "foundation/fonts/InterVariable.woff2",
+        grunt_ui::INTER,
+    )?;
+    write(root, "foundation/fonts/OFL.txt", grunt_ui::INTER_LICENSE)?;
     write(root, "grunt-ui.css", &css)?;
     write(
         root,
         "grunt-ui.mjs",
-        &format!(
+        format!(
             "{imports}\nconst mounted = new WeakMap();\nexport function enhance(root = document) {{\n  if (mounted.has(root)) return mounted.get(root);\n  const controller = new AbortController();\n{mounts}  const dispose = () => {{ controller.abort(); mounted.delete(root); }};\n  mounted.set(root, dispose);\n  return dispose;\n}}\n"
         ),
     )?;
@@ -205,10 +233,29 @@ fn extract(id: &str, root: &FilePath) -> Result<(), Box<dyn Error>> {
         write(root, asset, content)?;
     }
     let preview = grunt_ui::examples::render(id)?;
+    for (name, content) in grunt_ui::IMAGES {
+        if selected.values().any(|component| {
+            component.example.contains(name)
+                || component.template.contains(name)
+                || component.css.contains(name)
+        }) || preview.contains(name)
+        {
+            write(root, name, content)?;
+        }
+    }
+    for (name, content) in grunt_ui::RASTERS {
+        if preview.contains(name)
+            || selected.values().any(|component| {
+                component.example.contains(name) || component.template.contains(name)
+            })
+        {
+            write(root, name, content)?;
+        }
+    }
     write(
         root,
         "example/index.html",
-        &format!(
+        format!(
             r#"<!doctype html>
 <html lang="en" data-gui-theme="light">
 <head>
@@ -239,7 +286,7 @@ fn extract(id: &str, root: &FilePath) -> Result<(), Box<dyn Error>> {
     write(
         root,
         "README.md",
-        &format!(
+        format!(
             "# {id}\n\nExtracted from [Grunt UI](https://github.com/Proziam/grunt-ui), MIT licensed.\n\nServe this directory over HTTP and open `example/index.html` for the live example.\nImport templates from `components/`; load `grunt-ui.css` and, for standalone pages,\n`auto.mjs`. The catalog CSS/JS and demo image are preview-only assets.\n\nIncluded component and example dependencies:\n\n{folders}\nSee each folder's README for inputs, slots and behavior.\n[Integration guide](https://github.com/Proziam/grunt-ui/blob/main/docs/integration.md).\n"
         ),
     )?;

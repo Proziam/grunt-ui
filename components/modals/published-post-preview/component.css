@@ -1,0 +1,4 @@
+.gui-published-post-preview { display: grid; gap: 26px; }
+.gui-published-post-preview__image { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--gui-control-radius); }
+.gui-published-post-preview__actions { align-items: start; }
+.gui-published-post-preview__actions > .gui-copy-action { flex: 1; min-width: 0; }

@@ -1,0 +1,22 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "forms/input/component.html" as input %}
+
+{% call modal::render(
+  "modal-template-example",
+  "Edit project",
+  description="Give your project a name that's easy for your team to recognize.",
+  image="../../images/modals/icon-save.svg",
+  confirm="Save changes",
+  confirm_action="save-project",
+  preview=true
+) %}
+  {{ input::render(
+    "modal-template-example-name",
+    "name",
+    "Project name",
+    value="Website redesign",
+    placeholder="Enter a project name",
+    required=true,
+    required_indicator=false
+  ) }}
+{% endcall %}

@@ -81,6 +81,7 @@ The default crate exposes:
 - `COMPONENTS`: folder-derived metadata and source, including example dependencies.
 - `CSS`, `TOKENS`, `JAVASCRIPT`, `AUTO`: embedded asset contents.
 - `asset(path)`: exact lookup returning `(content_type, content)` or `None`.
+- `binary_asset(path)`: exact byte lookup for modal photographs and the Inter font.
 
 An Axum host can mount the asset lookup beneath a versioned prefix:
 
@@ -92,6 +93,10 @@ use axum::{
 };
 
 async fn ui_asset(Path(path): Path<String>) -> Response {
+    if let Some((kind, body)) = grunt_ui::binary_asset(&path) {
+        return ([(header::CONTENT_TYPE, kind),
+                 (header::X_CONTENT_TYPE_OPTIONS, "nosniff")], body).into_response();
+    }
     match grunt_ui::asset(&path) {
         Some((kind, body)) => (
             [(header::CONTENT_TYPE, kind),
@@ -136,6 +141,9 @@ LICENSE
 Preview-only catalog assets are also included. Keep the dependency folders when
 copying a component. Slot contents may require additional components chosen by
 the host; their imports and styles are the host's responsibility.
+Referenced local images and the catalog's Inter font/license are included in exports
+and extracted examples. Component image URLs follow the catalog's two-level routes;
+adjust static asset URLs to your application's asset prefix when vendoring templates.
 
 ## 3. Mount behavior in the right lifecycle
 

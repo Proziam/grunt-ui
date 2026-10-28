@@ -1,0 +1,12 @@
+.gui-modal[data-size='assistant'] .gui-modal__form { padding: 32px 20px 20px; }
+.gui-assistant-welcome { display: grid; gap: 28px; }
+.gui-assistant-welcome__heading { display: grid; justify-items: center; gap: 8px; padding: 0 4px; text-align: center; }
+.gui-assistant-welcome__orb { position: relative; width: 56px; height: 56px; margin-bottom: 16px; }
+.gui-assistant-welcome__orb > img { position: absolute; top: -3px; left: -8.5px; }
+.gui-assistant-welcome__copy h2, .gui-assistant-welcome__copy p { margin: 0; font: 600 18px/28px var(--gui-font); }
+.gui-assistant-welcome__copy p { color: var(--gui-muted); }
+.gui-assistant-welcome__description { max-width: 370px; margin: 0; color: var(--gui-muted); }
+.gui-assistant-welcome__suggestions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 390px; margin: -4px auto 0; }
+.gui-assistant-welcome__suggestion { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 28px; padding: 3px 8px; border: 1px solid var(--gui-control-border); border-radius: var(--gui-control-radius); background: var(--gui-surface); color: var(--gui-text); box-shadow: var(--gui-shadow); font: 500 14px/20px var(--gui-font); cursor: pointer; }
+.gui-assistant-welcome__suggestion:hover:not(:active) { background: var(--gui-surface-hover); }
+@media (pointer: coarse) { .gui-assistant-welcome__suggestion { min-height: 44px; } }

@@ -1,0 +1,11 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "forms/repeating-list/component.html" as list %}
+{% macro render(id, emails, title="Invite collaborators", description="Your new project has been created. Invite colleagues to collaborate on this project.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">
+      {{ modal::heading(id, title, description, image="../../images/modals/icon-users.svg") }}
+      {{ list::render("Email address", "emails", emails, add_label="Add another", item_label="Collaborator email", type="email", placeholder="you@untitledui.com", compact=true) }}
+    </div>
+    {{ modal::actions(confirm="Send invites", confirm_action="invite") }}
+  {% endcall %}
+{% endmacro %}

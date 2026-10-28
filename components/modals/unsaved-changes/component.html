@@ -1,0 +1,7 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% macro render(id, title="Unsaved changes", description="Do you want to save or discard changes?", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">{{ modal::heading(id, title, description, image="../../images/modals/icon-save.svg") }}</div>
+    {{ modal::actions("Discard", "Save changes", cancel_action="discard", confirm_action="save") }}
+  {% endcall %}
+{% endmacro %}

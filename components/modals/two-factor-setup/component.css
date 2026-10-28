@@ -1,0 +1,6 @@
+.gui-two-factor__scanner { position: relative; display: grid; place-items: center; height: 192px; border-radius: var(--gui-control-radius); background: var(--gui-soft); }
+.gui-two-factor__qr { display: grid; place-items: center; width: 128px; height: 128px; background: var(--gui-destructive-ink); }
+.gui-two-factor__qr > img { width: 116px; height: 116px; object-fit: contain; }
+.gui-two-factor__corners { position: absolute; inset: 20px auto auto; }
+.gui-two-factor__scanner::after { content: ''; position: absolute; top: 50%; right: 20px; left: 20px; height: 64px; border-top: 1px solid color-mix(in srgb, var(--gui-accent) 45%, transparent); background: linear-gradient(color-mix(in srgb, var(--gui-accent) 9%, transparent), transparent); pointer-events: none; }
+.gui-two-factor__entry { display: grid; gap: 8px; }

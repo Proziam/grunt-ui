@@ -1,0 +1,23 @@
+{% import "display/icon/component.html" as icon %}
+{% macro render(id, name, label, options, value="", placeholder="Select team member", expanded=false) %}
+  <div class="gui-person-select" data-gui-person-select>
+    <span id="{{ id }}-label" class="gui-person-select__label">{{ label }}</span>
+    <details{% if expanded %} open{% endif %}>
+      <summary aria-labelledby="{{ id }}-label {{ id }}-value" aria-controls="{{ id }}-options">
+        {{ icon::render("user", image="../../images/modals/icon-user.svg") }}
+        <span id="{{ id }}-value" data-person-value>{% if value.is_empty() %}{{ placeholder }}{% else %}{% for (key, text) in options %}{% if key.as_bytes() == value.as_bytes() %}{{ text }}{% endif %}{% endfor %}{% endif %}</span>
+        {{ icon::render("chevron", image="../../images/modals/icon-select-chevron.svg") }}
+      </summary>
+      <div id="{{ id }}-options" class="gui-person-select__menu" role="group" aria-labelledby="{{ id }}-label">
+        {% for (key, text) in options %}
+          <label class="gui-person-select__option">
+            <input type="radio" name="{{ name }}" value="{{ key }}" data-label="{{ text }}"{% if key.as_bytes() == value.as_bytes() %} checked{% endif %}>
+            {{ icon::render("user", image="../../images/modals/icon-user.svg") }}
+            <span>{{ text }}</span>
+            <span class="gui-person-select__check">{{ icon::render("check") }}</span>
+          </label>
+        {% endfor %}
+      </div>
+    </details>
+  </div>
+{% endmacro %}

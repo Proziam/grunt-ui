@@ -40,6 +40,9 @@
   color: var(--gui-text);
   cursor: pointer;
 }
+.gui-file-picker input:enabled::file-selector-button:hover:not(:active) {
+  background: var(--gui-surface-hover);
+}
 .gui-file-picker input:focus-visible {
   outline: 3px solid var(--gui-focus);
   outline-offset: 3px;

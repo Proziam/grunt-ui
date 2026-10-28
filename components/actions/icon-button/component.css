@@ -10,14 +10,16 @@
   color: var(--gui-muted);
   cursor: pointer;
 }
-.gui-icon-button:hover {
-  background: var(--gui-soft);
-  color: var(--gui-text);
+.gui-icon-button:not(:disabled):not([aria-disabled='true']):hover:not(:active) {
+  background: var(--gui-surface-hover);
 }
 .gui-icon-button[aria-pressed='true'] {
   color: var(--gui-accent);
   background: var(--gui-accent-soft);
   border-color: var(--gui-accent);
+}
+.gui-icon-button[aria-pressed='true']:not(:disabled):not([aria-disabled='true']):hover:not(:active) {
+  background: var(--gui-accent-soft-hover);
 }
 .gui-icon-button:disabled {
   opacity: 0.45;

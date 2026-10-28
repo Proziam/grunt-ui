@@ -1,24 +1,24 @@
-{% import "integrations/logo-tile/component.html" as logo %}
-{% import "display/badge/component.html" as badge %}
-{% import "actions/link/component.html" as link %}
-{% macro render(
-  name,
-  initials,
-  description,
-  category,
-  href,
-  action_label="View integration",
-  availability="Available",
-  image=""
-) %}
+{% import "actions/button/component.html" as button %}
+{% macro render(name, description, href, connected=false) %}
   <article class="gui-provider-card">
-    <header>
-      {{ logo::render(name, initials, image=image) }}{{ badge::render(availability) }}
+    <header class="gui-provider-card__header">
+      <span class="gui-provider-card__icon" aria-hidden="true">{{ caller() }}</span>
+      <div class="gui-provider-card__details">
+        <h3>{{ name }}</h3>
+        <p>{{ description }}</p>
+      </div>
     </header>
-    <h3>{{ name }}</h3>
-    <p>{{ description }}</p>
-    <footer>
-      <span>{{ category }}</span>{{ link::render(action_label, href) }}
-    </footer>
+    {% if connected %}
+    <div class="gui-provider-card__action">
+      <span class="gui-button gui-provider-card__connected">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+        Connected
+      </span>
+    </div>
+    {% else %}
+    <form class="gui-provider-card__action" action="{{ href }}" method="get" aria-label="Connect {{ name }}">
+      {{ button::render("Connect", type="submit") }}
+    </form>
+    {% endif %}
   </article>
 {% endmacro %}

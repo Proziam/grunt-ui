@@ -7,6 +7,9 @@
   font: 500 13px/1.5 var(--gui-font);
   cursor: pointer;
 }
+.gui-popover-control > button:enabled:hover:not(:active) {
+  background: var(--gui-surface-hover);
+}
 .gui-popover {
   box-sizing: border-box;
   max-width: min(360px, calc(100vw - 32px));

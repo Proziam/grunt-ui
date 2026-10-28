@@ -1,0 +1,27 @@
+.gui-calendar { display: grid; gap: 16px; width: 280px; max-width: 100%; color: var(--gui-text); font: 14px/20px var(--gui-font); container: gui-calendar / inline-size; }
+.gui-calendar__navigation { display: flex; justify-content: space-between; align-items: center; height: 24px; }
+.gui-calendar__navigation button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 6px; background: transparent; cursor: pointer; }
+.gui-calendar__navigation strong { font-weight: 600; }
+.gui-calendar__inputs { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.gui-calendar__inputs label { flex: 1; min-width: 0; }
+.gui-calendar__inputs input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 36px; padding: 6px 8px; border: 1px solid var(--gui-control-border); border-radius: var(--gui-control-radius); background: var(--gui-surface); color: var(--gui-text); font: 13px/20px var(--gui-font); box-shadow: var(--gui-shadow); }
+.gui-calendar__inputs input::-webkit-calendar-picker-indicator { width: 12px; margin: 0; padding: 0; }
+.gui-calendar__shortcuts { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.gui-calendar__shortcuts button { padding: 0; border: 0; background: transparent; color: var(--gui-modal-link); font: 600 14px/20px var(--gui-font); cursor: pointer; }
+.gui-calendar__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px 0; }
+.gui-calendar__weekday { display: grid; place-items: center; height: 40px; font-weight: 500; }
+.gui-calendar__day { display: grid; place-items: center; height: 40px; }
+.gui-calendar__day[data-in-range] { background: var(--gui-soft); }
+.gui-calendar__day:nth-child(7n + 1) { border-radius: 20px 0 0 20px; }
+.gui-calendar__day:nth-child(7n) { border-radius: 0 20px 20px 0; }
+.gui-calendar__day > button { position: relative; width: 100%; height: 40px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--gui-text); font: inherit; cursor: pointer; }
+.gui-calendar__day > button[aria-pressed='true'] { background: var(--gui-accent); color: var(--gui-accent-ink); }
+.gui-calendar__day > button[aria-current='date']::after { content: ''; position: absolute; bottom: 4px; left: calc(50% - 2.5px); width: 5px; height: 5px; border-radius: 50%; background: var(--gui-accent); }
+.gui-calendar__day > button[aria-pressed='true'][aria-current='date']::after { background: var(--gui-accent-ink); }
+.gui-calendar button:hover:not(:active):not([aria-pressed='true']) { background: var(--gui-soft-hover); }
+.gui-calendar :focus-visible { outline: 2px solid var(--gui-focus); outline-offset: 1px; }
+@container gui-calendar (max-width: 259px) {
+  .gui-calendar__inputs { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .gui-calendar__inputs > span { display: none; }
+  .gui-calendar__inputs input { min-height: 40px; font-size: 14px; }
+}

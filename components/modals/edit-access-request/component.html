@@ -1,0 +1,15 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "display/feature-icon/component.html" as feature %}
+{% import "people/identity/component.html" as person %}
+{% macro render(id, name, email, initials, image, project, project_url, title="Candice has requested edit access", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">
+      <header class="gui-modal__heading">
+        {{ feature::render(image="../../images/modals/icon-userplus.svg") }}
+        <div class="gui-modal__copy"><h2 id="{{ id }}-title">{{ title }}</h2><p>One of your team has requested edit access to your project <a class="gui-modal__link" href="{{ project_url }}">{{ project }}</a>.</p></div>
+      </header>
+      {{ person::render(name, initials, detail=email, image=image) }}
+    </div>
+    {{ modal::actions(align="end", confirm_action="grant-access") }}
+  {% endcall %}
+{% endmacro %}

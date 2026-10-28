@@ -1,0 +1,15 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "actions/copy-value/component.html" as copy %}
+{% import "actions/button/component.html" as button %}
+{% macro render(id, image, image_alt, url, title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview, close=false) %}
+    <div class="gui-published-post-preview">
+      <img class="gui-published-post-preview__image" src="{{ image }}" alt="{{ image_alt }}">
+      {{ modal::heading(id, title, description, centered=true) }}
+    </div>
+    <footer class="gui-modal__actions gui-published-post-preview__actions">
+      {{ copy::button(url) }}
+      {{ button::render("Finish", kind="primary", type="submit", name="action", value="finish") }}
+    </footer>
+  {% endcall %}
+{% endmacro %}

@@ -3,22 +3,22 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 38px;
+  min-height: 40px;
   padding: 8px 14px;
-  border: 1px solid var(--gui-border);
+  border: 1px solid var(--gui-control-border);
   border-radius: var(--gui-control-radius);
   background: var(--gui-surface);
   box-shadow: var(--gui-shadow);
   color: var(--gui-text);
-  font: 500 13px/1.5 var(--gui-font);
+  font: 600 14px/20px var(--gui-font);
   text-decoration: none;
   cursor: pointer;
   transition:
     background var(--gui-motion),
     border-color var(--gui-motion);
 }
-.gui-button:hover {
-  background: var(--gui-soft);
+.gui-button:is(button, a):not(:disabled):not([aria-disabled='true']):hover:not(:active) {
+  background: var(--gui-surface-hover);
 }
 .gui-button:focus-visible {
   outline: 3px solid var(--gui-focus);
@@ -29,17 +29,31 @@
   border-color: var(--gui-accent);
   color: var(--gui-accent-ink);
 }
-.gui-button[data-kind='primary']:hover {
+.gui-button[data-kind='primary']:not(:disabled):not([aria-disabled='true']):hover:not(:active) {
   background: var(--gui-accent-hover);
 }
 .gui-button[data-kind='danger'] {
   background: var(--gui-danger-soft);
   color: var(--gui-danger);
 }
+.gui-button[data-kind='destructive'] {
+  background: var(--gui-destructive);
+  border-color: color-mix(in srgb, var(--gui-destructive), black 12%);
+  color: var(--gui-destructive-ink);
+}
+.gui-button[data-kind='destructive']:not(:disabled):not([aria-disabled='true']):hover:not(:active) {
+  background: color-mix(in srgb, var(--gui-destructive), black 8%);
+}
+.gui-button[data-kind='danger']:not(:disabled):not([aria-disabled='true']):hover:not(:active) {
+  background: var(--gui-danger-soft-hover);
+}
 .gui-button[data-kind='quiet'] {
   background: transparent;
   box-shadow: none;
   border-color: transparent;
+}
+.gui-button[data-kind='quiet']:not(:disabled):not([aria-disabled='true']):hover:not(:active) {
+  background: var(--gui-surface-hover);
 }
 .gui-button[data-size='compact'] {
   min-height: 30px;

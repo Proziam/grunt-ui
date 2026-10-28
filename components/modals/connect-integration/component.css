@@ -1,0 +1,13 @@
+.gui-modal[data-size='integration'] .gui-modal__form { padding-top: 32px; }
+.gui-connect-integration { display: grid; gap: 20px; }
+.gui-connect-integration__logos { display: flex; justify-content: center; align-items: center; gap: 12px; }
+.gui-connect-integration__disc { position: absolute; top: 9px; left: 9px; }
+.gui-connect-integration__stripes { position: absolute; top: 9px; left: 9px; width: 30px; height: 30px; border-radius: 50%; overflow: hidden; }
+.gui-connect-integration__stripes > img { position: absolute; top: -2.7px; left: -8.7px; }
+.gui-connect-integration__permissions h3 { margin: 0 0 12px; font: 600 14px/20px var(--gui-font); }
+.gui-connect-integration__permissions ul { display: grid; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.gui-connect-integration__permissions li { display: flex; align-items: start; gap: 8px; color: var(--gui-muted); }
+.gui-connect-integration__permissions .gui-icon { margin-top: 2px; color: var(--gui-placeholder); }
+.gui-connect-integration__url { display: flex; align-items: center; gap: 8px; padding: 1px 12px; border: 1px solid var(--gui-border); border-radius: var(--gui-control-radius); background: var(--gui-soft); }
+.gui-connect-integration__url .gui-copy { min-width: 0; flex: 1; }
+.gui-connect-integration__url .gui-copy input { border: 0; padding: 0; background: transparent; font-size: 14px; font-weight: 600; }

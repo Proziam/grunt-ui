@@ -12,7 +12,11 @@
   --gui-muted: #626b7a;
   --gui-border: #e3e6ec;
   --gui-accent: #bd421e;
-  --gui-accent-hover: #a93614;
+  --gui-accent-hover: color-mix(in srgb, var(--gui-accent), black 8%);
+  --gui-surface-hover: color-mix(in srgb, var(--gui-surface), black 8%);
+  --gui-soft-hover: color-mix(in srgb, var(--gui-soft), black 8%);
+  --gui-danger-soft-hover: color-mix(in srgb, var(--gui-danger-soft), black 8%);
+  --gui-accent-soft-hover: color-mix(in srgb, var(--gui-accent-soft), black 8%);
   --gui-accent-soft: #fff0e9;
   --gui-accent-ink: #fff;
   --gui-success: #187451;
@@ -30,6 +34,20 @@
   --gui-shadow-raised: 0 12px 32px #161d2918, 0 2px 8px #161d2910;
   --gui-focus: #d95126;
   --gui-motion: 150ms;
+  --gui-modal-accent: #7f56d9;
+  --gui-modal-accent-border: #6941c6;
+  --gui-modal-accent-ink: #fff;
+  --gui-modal-link: #6941c6;
+  --gui-control-border: #d0d0d0;
+  --gui-destructive: #e8000b;
+  --gui-destructive-ink: #fff;
+  --gui-placeholder: #737373;
+  --gui-digit-placeholder: #c7c7c7;
+  --gui-inverse-surface: #101112;
+  --gui-modal-text: #181818;
+  --gui-modal-muted: #535353;
+  --gui-modal-soft: #fafafa;
+  --gui-modal-line: #e5e5e5;
 }
 [data-gui-theme='dark'],
 :root[data-workspace-theme='dark'] {
@@ -41,7 +59,11 @@
   --gui-muted: #a4afbf;
   --gui-border: #384150;
   --gui-accent: #f0784f;
-  --gui-accent-hover: #f79574;
+  --gui-accent-hover: color-mix(in srgb, var(--gui-accent), black 8%);
+  --gui-surface-hover: color-mix(in srgb, var(--gui-surface), black 8%);
+  --gui-soft-hover: color-mix(in srgb, var(--gui-soft), black 8%);
+  --gui-danger-soft-hover: color-mix(in srgb, var(--gui-danger-soft), black 8%);
+  --gui-accent-soft-hover: color-mix(in srgb, var(--gui-accent-soft), black 8%);
   --gui-accent-soft: #3c2924;
   --gui-accent-ink: #17191e;
   --gui-success: #78d8ad;
@@ -56,6 +78,29 @@
   --gui-focus: #f79574;
   --gui-shadow: 0 1px 3px #0003;
   --gui-shadow-raised: 0 12px 32px #0005;
+  --gui-modal-accent: #9e77ed;
+  --gui-modal-accent-border: #b692f6;
+  --gui-modal-accent-ink: #17191e;
+  --gui-modal-link: #c3a5ff;
+  --gui-control-border: #596273;
+  --gui-destructive: #be2635;
+  --gui-placeholder: #a4afbf;
+  --gui-digit-placeholder: #798392;
+  --gui-modal-text: #f0f2f6;
+  --gui-modal-muted: #a4afbf;
+  --gui-modal-soft: #272e39;
+  --gui-modal-line: #384150;
+}
+[data-gui-palette='violet'] {
+  --gui-text: var(--gui-modal-text);
+  --gui-muted: var(--gui-modal-muted);
+  --gui-soft: var(--gui-modal-soft);
+  --gui-border: var(--gui-modal-line);
+  --gui-accent: var(--gui-modal-accent);
+  --gui-accent-ink: var(--gui-modal-accent-ink);
+  --gui-focus: var(--gui-modal-accent);
+  --gui-accent-hover: color-mix(in srgb, var(--gui-accent), black 8%);
+  --gui-accent-soft: color-mix(in srgb, var(--gui-accent) 10%, var(--gui-surface));
 }
 :where([class^='gui-'], [class*=' gui-']) {
   box-sizing: border-box;

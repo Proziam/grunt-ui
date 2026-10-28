@@ -1,39 +1,61 @@
 .gui-input {
   min-width: 0;
   color: var(--gui-text);
-  font: 13px/1.5 var(--gui-font);
+  font: 14px/20px var(--gui-font);
 }
 .gui-input > label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
 }
-.gui-input > input {
-  box-sizing: border-box;
-  width: 100%;
+.gui-input__control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
   min-height: 40px;
-  padding: 9px 12px;
-  border: 1px solid var(--gui-border);
+  padding: 0 12px;
+  border: 1px solid var(--gui-control-border);
   border-radius: var(--gui-control-radius);
   background: var(--gui-surface);
-  color: var(--gui-text);
   box-shadow: var(--gui-shadow);
-  font: inherit;
 }
-.gui-input > input::placeholder {
+.gui-input__prefix {
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  padding-right: 12px;
+  border-right: 1px solid var(--gui-control-border);
   color: var(--gui-muted);
-  opacity: 0.8;
+  font-size: 16px;
 }
-.gui-input > input:focus-visible {
+.gui-input__suffix { flex-shrink: 0; padding: 0 3px; border: 1px solid var(--gui-border); border-radius: 4px; color: var(--gui-muted); font: 11px/18px var(--gui-font); }
+.gui-input__control > input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 7px 0;
+  border: 0;
+  background: transparent;
+  color: var(--gui-text);
+  font: 16px/24px var(--gui-font);
+}
+.gui-input input::placeholder {
+  color: var(--gui-placeholder);
+  opacity: 1;
+}
+.gui-input__control:focus-within {
   outline: 3px solid var(--gui-focus);
   outline-offset: 2px;
 }
-.gui-input > input:disabled {
+.gui-input input:focus-visible { outline: none; }
+.gui-input input:disabled {
   opacity: 0.55;
   cursor: not-allowed;
   background: var(--gui-soft);
 }
-.gui-input[data-invalid] > input {
+.gui-input[data-invalid] .gui-input__control {
   border-color: var(--gui-danger);
 }
 .gui-input__help,

@@ -3,9 +3,15 @@
 HTML-first components for Grunt: readable Askama templates, scoped CSS, native
 browser controls, and small optional ES modules. Light and dark themes included.
 
-**119 components · 9 behavior modules · Cargo-only build**
+**147 components · 17 behavior modules · Cargo-only build**
 
 ## Browse the library
+
+Run `bacon` to serve the catalog and rebuild on edits. Restarting or quitting
+Bacon stops the catalog and its child processes before continuing.
+On Windows, run it from Git Bash (included with Git for Windows).
+
+To serve without automatic rebuilds:
 
 ```sh
 cargo run --locked --features catalog --bin catalog -- serve
@@ -13,6 +19,10 @@ cargo run --locked --features catalog --bin catalog -- serve
 
 Open **http://127.0.0.1:4100**. Search by name or category, try the live examples,
 switch themes, and read each component's exact source and inputs alongside it.
+Drag a live example's right edge to preview widths from 320px to the available
+desktop canvas width. Focus the handle to use arrow keys (Shift for larger steps),
+Home for phone width, or End to restore full width. On smaller windows, it fits
+the available space. Preview media queries respond to the selected width.
 
 Prefer browsing files? Start with the [component directory](components/README.md).
 The visual direction takes inspiration from AlignUI's website: quiet surfaces,

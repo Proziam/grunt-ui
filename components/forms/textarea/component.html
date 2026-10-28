@@ -7,13 +7,16 @@
   error="",
   rows=5,
   required=false,
-  readonly=false
+  readonly=false,
+  placeholder="",
+  label_icon=""
 ) %}
   <div class="gui-textarea">
-    <label for="{{ id }}">{{ label }}</label>
+    <label for="{{ id }}">{{ label }}{% if !label_icon.is_empty() %}<img src="{{ label_icon }}" alt="">{% endif %}</label>
     <textarea id="{{ id }}"
               name="{{ name }}"
-              rows="{{ rows }}"
+               rows="{{ rows }}"
+               placeholder="{{ placeholder }}"
               {% if required %} required{% endif %}
               {% if readonly %} readonly{% endif %}
               {% if !error.is_empty() %} aria-invalid="true" aria-describedby="{{ id }}-error"{% else if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>{{ value }}</textarea>

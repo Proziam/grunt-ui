@@ -21,6 +21,9 @@
     </span>
   </label>
 {% endmacro %}
+{% macro control(name, value, checked=false, disabled=false, type="checkbox", label="") %}
+  <input class="gui-choice-control" type="{{ type }}" name="{{ name }}" value="{{ value }}"{% if checked %} checked{% endif %}{% if disabled %} disabled{% endif %}{% if !label.to_string().is_empty() %} aria-label="{{ label }}"{% endif %}>
+{% endmacro %}
 {% macro group(legend, help="") %}
   <fieldset class="gui-choice-group">
     <legend>{{ legend }}</legend>

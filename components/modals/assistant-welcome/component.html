@@ -1,0 +1,21 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "assistant/prompt/component.html" as prompt %}
+{% import "display/icon/component.html" as icon %}
+{% macro render(id, user, image, suggestions, greeting="Hi Olivia,", title="Welcome back! How can I help?", description="I'm here to help tackle your tasks. Choose from the prompts below or tell me what you need!", preview=false) %}
+  {% call modal::surface(id, title, preview=preview, size="assistant", close=false) %}
+    <div class="gui-assistant-welcome" data-gui-assistant-welcome>
+      <header class="gui-assistant-welcome__heading">
+        <div class="gui-assistant-welcome__orb"><img src="../../images/modals/assistant-orb.svg" alt=""></div>
+        <div class="gui-assistant-welcome__copy"><p>{{ greeting }}</p><h2 id="{{ id }}-title">{{ title }}</h2></div>
+        <p class="gui-assistant-welcome__description">{{ description }}</p>
+      </header>
+      <div class="gui-assistant-welcome__suggestions">
+        {% for (label, image, text) in suggestions %}
+          <button type="button" class="gui-assistant-welcome__suggestion" data-prompt-suggestion="{{ text }}">{{ icon::render("", image=image) }}{{ label }}</button>
+        {% endfor %}
+        <button type="button" class="gui-assistant-welcome__suggestion" data-gui-modal-action="more-prompts">{{ icon::render("", image="../../images/modals/icon-sparkle.svg") }}More</button>
+      </div>
+      {{ prompt::composer(id ~ "-prompt", user, "", image=image) }}
+    </div>
+  {% endcall %}
+{% endmacro %}

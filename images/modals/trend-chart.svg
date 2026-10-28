@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Trend chart" clip-path="url(#clip0_0_14)">
+<path id="Vector" d="M-9.53674e-07 5.45454L3.87879 10.303L5.81818 3.51515L8.72727 9.33333L12.6061 8.36364L14.5455 15.1515L18.4242 8.36364L22.303 10.303L25.2121 17.0909L29.0909 19.0303L32.9697 17.0909L34.9091 21.9394L37.8182 15.1515L40.7273 20L43.6364 17.0909L46.5455 29.697L49.4545 25.8182L53.3333 30.6667L57.2121 28.7273L61.0909 31.6364" stroke-width="1.45455" stroke="#FF6868"/>
+<path id="Vector_2" d="M40.7273 20C42.3339 20 43.6364 18.6976 43.6364 17.0909C43.6364 15.4843 42.3339 14.1818 40.7273 14.1818C39.1206 14.1818 37.8182 15.4843 37.8182 17.0909C37.8182 18.6976 39.1206 20 40.7273 20Z" fill="white" stroke-width="0.969697" stroke="#FF6868"/>
+</g>
+<defs>
+<clipPath id="clip0_0_14">
+<rect width="64" height="40" fill="white"/>
+</clipPath>
+</defs>
+</svg>

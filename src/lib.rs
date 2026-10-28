@@ -21,10 +21,27 @@ pub const CSS: &str = include_str!(concat!(env!("OUT_DIR"), "/grunt-ui.css"));
 pub const JAVASCRIPT: &str = include_str!(concat!(env!("OUT_DIR"), "/grunt-ui.mjs"));
 pub const TOKENS: &str = include_str!("../foundation/tokens.css");
 pub const AUTO: &str = "import { enhance } from './grunt-ui.mjs';\nenhance();\n";
+pub const INTER: &[u8] = include_bytes!("../foundation/fonts/InterVariable.woff2");
+pub const INTER_LICENSE: &str = include_str!("../foundation/fonts/OFL.txt");
+
+/// Raster images are kept as bytes so photo assets survive serving and extraction.
+pub fn binary_asset(path: &str) -> Option<(&'static str, &'static [u8])> {
+    if path == "foundation/fonts/InterVariable.woff2" {
+        return Some(("font/woff2", INTER));
+    }
+    RASTERS
+        .iter()
+        .find(|(name, _)| *name == path)
+        .map(|(_, bytes)| ("image/png", *bytes))
+}
 
 /// Exact, relative asset lookup. Mount beneath a versioned prefix in the host app.
 pub fn asset(path: &str) -> Option<(&'static str, &'static str)> {
+    if let Some((_, content)) = IMAGES.iter().find(|(name, _)| *name == path) {
+        return Some(("image/svg+xml", content));
+    }
     match path {
+        "foundation/fonts/OFL.txt" => Some(("text/plain; charset=utf-8", INTER_LICENSE)),
         "grunt-ui.css" => Some(("text/css; charset=utf-8", CSS)),
         "grunt-ui.mjs" => Some(("text/javascript; charset=utf-8", JAVASCRIPT)),
         "auto.mjs" => Some(("text/javascript; charset=utf-8", AUTO)),

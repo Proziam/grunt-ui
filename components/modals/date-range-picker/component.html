@@ -1,0 +1,9 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "forms/calendar/component.html" as calendar %}
+{% macro render(id, start="", end="", month="", today="", preview=false) %}
+  {% call modal::surface(id, "Choose date range", preview=preview, close=false, size="calendar", divided=true) %}
+    <h2 id="{{ id }}-title" class="gui-sr-only">Choose date range</h2>
+    {{ calendar::render(id ~ "-dates", start=start, end=end, month=month, today=today) }}
+    {{ modal::actions(confirm="Apply", confirm_action="apply-range") }}
+  {% endcall %}
+{% endmacro %}

@@ -1,0 +1,25 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "forms/input/component.html" as input %}
+{% import "forms/select/component.html" as select %}
+{% import "forms/textarea/component.html" as textarea %}
+{% macro render(id, title="Add experience", description="Share where you've worked on your profile.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview, size="experience") %}
+    <div class="gui-modal__content">
+      {{ modal::heading(id, title, description, image="../../images/modals/icon-flag.svg") }}
+      <div class="gui-modal__stack">
+        {{ input::render(id ~ "-job-title", "title", "Title", placeholder="What is your title?", required=true, required_indicator=false) }}
+        <div class="gui-modal__grid">
+          {{ input::render(id ~ "-company", "company", "Company", placeholder="Search for company", icon_image="../../images/modals/icon-search.svg") }}
+          {{ input::render(id ~ "-website", "website", "Website", placeholder="www.example.com", prefix="https://") }}
+        </div>
+        <div class="gui-modal__grid">
+          {{ input::render(id ~ "-location", "location", "Location", placeholder="Search for city", icon_image="../../images/modals/icon-search.svg", suffix="⌘K") }}
+          <div class="gui-add-experience__employment">{{ select::render(id ~ "-employment", "employment", "Employment", [("full-time", "Full time"), ("part-time", "Part time"), ("contract", "Contract"), ("freelance", "Freelance")], value="full-time") }}</div>
+        </div>
+        {{ input::render(id ~ "-position", "position", "Title", placeholder="What is your title?") }}
+        {{ textarea::render(id ~ "-description", "description", "Description", rows=4, label_icon="../../images/modals/icon-help.svg", placeholder="e.g. I joined Stripe's Customer Success team to help them scale their checkout product. I focused mainly on onboarding new customers and resolving complaints.") }}
+      </div>
+    </div>
+    {{ modal::actions("Save as draft", "Add experience", cancel_icon="../../images/modals/icon-button-save.svg", cancel_action="save-draft", confirm_action="add-experience") }}
+  {% endcall %}
+{% endmacro %}

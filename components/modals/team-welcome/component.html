@@ -1,0 +1,16 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "display/avatar/component.html" as avatar %}
+{% macro portraits(people) %}
+  {% call avatar::group("Team members", featured=true) %}
+    {% for (name, initials, image) in people %}{{ avatar::render(name, initials, image=image) }}{% endfor %}
+  {% endcall %}
+{% endmacro %}
+{% macro render(id, people, title="You've been added to the team!", description="Thanks for accepting the invite. You've now been added to the team as an editor.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview, close=false, divided=true) %}
+    <div class="gui-modal__center">
+      {{ portraits(people) }}
+      {{ modal::heading(id, title, description, centered=true) }}
+    </div>
+    {{ modal::actions(confirm="Get started", confirm_action="get-started") }}
+  {% endcall %}
+{% endmacro %}

@@ -1,5 +1,5 @@
-{% macro render(name, initials, size="normal", image="") %}
-  <span class="gui-avatar" data-size="{{ size }}" role="img" aria-label="{{ name }}">
+{% macro render(name, initials, size="normal", image="", tone="accent") %}
+  <span class="gui-avatar" data-size="{{ size }}"{% if image.is_empty() %} data-tone="{{ tone }}"{% endif %} role="img" aria-label="{{ name }}">
     {% if image.is_empty() %}
       {{ initials }}
     {% else %}
@@ -7,6 +7,6 @@
     {% endif %}
   </span>
 {% endmacro %}
-{% macro group(label) %}
-  <div class="gui-avatar-group" role="group" aria-label="{{ label }}">{{ caller() }}</div>
+{% macro group(label, featured=false) %}
+  <div class="gui-avatar-group"{% if featured %} data-featured{% endif %} role="group" aria-label="{{ label }}">{{ caller() }}</div>
 {% endmacro %}

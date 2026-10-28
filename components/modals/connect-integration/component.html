@@ -1,0 +1,25 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "display/icon/component.html" as icon %}
+{% import "actions/copy-value/component.html" as copy %}
+{% import "actions/button/component.html" as button %}
+{% import "integrations/logo-tile/component.html" as logo %}
+{% macro render(id, permissions, integration_url, documentation_url, title="Connect Untitled to Linear", description="Prioritize work based on customer needs and build a tighter feedback loop with customers.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview, close=false, size="integration", divided=true) %}
+    <div class="gui-connect-integration">
+      <div class="gui-connect-integration__logos" aria-label="Untitled and Linear">
+        {% call logo::framed("Untitled") %}<img src="../../images/modals/untitled-mark.svg" alt="">{% endcall %}
+        {{ icon::render("", image="../../images/modals/icon-arrows.svg") }}
+        {% call logo::framed("Linear") %}<img class="gui-connect-integration__disc" src="../../images/modals/vector.svg" alt=""><span class="gui-connect-integration__stripes"><img src="../../images/modals/group1.svg" alt=""></span>{% endcall %}
+      </div>
+      {{ modal::heading(id, title, description, centered=true) }}
+      <div class="gui-connect-integration__permissions"><h3>Untitled would like to</h3><ul>
+        {% for permission in permissions %}<li>{{ icon::render("check", image="../../images/modals/icon-permission-check.svg") }}<span>{{ permission }}</span></li>{% endfor %}
+      </ul></div>
+      <div class="gui-connect-integration__url">{{ icon::render("", image="../../images/modals/icon-link.svg") }}{{ copy::render(integration_url, "Integration URL", icon_only=true, label_visible=false, icon_image="../../images/modals/icon-copy-small.svg") }}</div>
+    </div>
+    <footer class="gui-modal__actions" data-align="between">
+      <a class="gui-button" href="{{ documentation_url }}">{{ icon::render("", image="../../images/modals/icon-book.svg") }}Documentation</a>
+      {{ button::render("Connect", kind="primary", type="submit", name="action", value="connect") }}
+    </footer>
+  {% endcall %}
+{% endmacro %}

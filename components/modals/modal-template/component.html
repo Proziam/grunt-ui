@@ -1,0 +1,54 @@
+{% import "overlays/dialog/component.html" as dialog %}
+{% import "actions/button/component.html" as button %}
+{% import "display/feature-icon/component.html" as feature %}
+{% import "display/icon/component.html" as icon %}
+
+{% macro render(
+  id,
+  title,
+  description="",
+  image="",
+  cancel="Cancel",
+  confirm="Confirm",
+  kind="primary",
+  confirm_action="confirm",
+  close_label="Close",
+  preview=false
+) %}
+  {% let body = caller %}
+  {% call surface(id, title, preview=preview, close_label=close_label) %}
+    <div class="gui-modal__content">
+      {{ heading(id, title, description, image=image) }}
+      <div class="gui-modal__stack">{{ body() }}</div>
+    </div>
+    {{ actions(cancel=cancel, confirm=confirm, kind=kind, confirm_action=confirm_action) }}
+  {% endcall %}
+{% endmacro %}
+
+{% macro surface(id, title, preview=false, size="normal", close=true, close_label="Close", divided=false) %}
+  <div class="gui-modal-host" data-gui-modal-host>
+    <dialog id="{{ id }}" class="gui-modal" data-size="{{ size }}" data-gui-palette="violet"
+            aria-labelledby="{{ id }}-title"{% if preview %} open data-preview{% endif %}{% if divided %} data-divided{% endif %}>
+      {% if close %}<button class="gui-modal__close" type="button" aria-label="{{ close_label }}" data-gui-modal-action="cancel">{{ icon::render("close", image="../../images/modals/icon-close.svg") }}</button>{% endif %}
+      <form class="gui-modal__form" data-gui-modal-form method="post">{{ caller() }}</form>
+    </dialog>
+    {% if preview %}<button type="button" class="gui-button" data-gui-reopen="{{ id }}" hidden>Reopen {{ title }}</button>{% endif %}
+  </div>
+{% endmacro %}
+
+{% macro heading(id, title, description="", image="", centered=false) %}
+  <header class="gui-modal__heading"{% if centered %} data-centered{% endif %}>
+    {% if !image.is_empty() %}{{ feature::render(image=image) }}{% endif %}
+    <div class="gui-modal__copy">
+      <h2 id="{{ id }}-title">{{ title }}</h2>
+      {% if !description.is_empty() %}<p>{{ description }}</p>{% endif %}
+    </div>
+  </header>
+{% endmacro %}
+
+{% macro actions(cancel="Cancel", confirm="Confirm", kind="primary", align="stretch", cancel_icon="", cancel_action="cancel", confirm_action="confirm") %}
+  <footer class="gui-modal__actions" data-align="{{ align }}">
+    {{ button::render(cancel, action=cancel_action, icon_image=cancel_icon) }}
+    {{ button::render(confirm, kind=kind, type="submit", name="action", value=confirm_action) }}
+  </footer>
+{% endmacro %}

@@ -1,0 +1,12 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "modals/post-published/component.html" as post %}
+{% import "actions/copy-value/component.html" as copy %}
+{% macro render(id, url, title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">
+      {{ post::heading(id, title, description, image="../../images/modals/icon-neutral-success.svg") }}
+      {{ copy::render(url, "Share link", icon_only=true) }}
+    </div>
+    {{ modal::actions() }}
+  {% endcall %}
+{% endmacro %}

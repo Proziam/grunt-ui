@@ -1,0 +1,10 @@
+.gui-dashboard-preview { position: relative; width: 100%; height: 208px; border-radius: var(--gui-control-radius); background: var(--gui-soft); overflow: hidden; }
+.gui-dashboard-preview__card { position: absolute; width: 61%; height: 94px; padding: 11px 12px; border: 1px solid var(--gui-border); border-radius: 5px; background: var(--gui-surface); color: var(--gui-text); font: 600 8px/12px var(--gui-font); }
+.gui-dashboard-preview__card[data-card='members'] { top: 22px; right: 6%; }
+.gui-dashboard-preview__card[data-card='customers'] { top: 94px; left: 6%; }
+.gui-dashboard-preview__card > strong { display: block; font: inherit; }
+.gui-dashboard-preview__card > b { display: block; margin-top: 14px; font: 600 16px/24px var(--gui-font); }
+.gui-dashboard-preview__card > span { position: absolute; right: 10px; top: 7px; font-size: 12px; color: var(--gui-muted); }
+.gui-dashboard-preview__card > img { position: absolute; right: 12px; top: 45px; }
+.gui-dashboard-preview__card > small { position: absolute; left: 12px; bottom: 9px; font: 8px/12px var(--gui-font); color: var(--gui-muted); }
+.gui-dashboard-preview__card em { color: var(--gui-success); font-style: normal; }

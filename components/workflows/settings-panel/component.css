@@ -46,6 +46,9 @@
   font: 500 13px/1.5 var(--gui-font);
   cursor: pointer;
 }
+.gui-settings-panel footer button:enabled:hover:not(:active) {
+  background: var(--gui-accent-hover);
+}
 .gui-settings-panel footer button:disabled {
   opacity: 0.5;
   cursor: not-allowed;

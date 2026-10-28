@@ -1,0 +1,17 @@
+{% import "display/icon/component.html" as icon %}
+{% macro render(id, start="", end="", month="", today="") %}
+  <div class="gui-calendar" data-gui-calendar data-month="{{ month }}" data-today="{{ today }}">
+    <div class="gui-calendar__navigation">
+      <button type="button" data-calendar-month="-1" aria-label="Previous month">{{ icon::render("left", image="../../images/modals/icon-left.svg") }}</button>
+      <strong data-calendar-heading aria-live="polite">Choose dates</strong>
+      <button type="button" data-calendar-month="1" aria-label="Next month">{{ icon::render("right", image="../../images/modals/icon-right.svg") }}</button>
+    </div>
+    <div class="gui-calendar__inputs">
+      <label><span class="gui-sr-only">Start date</span><input id="{{ id }}-start" type="date" name="start" value="{{ start }}" required data-calendar-start></label>
+      <span aria-hidden="true">–</span>
+      <label><span class="gui-sr-only">End date</span><input id="{{ id }}-end" type="date" name="end" value="{{ end }}" required data-calendar-end></label>
+    </div>
+    <div class="gui-calendar__shortcuts"><button type="button" data-calendar-range="week">Last week</button><button type="button" data-calendar-range="month">Last month</button><button type="button" data-calendar-range="year">Last year</button></div>
+    <div class="gui-calendar__grid" data-calendar-grid aria-label="Calendar dates"></div>
+  </div>
+{% endmacro %}

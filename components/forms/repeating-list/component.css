@@ -38,7 +38,20 @@
   font: inherit;
   cursor: pointer;
 }
+.gui-repeating-list button:enabled:hover:not(:active) {
+  background: var(--gui-soft-hover);
+}
 .gui-repeating-list :focus-visible {
   outline: 3px solid var(--gui-focus);
   outline-offset: 2px;
 }
+.gui-repeating-list[data-compact] { margin: 0; padding: 0; border: 0; font: 14px/20px var(--gui-font); }
+.gui-repeating-list[data-compact] > legend { padding: 0; margin-bottom: 6px; font-weight: 500; }
+.gui-repeating-list[data-compact] [data-repeating-items] { display: grid; gap: 12px; }
+.gui-repeating-list[data-compact] .gui-repeating-list__row { position: relative; margin: 0; }
+.gui-repeating-list[data-compact] label { display: flex; align-items: center; gap: 8px; min-width: 0; min-height: 40px; padding: 0 12px; border: 1px solid var(--gui-control-border); border-radius: var(--gui-control-radius); background: var(--gui-surface); box-shadow: var(--gui-shadow); }
+.gui-repeating-list[data-compact] input { min-width: 0; padding: 7px 0; border: 0; background: transparent; font: 16px/24px var(--gui-font); box-shadow: none; }
+.gui-repeating-list[data-compact] input::placeholder { color: var(--gui-placeholder); opacity: 1; }
+.gui-repeating-list[data-compact] [data-remove-item] { position: absolute; right: 4px; top: 4px; width: 32px; height: 32px; padding: 0; opacity: 0; }
+.gui-repeating-list[data-compact] .gui-repeating-list__row:focus-within [data-remove-item], .gui-repeating-list[data-compact] .gui-repeating-list__row:hover [data-remove-item] { opacity: 1; }
+.gui-repeating-list[data-compact] [data-add-item] { display: inline-flex; align-items: center; gap: 8px; padding: 0; margin-top: 12px; border: 0; background: transparent; color: var(--gui-modal-link); font: 600 14px/20px var(--gui-font); }

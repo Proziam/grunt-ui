@@ -1,0 +1,4 @@
+{% import "display/icon/component.html" as icon %}
+{% macro render(name="check", image="", label="") %}
+  <span class="gui-feature-icon">{{ icon::render(name, label=label, image=image) }}</span>
+{% endmacro %}

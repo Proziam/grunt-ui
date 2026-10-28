@@ -1,3 +1,6 @@
 /target/
 /dist/
 .DS_Store
+opencode.json
+clippy.toml
+bacon.toml

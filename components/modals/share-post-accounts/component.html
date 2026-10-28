@@ -1,0 +1,14 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "modals/post-published/component.html" as post %}
+{% import "forms/switch/component.html" as switch %}
+{% macro render(id, accounts, title="Blog post published", description="This blog post has been published. Team members will be able to edit this post and republish changes.", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">
+      {{ post::heading(id, title, description) }}
+      <fieldset class="gui-modal__options"><legend class="gui-sr-only">Sharing accounts</legend>
+        {% for (value, label, account, checked) in accounts %}{{ switch::render("accounts", label, value=value, description=account, checked=checked, leading=true) }}{% endfor %}
+      </fieldset>
+    </div>
+    {{ modal::actions(confirm_action="share") }}
+  {% endcall %}
+{% endmacro %}

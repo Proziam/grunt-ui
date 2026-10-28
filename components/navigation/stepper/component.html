@@ -9,3 +9,8 @@
     {% endfor %}
   </ol>
 {% endmacro %}
+{% macro dots(label, count, current=1) %}
+  <nav class="gui-step-dots" aria-label="{{ label }}">
+    {% for index in 0..count %}<button type="button" aria-label="Go to step {{ index + 1 }}" data-step-index="{{ index }}"{% if index + 1 == current %} aria-current="step"{% endif %}><span></span></button>{% endfor %}
+  </nav>
+{% endmacro %}

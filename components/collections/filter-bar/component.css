@@ -29,6 +29,9 @@
   font: inherit;
   cursor: pointer;
 }
+.gui-filter-bar > button:enabled:hover:not(:active) {
+  background: var(--gui-surface-hover);
+}
 .gui-filter-bar :focus-visible {
   outline: 3px solid var(--gui-focus);
   outline-offset: 2px;

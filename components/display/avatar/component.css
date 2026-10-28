@@ -1,16 +1,21 @@
 .gui-avatar {
   display: inline-grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
-  border: 2px solid var(--gui-surface);
+  border: 0;
   border-radius: 50%;
   overflow: hidden;
   background: var(--gui-accent-soft);
   color: var(--gui-accent);
   font: 600 12px/1 var(--gui-font);
 }
+.gui-avatar[data-size='tiny'] { width: 16px; height: 16px; font-size: 8px; }
+.gui-avatar[data-tone='neutral'] { border: 2px solid var(--gui-border); background: var(--gui-soft); color: var(--gui-muted); font: 500 16px/24px var(--gui-font); }
+.gui-avatar-group[data-featured] { padding: 0; align-items: end; width: 112px; height: 48px; }
+.gui-avatar-group[data-featured] > .gui-avatar { margin: 0; }
+.gui-avatar-group[data-featured] > .gui-avatar:nth-child(2) { width: 48px; height: 48px; margin: 0 -8px; z-index: 1; }
 .gui-avatar img {
   width: 100%;
   height: 100%;

@@ -1,0 +1,14 @@
+{% import "modals/modal-template/component.html" as modal %}
+{% import "forms/input/component.html" as input %}
+{% macro render(id, title="Project created", description="Please enter a name for this project.", project_name="", preview=false) %}
+  {% call modal::surface(id, title, preview=preview) %}
+    <div class="gui-modal__content">
+      <header class="gui-modal__heading">
+        <img src="../../images/modals/folder-illustration.svg" alt="">
+        {{ modal::heading(id, title, description) }}
+      </header>
+      {{ input::render(id ~ "-name", "name", "Project name", value=project_name, placeholder="e.g. Website design", required=true, required_indicator=false) }}
+    </div>
+    {{ modal::actions(confirm_action="name-project") }}
+  {% endcall %}
+{% endmacro %}
