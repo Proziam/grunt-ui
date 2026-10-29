@@ -4,4 +4,5 @@ Compact, text-labelled statuses and categories with optional dots.
 
 Inputs: `label`, `tone=neutral/success/warning/danger/info/accent`, `dot=false`.
 Status must come from application data; color never replaces the text label.
-Dependencies: foundation. JavaScript: none.
+`appearance="outline"` uses a white/surface fill; optional `image` supplies a local status icon.
+Dependencies: display/icon, foundation. JavaScript: none.

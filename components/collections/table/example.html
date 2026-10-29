@@ -1,13 +1,50 @@
 {% import "collections/table/component.html" as table %}
 {% import "display/badge/component.html" as badge %}
-{% let workflows = [("Daily briefing", "Operations", "Ready"), ("Customer follow-up", "Support", "Needs setup")] %}
-{% call(row) table::render(
-  "Workflow directory",
-  ["Workflow", "Owner", "Status"],
-  rows=workflows,
-  empty_text="No workflows yet."
-) %}
-  <th scope="row">{{ row.0 }}</th>
-  <td>{{ row.1 }}</td>
-  <td>{{ badge::render(row.2) }}</td>
+{% let rows = [
+  ("trello", "Trello", "Project Management", "Nuray Aksoy", "nuray@example.com", "Client-Provider", "Aug 2022 - 2024", "trello-contract.pdf", "1.8 MB", "active", "Active"),
+  ("loom", "Loom", "Video Messaging", "Ravi Patel", "ravi@example.com", "Partnership Collab.", "Sep 2023 - 2024", "loom-contract.pdf", "1.5 MB", "active", "Active"),
+  ("monday", "Monday.com", "Work Operation System", "Natalia Nowak", "natalia@example.com", "Vendor-Client", "May 2022 - May 2023", "mondaycom-contract.pdf", "1.6 MB", "active", "Active"),
+  ("zoom", "Zoom", "Video Conferencing", "Juma Omondi", "juma@example.com", "Partnership Collab.", "Apr 2021 - 2024", "zoom-contract.pdf", "1.8 MB", "active", "Active"),
+  ("linear", "Linear", "Issue Tracking", "Lena Müller", "lena@example.com", "Client-Provider", "Jan 2023 - Jan 2025", "linear-contract.pdf", "1.2 MB", "inactive", "Inactive"),
+  ("skype", "Skype", "Video Communication", "Wei Chen", "wei@example.com", "Supplier-Customer", "May 2020 - Jan 2023", "skype-contract.pdf", "1.4 MB", "active", "Active"),
+  ("evernote", "Evernote", "Note-taking and Organization", "Laura Perez", "laura@example.com", "Vendor-Client", "Sep 2019 - 2022", "evernote-contract.pdf", "1.8 MB", "inactive", "Inactive"),
+  ("notion", "Notion", "Workspace and Documentation", "Amara Okafor", "amara@example.com", "Client-Provider", "Feb 2023 - 2025", "notion-contract.pdf", "1.4 MB", "active", "Active"),
+  ("figma", "Figma", "Collaborative Design", "Daniel Kim", "daniel@example.com", "Partnership Collab.", "Jun 2023 - 2025", "figma-contract.pdf", "1.7 MB", "active", "Active"),
+  ("dropbox", "Dropbox", "File Storage", "Sofia Rossi", "sofia@example.com", "Vendor-Client", "Mar 2020 - 2022", "dropbox-contract.pdf", "1.3 MB", "inactive", "Inactive"),
+  ("asana", "Asana", "Task Management", "Mateo Silva", "mateo@example.com", "Client-Provider", "Nov 2021 - 2023", "asana-contract.pdf", "1.6 MB", "inactive", "Inactive"),
+  ("airtable", "Airtable", "Collaborative Databases", "Hana Sato", "hana@example.com", "Supplier-Customer", "Jul 2020 - 2023", "airtable-contract.pdf", "1.5 MB", "inactive", "Inactive")
+] %}
+<div class="gui-table-demo">
+{% call table::view("company-table") %}
+  {% call table::toolbar() %}
+    {{ table::filters("company-status", "Filter by status", [("", "All"), ("active", "Active"), ("inactive", "Inactive")]) }}
+    {{ table::search("company-search", image="../../images/table/search.svg") }}
+  {% endcall %}
+  {% call table::surface("Company directory") %}
+    <colgroup>
+      {% for key in ["selection", "company", "contact", "relationship", "contract", "status", "actions"] %}<col data-column="{{ key }}">{% endfor %}
+    </colgroup>
+    <thead><tr>
+      {{ table::select_all() }}
+      {% for (key, label) in [("company", "Company Name"), ("contact", "Contact Person"), ("relationship", "Relationship"), ("contract", "Contract Details"), ("status", "Status")] %}
+        {{ table::header(label, key=key, image="../../images/table/sort-column.svg") }}
+      {% endfor %}
+      <th scope="col"><span class="gui-sr-only">Actions</span></th>
+    </tr></thead>
+    <tbody>
+      {% for row in rows %}
+        {% call table::row(row.0, group=row.9) %}
+          {{ table::selection(row.0, label=format!("Select {}", row.1)) }}
+          <th scope="row">{{ table::media(row.1, row.2) }}</th>
+          <td>{{ table::media(row.3, row.4) }}</td>
+          <td>{{ table::text(row.5, row.6) }}</td>
+          <td>{{ table::file(row.7, row.8, image="../../images/table/document.svg") }}</td>
+          <td>{% if row.9 == "active" %}{{ badge::render(row.10, tone="success", appearance="outline", image="../../images/table/status-active.svg") }}{% else %}{{ badge::render(row.10, appearance="outline", image="../../images/table/status-inactive.svg") }}{% endif %}</td>
+          <td>{{ table::action(row.0, label=format!("More actions for {}", row.1), image="../../images/table/more.svg") }}</td>
+        {% endcall %}
+      {% endfor %}
+      {{ table::empty(7, "No companies match these filters.") }}
+    </tbody>
+  {% endcall %}
 {% endcall %}
+</div>

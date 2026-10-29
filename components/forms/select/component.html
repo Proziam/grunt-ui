@@ -1,3 +1,4 @@
+{% import "display/icon/component.html" as icon %}
 {% macro render(
   id,
   name,
@@ -7,10 +8,15 @@
   help="",
   required=false,
   disabled=false,
-  multiple=false
+  multiple=false,
+  optional=false,
+  image="",
+  info_image=""
 ) %}
   <div class="gui-select">
-    <label for="{{ id }}">{{ label }}</label>
+    <label for="{{ id }}">{{ label }}{% if required %}<span class="gui-select__required" aria-hidden="true">*</span>{% endif %}{% if optional %} <span class="gui-select__optional">(Optional)</span>{% endif %}{% if !info_image.is_empty() %} {{ icon::render("", image=info_image) }}{% endif %}</label>
+    <div class="gui-select__control"{% if !image.is_empty() %} data-image{% endif %}>
+    {% if !image.is_empty() %}{{ icon::render("", image=image) }}{% endif %}
     <select id="{{ id }}"
             name="{{ name }}"
             {% if required %} required{% endif %}
@@ -22,6 +28,7 @@
                 {% if key.as_bytes() == value.as_bytes() %} selected{% endif %}>{{ text }}</option>
       {% endfor %}
     </select>
+    </div>
     {% if !help.is_empty() %}
       <p id="{{ id }}-help">{{ help }}</p>
     {% endif %}

@@ -5,7 +5,8 @@
   type="checkbox",
   checked=false,
   disabled=false,
-  description=""
+  description="",
+  note=""
 ) %}
   <label class="gui-choice">
     <input type="{{ type }}"
@@ -14,7 +15,7 @@
            {% if checked %} checked{% endif %}
            {% if disabled %} disabled{% endif %}>
     <span>
-      <strong>{{ label }}</strong>
+      <strong>{{ label }}</strong>{% if !note.is_empty() %} <span class="gui-choice__note">{{ note }}</span>{% endif %}
       {% if !description.is_empty() %}
         <small>{{ description }}</small>
       {% endif %}

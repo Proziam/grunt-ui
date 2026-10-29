@@ -81,7 +81,7 @@ for (const preview of document.querySelectorAll('.catalog-preview')) {
   let minimum;
   let maximum;
   function resize() {
-    maximum = Math.max(1, Math.floor(stage.clientWidth));
+    maximum = Math.max(1, Math.floor(stage.clientWidth) - handle.offsetWidth);
     minimum = Math.min(320, maximum);
     width = Math.round(Math.max(minimum, Math.min(maximum, requestedWidth)));
     canvas.style.width = `${width}px`;
@@ -135,7 +135,8 @@ for (const preview of document.querySelectorAll('.catalog-preview')) {
     const content = frame.contentDocument;
     content.documentElement.dataset.guiTheme = document.documentElement.dataset.guiTheme;
     const observer = new ResizeObserver(() => {
-      frame.style.height = `${Math.ceil(content.body.getBoundingClientRect().height)}px`;
+      const border = frame.offsetHeight - frame.clientHeight;
+      frame.style.height = `${Math.ceil(content.body.getBoundingClientRect().height) + border}px`;
     });
     observer.observe(content.body);
   });
@@ -147,6 +148,15 @@ for (const preview of document.querySelectorAll('.catalog-preview')) {
   resize();
 }
 // Examples never contact application endpoints or claim a successful mutation.
+// Pointer events inside an iframe do not bubble; a click in the catalog is outside its panel.
+document.addEventListener('pointerdown', () => {
+  for (const frame of document.querySelectorAll('[data-gui-preview-frame]')) {
+    for (const dialog of frame.contentDocument.querySelectorAll('dialog[data-gui-light-dismiss][open]')) {
+      if (dialog.requestClose) dialog.requestClose();
+      else if (dialog.dispatchEvent(new Event('cancel', { cancelable: true }))) dialog.close();
+    }
+  }
+});
 document.addEventListener('submit', (event) => {
   if (event.target.method === 'dialog') return;
   event.preventDefault();

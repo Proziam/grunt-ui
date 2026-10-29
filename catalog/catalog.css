@@ -310,6 +310,7 @@ input {
 }
 .gui-preview-stage {
   min-width: 0;
+  padding-right: 20px;
   border-radius: 14px;
   background: var(--gui-soft);
 }
@@ -329,7 +330,7 @@ input {
 }
 .gui-preview-handle {
   position: absolute;
-  inset: 0 0 0 auto;
+  inset: 0 -20px 0 auto;
   width: 20px;
   display: grid;
   place-items: center;

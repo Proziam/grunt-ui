@@ -24,6 +24,7 @@
 .gui-choice strong {
   font-weight: 500;
 }
+.gui-choice__note { color: var(--gui-muted); font-size: 12px; }
 .gui-choice small {
   display: block;
   margin-top: 3px;

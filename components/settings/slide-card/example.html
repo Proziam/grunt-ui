@@ -1,0 +1,18 @@
+{% import "settings/slide-card/component.html" as settings %}
+{% import "forms/select/component.html" as select %}
+{% import "forms/choice/component.html" as choice %}
+<div class="gui-settings-slide-card-demo">
+  {% call settings::render("general-settings", "General Settings", "General Settings", description="Personalize and configure options.", close_image="../../images/settings/close.svg") %}
+    {% call settings::section("Regional preferences") %}
+      {{ select::render("settings-language", "language", "Language", [("en-US", "English (US)"), ("es-US", "Español (US)")], value="en-US", required=true, image="../../images/settings/flag-us.svg") }}
+      {{ select::render("settings-timezone", "timezone", "Timezone", [("America/Puerto_Rico", "GMT-4:00 - Atlantic Standard Time"), ("UTC", "GMT+0:00 - Coordinated Universal Time"), ("Asia/Tokyo", "GMT+9:00 - Japan Standard Time")], value="America/Puerto_Rico", required=true, info_image="../../images/settings/information.svg") }}
+      {{ select::render("settings-time-format", "time_format", "Time Format", [("24", "24 Hours"), ("12", "12 Hours")], value="24", optional=true, info_image="../../images/settings/information.svg") }}
+      {{ select::render("settings-date-format", "date_format", "Date Format", [("dd/mm/yy", "DD/MM/YY"), ("mm/dd/yy", "MM/DD/YY"), ("yyyy-mm-dd", "YYYY-MM-DD")], value="dd/mm/yy", optional=true, info_image="../../images/settings/information.svg") }}
+    {% endcall %}
+    {% call settings::section("Theme options") %}
+      {{ choice::render("theme", "light", "Light Mode", type="radio", note="(Default)", description="Pick a clean and classic light theme.") }}
+      {{ choice::render("theme", "dark", "Dark Mode", type="radio", description="Select a sleek and modern dark theme.") }}
+      {{ choice::render("theme", "system", "System Mode", type="radio", checked=true, description="Adapts to your device’s theme.") }}
+    {% endcall %}
+  {% endcall %}
+</div>

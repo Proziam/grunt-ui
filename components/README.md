@@ -27,7 +27,7 @@ beside them. [Run the visual catalog](../README.md#browse-the-library) to try th
 | [Billing](billing/) | plan-card, subscription, balance |
 | [Charts](charts/) | bar-chart, line-chart |
 | [Files](files/) | attachment, upload-item, media |
-| [Settings](settings/) | preferences, retention |
+| [Settings](settings/) | preferences, retention, slide-card |
 | [Marketing](marketing/) | hero, feature-card, call-to-action, testimonial, article-card |
 | [Administration](admin/) | contract, version-list, operation-card |
 | [Security](security/) | session-card, credential-card, audit-event |

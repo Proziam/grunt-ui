@@ -34,6 +34,12 @@
   --gui-shadow-raised: 0 12px 32px #161d2918, 0 2px 8px #161d2910;
   --gui-focus: #d95126;
   --gui-motion: 150ms;
+  --gui-motion-slide: 250ms;
+  --gui-blue: #335cff;
+  --gui-blue-ink: #fff;
+  --gui-backdrop: #00000030;
+  --gui-pdf: #ff335f;
+  --gui-pdf-ink: #fff;
   --gui-modal-accent: #7f56d9;
   --gui-modal-accent-border: #6941c6;
   --gui-modal-accent-ink: #fff;
@@ -76,6 +82,8 @@
   --gui-info-soft: #232f47;
   --gui-violet: #b59aeb;
   --gui-focus: #f79574;
+  --gui-blue: #9db4ff;
+  --gui-blue-ink: #17191e;
   --gui-shadow: 0 1px 3px #0003;
   --gui-shadow-raised: 0 12px 32px #0005;
   --gui-modal-accent: #9e77ed;
@@ -102,6 +110,19 @@
   --gui-accent-hover: color-mix(in srgb, var(--gui-accent), black 8%);
   --gui-accent-soft: color-mix(in srgb, var(--gui-accent) 10%, var(--gui-surface));
 }
+[data-gui-palette='blue'] {
+  --gui-text: var(--gui-modal-text);
+  --gui-muted: var(--gui-modal-muted);
+  --gui-soft: var(--gui-modal-soft);
+  --gui-border: var(--gui-modal-line);
+  --gui-control-border: var(--gui-modal-line);
+  --gui-accent: var(--gui-blue);
+  --gui-accent-ink: var(--gui-blue-ink);
+  --gui-focus: var(--gui-blue);
+  --gui-accent-hover: color-mix(in srgb, var(--gui-accent), black 8%);
+  --gui-accent-soft: color-mix(in srgb, var(--gui-accent) 10%, var(--gui-surface));
+  --gui-accent-soft-hover: color-mix(in srgb, var(--gui-accent-soft), black 8%);
+}
 :where([class^='gui-'], [class*=' gui-']) {
   box-sizing: border-box;
 }
@@ -119,5 +140,6 @@
 @media (prefers-reduced-motion: reduce) {
   :root {
     --gui-motion: 0ms;
+    --gui-motion-slide: 0ms;
   }
 }

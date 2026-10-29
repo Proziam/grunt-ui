@@ -1,23 +1,101 @@
-{% macro render(caption, columns, rows, empty_text) %}
+{% import "forms/choice/component.html" as choice %}
+{% import "forms/input/component.html" as input %}
+{% import "actions/icon-button/component.html" as icon_button %}
+{% import "display/icon/component.html" as icon %}
+
+{% macro render(caption, columns, rows, empty_text, show_caption=true) %}
+  {% let cells = caller %}
+  {% call surface(caption, show_caption=show_caption) %}
+    <thead><tr>{% for column in columns %}{{ header(column) }}{% endfor %}</tr></thead>
+    <tbody>
+      {% for row in rows %}
+        <tr>{{ cells(row) }}</tr>
+      {% else %}
+        {{ empty(columns.len(), empty_text, hidden=false) }}
+      {% endfor %}
+    </tbody>
+  {% endcall %}
+{% endmacro %}
+
+{% macro surface(caption, show_caption=false) %}
   <div class="gui-table-scroll" role="region" aria-label="{{ caption }}" tabindex="0">
     <table class="gui-table">
-      <caption>{{ caption }}</caption>
-      <thead>
-        <tr>
-          {% for column in columns %}
-            <th scope="col">{{ column }}</th>
-          {% endfor %}
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in rows %}
-          <tr>{{ caller(row) }}</tr>
-        {% else %}
-          <tr>
-            <td colspan="{{ columns.len() }}" class="gui-table__empty">{{ empty_text }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
+      <caption{% if !show_caption %} class="gui-sr-only"{% endif %}>{{ caption }}</caption>
+      {{ caller() }}
     </table>
   </div>
+{% endmacro %}
+
+{% macro view(id) %}
+  <div id="{{ id }}" class="gui-table-view" data-gui-table data-gui-palette="blue">
+    {{ caller() }}
+    <p class="gui-sr-only" data-gui-table-count role="status" aria-live="polite"></p>
+  </div>
+{% endmacro %}
+
+{% macro toolbar(label="Table controls") %}
+  <div class="gui-table__toolbar" role="group" aria-label="{{ label }}">{{ caller() }}</div>
+{% endmacro %}
+
+{% macro filters(name, label, items, selected="") %}
+  <fieldset class="gui-table__filters">
+    <legend class="gui-sr-only">{{ label }}</legend>
+    {% for (value, text) in items %}
+      <label>
+        <input type="radio" name="{{ name }}" value="{{ value }}" data-gui-table-filter{% if value.as_bytes() == selected.as_bytes() %} checked{% endif %}>
+        <span>{{ text }}</span>
+      </label>
+    {% endfor %}
+  </fieldset>
+{% endmacro %}
+
+{% macro search(id, label="Search rows", placeholder="Search…", image="") %}
+  <div class="gui-table__search">{{ input::render(id, "q", label, type="search", placeholder=placeholder, leading_icon="search", icon_image=image) }}</div>
+{% endmacro %}
+
+{% macro header(label, key="", numeric=false, image="") %}
+  <th scope="col"{% if numeric %} class="gui-table__numeric"{% endif %}{% if !key.is_empty() %} data-gui-table-column="{{ key }}" aria-sort="none"{% endif %}>
+    {% if !key.is_empty() %}<button type="button" data-gui-table-sort="{{ key }}">{{ label }}{% if !image.is_empty() %}<span class="gui-table__sort-icon" aria-hidden="true">{{ icon::render("", image=image) }}</span>{% endif %}</button>{% else %}{{ label }}{% endif %}
+  </th>
+{% endmacro %}
+
+{% macro select_all(label="Select all visible rows") %}
+  <th scope="col" class="gui-table__selection"><span data-gui-table-select-all>{{ choice::control("", "", label=label) }}</span></th>
+{% endmacro %}
+
+{% macro row(value, group="") %}
+  <tr data-gui-table-row="{{ value }}" data-gui-table-group="{{ group }}">{{ caller() }}</tr>
+{% endmacro %}
+
+{% macro selection(value, label, checked=false, disabled=false, name="selection") %}
+  <td class="gui-table__selection"><span data-gui-table-select>{{ choice::control(name, value, label=label, checked=checked, disabled=disabled) }}</span></td>
+{% endmacro %}
+
+{% macro text(primary, secondary="", strong=false) %}
+  <span class="gui-table__text">
+    <span class="gui-table__primary"{% if strong %} data-strong{% endif %}>{{ primary }}</span>
+    {% if !secondary.is_empty() %}<span class="gui-table__secondary">{{ secondary }}</span>{% endif %}
+  </span>
+{% endmacro %}
+
+{% macro media(primary, secondary="", image="", alt="") %}
+  <span class="gui-table__media">
+    {% if image.is_empty() %}<span class="gui-table__placeholder" aria-hidden="true"></span>{% else %}<img class="gui-table__image" src="{{ image }}" alt="{{ alt }}" width="40" height="40" loading="lazy">{% endif %}
+    {{ text(primary, secondary, strong=true) }}
+  </span>
+{% endmacro %}
+
+{% macro file(name, detail="", image="", type="PDF") %}
+  <span class="gui-table__media">
+    <span class="gui-table__file" aria-hidden="true">{{ icon::render("file", size=32, image=image) }}<span>{{ type }}</span></span>
+    {{ text(name, detail, strong=true) }}
+  </span>
+{% endmacro %}
+
+{% macro action(value, label, action="more", image="") %}
+  <span data-gui-table-action="{{ action }}" data-gui-table-value="{{ value }}">{{ icon_button::render("settings", label, image=image) }}</span>
+{% endmacro %}
+
+{% macro empty(columns, text, hidden=true) %}
+  <tr data-gui-table-empty{% if hidden %} hidden{% endif %}><td colspan="{{ columns }}" class="gui-table__empty">{{ text }}</td></tr>
 {% endmacro %}

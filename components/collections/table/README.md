@@ -1,8 +1,17 @@
-# Data table
+# Table
 
-A scrollable semantic table with typed caller-owned rows and an empty state.
+A composable semantic table with caller-owned columns, rows, and optional local controls.
 
-Inputs: `caption`, list of `columns`, iterable `rows`, `empty_text`.
-`call(row)` supplies actual `th`/`td` cells; keep cell counts aligned with columns.
-Use native links in headings for server sorting. `.gui-table__numeric` aligns numbers.
-Dependencies: foundation and row content. JavaScript: none.
+- Simple API: `render(caption, columns, rows, empty_text, show_caption=true)`; `call(row)` supplies the actual `th`/`td` cells. Keep cell counts aligned with columns.
+- Custom API: `surface(caption, show_caption=false)` takes `colgroup`, `thead`, and `tbody` in its call block. `header(label, key="", numeric=false, image="")`, `row(value, group="")`, and `empty(columns, text, hidden=true)` are optional helpers. Use `th scope="row"` for row headings. No required column schema or fixed table width.
+- Both APIs reserve a **640px** scroll viewport for the caption/header and rows, including when results are short or empty. Set `--gui-table-height` on the table's wrapper (for example, `--gui-table-height: 480px`) to choose its height; the toolbar sits above it. Rows keep their natural height. Excess rows use native wheel/touch/keyboard scrolling with thin scrollbars and sticky column headings. Search, filtering, and sorting return to the top without changing the viewport height; selection preserves the scroll position.
+- The example has 12 rows (7 active, 5 inactive), so All demonstrates vertical scrolling. Flexible columns fit the desktop viewport, with horizontal scrolling on narrower screens; a stable scrollbar gutter keeps columns aligned between filters.
+- With a mouse, scrollbars show on hover or keyboard focus and begin their 150ms fade immediately when that interaction ends, with no delay. `--gui-motion` controls the duration; reduced motion makes it immediate. Touch and forced-colors modes retain native scrollbar visibility.
+- Cell helpers: `text(primary, secondary="", strong=false)`, `media(primary, secondary="", image="", alt="")`, and `file(name, detail="", image="", type="PDF")`. `media` reserves an empty **40×40px** circle when no image is provided. The example includes no logos or portraits. `.gui-table__numeric` aligns numbers; use `data-gui-sort-value` on a cell for a numeric/date sorting key.
+- Sort keys containing finite numbers compare numerically (including negatives and decimals); other keys use natural text order. Numeric keys precede text/empty keys ascending. Supply unformatted numbers or ISO dates instead of localized display strings.
+- Sortable headings have no hover fill or label-color change. A paired-arrow `image` shows both arrows when unsorted, only the up arrow ascending, and only the down arrow descending.
+- Optional behavior: wrap one table in `view(id)` with a unique ID. Compose `toolbar()`, `filters(name, label, items, selected="")`, `search(id, label="Search rows", placeholder="Search…", image="")`, and sortable headers with unique `key`s. Filter values match `row`'s `group`. Caller-supplied IDs and radio names must be unique per instance.
+- Add a select inside `[data-gui-table-sort-select]` with options matching header keys; an empty value restores initial order. A checkbox inside `[data-gui-table-selected-only]` limits the view to selected rows. Include `empty(...)` in `tbody` for no matches. Search, filtering, and sorting operate on the rendered rows, not remote data.
+- `select_all(label="Select all visible rows")` and `selection(value, label, checked=false, disabled=false, name="selection")` emit header/body cells. Selection changes only the checkbox, without a selected-row fill. Select-all affects visible, enabled rows; it is checked only when all of them are selected, otherwise unchecked (never mixed). `gui:table-selection` bubbles with `{ id, values }`, including selected hidden rows.
+- `action(value, label, action="more", image="")` emits bubbling, cancelable `gui:table-action` with `{ id, action, value }`. The application supplies menus and operations. Controls perform no server mutations. For server sorting, use ordinary links in caller-owned headings instead of the local controls.
+- Dependencies: foundation, forms/choice, forms/input, actions/icon-button, display/icon; this module only for local controls. The example adds display/badge and `images/table/` control SVGs. The simple `render` API works without JavaScript.

@@ -188,6 +188,9 @@ Optional component events:
 | Canvas | `gui:node-move`, bubbling, `{id, x, y}` detail | Visit-local presentation coordinates |
 | Toast | `gui:dismiss`, bubbling | User hid this toast |
 | Repeating list | Native bubbling `input` | A row was added or removed |
+| Settings slide card | `gui:settings-submit`, bubbling and cancelable, `{id, data: FormData}` | Validated draft; application owns persistence and closing |
+| Table | `gui:table-selection`, bubbling, `{id, values}` | Selected row values, including hidden selections |
+| Table | `gui:table-action`, bubbling and cancelable, `{id, action, value}` | Application-owned row action/menu request |
 
 Canvas does not model edges or store execution graphs. Place the application's
 existing connectors in the scene and keep node coordinates in its view state.

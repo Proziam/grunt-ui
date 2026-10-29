@@ -1,0 +1,33 @@
+{% import "actions/button/component.html" as button %}
+{% import "actions/icon-button/component.html" as icon_button %}
+{% import "overlays/dialog/component.html" as dialog %}
+
+{% macro render(id, title, trigger_label, description="", cancel_label="Cancel", apply_label="Apply Changes", close_label="Close settings", close_image="") %}
+  <div class="gui-settings-slide-card-host" data-gui-palette="blue">
+    {{ button::render(trigger_label, dialog=id) }}
+    <dialog id="{{ id }}" class="gui-settings-slide-card" data-gui-light-dismiss
+            aria-labelledby="{{ id }}-title"{% if !description.is_empty() %} aria-describedby="{{ id }}-description"{% endif %}>
+      <form class="gui-settings-slide-card__form" method="post" data-gui-settings-form>
+        <header class="gui-settings-slide-card__header">
+          <div>
+            <h2 id="{{ id }}-title" tabindex="-1" autofocus>{{ title }}</h2>
+            {% if !description.is_empty() %}<p id="{{ id }}-description">{{ description }}</p>{% endif %}
+          </div>
+          {{ icon_button::render("close", close_label, image=close_image, dismiss=true) }}
+        </header>
+        <div class="gui-settings-slide-card__body">{{ caller() }}</div>
+        <footer class="gui-settings-slide-card__footer">
+          {{ button::render(cancel_label, dismiss=true) }}
+          {{ button::render(apply_label, kind="primary", type="submit") }}
+        </footer>
+      </form>
+    </dialog>
+  </div>
+{% endmacro %}
+
+{% macro section(title) %}
+  <fieldset class="gui-settings-slide-card__section">
+    <legend>{{ title }}</legend>
+    <div class="gui-settings-slide-card__fields">{{ caller() }}</div>
+  </fieldset>
+{% endmacro %}

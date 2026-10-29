@@ -1,5 +1,7 @@
-{% macro render(label, tone="neutral", dot=false) %}
-  <span class="gui-badge" data-tone="{{ tone }}">
+{% import "display/icon/component.html" as icon %}
+{% macro render(label, tone="neutral", dot=false, appearance="soft", image="") %}
+  <span class="gui-badge" data-tone="{{ tone }}" data-appearance="{{ appearance }}">
+    {% if !image.is_empty() %}{{ icon::render("", image=image) }}{% endif %}
     {% if dot %}
       <span class="gui-badge__dot" aria-hidden="true"></span>
     {% endif %}

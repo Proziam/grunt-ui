@@ -8,6 +8,12 @@
   margin-bottom: 6px;
   font-weight: 500;
 }
+.gui-select__required { color: var(--gui-accent); }
+.gui-select__optional { color: var(--gui-muted); font-weight: 400; }
+.gui-select label .gui-icon { vertical-align: middle; }
+.gui-select__control { position: relative; }
+.gui-select__control > .gui-icon { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); pointer-events: none; }
+.gui-select__control[data-image] > select { padding-left: 40px; }
 .gui-select select {
   box-sizing: border-box;
   width: 100%;

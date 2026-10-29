@@ -1,10 +1,11 @@
 {% import "display/icon/component.html" as icon %}
-{% macro render(name, label, type="button", disabled=false, pressed=false, toggle=false, image="", action="") %}
+{% macro render(name, label, type="button", disabled=false, pressed=false, toggle=false, image="", action="", dismiss=false) %}
   <button class="gui-icon-button"
           type="{{ type }}"
           aria-label="{{ label }}"
            title="{{ label }}"
-           {% if !action.is_empty() %} data-gui-modal-action="{{ action }}"{% endif %}
+            {% if !action.is_empty() %} data-gui-modal-action="{{ action }}"{% endif %}
+           {% if dismiss %} data-gui-close{% endif %}
           {% if disabled %} disabled{% endif %}
            {% if toggle %} aria-pressed="{{ pressed }}"{% endif %}>{{ icon::render(name, image=image) }}</button>
 {% endmacro %}

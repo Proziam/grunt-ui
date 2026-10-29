@@ -1,6 +1,7 @@
-{% macro render(id, label) %}
+{% import "display/icon/component.html" as icon %}
+{% macro render(id, label, image="") %}
   <div class="gui-popover-control">
-    <button type="button" popovertarget="{{ id }}">{{ label }}</button>
+    <button type="button" popovertarget="{{ id }}">{% if !image.is_empty() %}{{ icon::render("", image=image) }}{% endif %}{{ label }}</button>
     <div id="{{ id }}" class="gui-popover" popover>{{ caller() }}</div>
   </div>
 {% endmacro %}

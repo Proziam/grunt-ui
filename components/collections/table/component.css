@@ -1,49 +1,96 @@
+.gui-table-view { position: relative; display: grid; gap: 16px; min-width: 0; color: var(--gui-text); font: 14px/20px var(--gui-font); }
 .gui-table-scroll {
+  position: relative;
   max-width: 100%;
+  min-width: 0;
+  block-size: var(--gui-table-height, 640px);
+  min-block-size: 0;
   overflow: auto;
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-radius);
+  overscroll-behavior: contain;
+  scroll-padding-block-start: 60px;
   background: var(--gui-surface);
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--gui-border) transparent;
 }
-.gui-table-scroll:focus-visible {
-  outline: 3px solid var(--gui-focus);
-  outline-offset: 3px;
+.gui-table-scroll:focus-visible { outline: 3px solid var(--gui-focus); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) and (forced-colors: none) {
+  .gui-table-scroll {
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color var(--gui-motion) ease-out 0s;
+  }
+  .gui-table-scroll:is(:hover, :focus-visible),
+  .gui-table-scroll:has(:focus-visible) { scrollbar-color: var(--gui-border) transparent; }
 }
-.gui-table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: left;
-  color: var(--gui-text);
-  font: 13px/1.6 var(--gui-font);
+.gui-table { border-collapse: separate; border-spacing: 0; width: 100%; text-align: left; color: var(--gui-text); font: 14px/20px var(--gui-font); }
+.gui-table > caption:not(.gui-sr-only) { padding: 0 0 16px; text-align: left; font-weight: 500; }
+.gui-table th, .gui-table td { padding: 16px 12px; vertical-align: middle; }
+.gui-table thead th { position: sticky; inset-block-start: 0; z-index: 1; height: 36px; padding: 8px 12px; background: var(--gui-soft); color: var(--gui-muted); font-weight: 400; white-space: nowrap; }
+.gui-table thead th:first-child { border-radius: 8px 0 0 8px; }
+.gui-table thead th:last-child { border-radius: 0 8px 8px 0; }
+.gui-table thead th:only-child { border-radius: 8px; }
+.gui-table tbody th, .gui-table tbody td { height: 76px; border-bottom: 1px solid var(--gui-border); }
+.gui-table tbody th { font-weight: 500; }
+.gui-table tbody tr:last-child > :is(th, td),
+.gui-table tbody tr:has(+ [data-gui-table-empty][hidden]) > :is(th, td) { border-bottom: 0; }
+.gui-table tbody tr:hover { background: var(--gui-page); }
+.gui-table [hidden] { display: none; }
+.gui-table .gui-table__empty { padding: 32px 16px; text-align: center; color: var(--gui-muted); }
+.gui-table .gui-table__numeric { text-align: right; font-variant-numeric: tabular-nums; }
+.gui-table__text { display: grid; gap: 4px; min-width: 0; }
+.gui-table__primary { font-weight: 400; }
+.gui-table__primary[data-strong] { font-weight: 500; }
+.gui-table__secondary { color: var(--gui-muted); font: 400 12px/16px var(--gui-font); }
+.gui-table__media { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.gui-table__placeholder, .gui-table__image { display: block; flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.gui-table__placeholder { background: var(--gui-soft); border: 1px solid var(--gui-border); }
+.gui-table__file { position: relative; display: block; flex: 0 0 32px; width: 32px; height: 32px; }
+.gui-table__file > span { position: absolute; top: 14px; left: 1px; padding: 2px 3px; border-radius: 3px; background: var(--gui-pdf); color: var(--gui-pdf-ink); font: 600 7px/9px var(--gui-font); }
+.gui-table .gui-table__selection { width: 44px; padding: 8px 14px; }
+.gui-table__selection > span { display: inline-flex; align-items: center; justify-content: center; min-height: 20px; }
+.gui-table__selection .gui-choice-control { margin: 0; cursor: pointer; }
+.gui-table [data-gui-table-sort] { display: inline-flex; align-items: center; justify-content: inherit; gap: 4px; margin: -8px 0; min-height: 36px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.gui-table__sort-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 12px; width: 12px; height: 12px; }
+.gui-table th[aria-sort='ascending'] .gui-table__sort-icon > img { clip-path: inset(0 0 50%); transform: translateY(3px); }
+.gui-table th[aria-sort='descending'] .gui-table__sort-icon > img { clip-path: inset(50% 0 0); transform: translateY(-3px); }
+.gui-table [data-gui-table-action] .gui-icon-button { width: 32px; height: 32px; padding: 8px; border: 0; background: transparent; }
+.gui-table [data-gui-table-action] .gui-icon-button:not(:disabled):not([aria-disabled='true']):hover:not(:active) { background: var(--gui-surface-hover); }
+[data-gui-theme='dark'] .gui-table [data-gui-table-action] img,
+:root[data-workspace-theme='dark'] .gui-table [data-gui-table-action] img { filter: brightness(2); }
+.gui-table-view :focus-visible { outline: 3px solid var(--gui-focus); outline-offset: 2px; }
+.gui-table-view ::selection { color: var(--gui-accent-ink); background: var(--gui-accent); }
+.gui-table__toolbar { display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 16px; min-width: 0; }
+.gui-table__filters { display: flex; flex: 0 1 320px; min-width: 0; margin: 0; padding: 4px; border: 0; border-radius: 10px; background: var(--gui-soft); }
+.gui-table__filters > label { position: relative; display: flex; flex: 1; cursor: pointer; }
+.gui-table__filters input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.gui-table__filters label > span { width: 100%; padding: 4px 12px; border-radius: 4px; text-align: center; color: var(--gui-muted); }
+.gui-table__filters input:checked + span { background: var(--gui-surface); color: var(--gui-text); box-shadow: var(--gui-shadow); }
+.gui-table__filters input:not(:disabled):hover:not(:active) + span { background: var(--gui-surface-hover); }
+.gui-table__filters input:focus-visible + span { outline: 3px solid var(--gui-focus); outline-offset: 1px; }
+.gui-table__tools { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; min-width: 0; }
+.gui-table__search { flex: 1 1 200px; max-width: 277px; min-width: 0; }
+.gui-table__search .gui-input > label, .gui-table__sort > .gui-select > label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.gui-table__search .gui-input input { min-height: 36px; padding-top: 7px; padding-bottom: 7px; font: 14px/20px var(--gui-font); }
+.gui-table__tools .gui-popover-control > button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 7px 10px; font: 400 14px/20px var(--gui-font); color: var(--gui-muted); }
+.gui-table__sort { width: 145px; }
+.gui-table__sort .gui-select select { min-height: 36px; padding-top: 7px; padding-bottom: 7px; font: 14px/20px var(--gui-font); color: var(--gui-muted); }
+.gui-table-demo { max-width: 1104px; margin-inline: auto; }
+.gui-table-demo .gui-table { min-width: 960px; table-layout: fixed; }
+.gui-table-demo .gui-table th, .gui-table-demo .gui-table td { padding-right: 16px; padding-left: 0; }
+.gui-table-demo .gui-table .gui-table__selection { padding: 8px 14px; }
+.gui-table-demo .gui-table__primary, .gui-table-demo .gui-table__secondary { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gui-table-demo .gui-table__media > .gui-table__text { flex: 1; }
+.gui-table-demo col[data-column='selection'] { width: 44px; }
+.gui-table-demo col[data-column='company'], .gui-table-demo col[data-column='contract'] { width: 22%; }
+.gui-table-demo col[data-column='status'] { width: 104px; }
+.gui-table-demo col[data-column='actions'] { width: 42px; }
+@media (max-width: 600px) {
+  .gui-table__filters, .gui-table__tools { flex-basis: 100%; }
+  .gui-table__search { flex-basis: 100%; max-width: none; }
 }
-.gui-table > caption {
-  padding: 14px 16px;
-  text-align: left;
-  font-weight: 600;
-}
-.gui-table th,
-.gui-table td {
-  padding: 12px 16px;
-  border-top: 1px solid var(--gui-border);
-}
-.gui-table thead th {
-  background: var(--gui-soft);
-  color: var(--gui-muted);
-  font-size: 11px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-.gui-table tbody th {
-  font-weight: 500;
-}
-.gui-table tbody tr:hover {
-  background: var(--gui-page);
-}
-.gui-table__empty {
-  text-align: center;
-  color: var(--gui-muted);
-}
-.gui-table .gui-table__numeric {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
+@media (pointer: coarse) {
+  .gui-table__filters label > span { padding-block: 10px; }
+  .gui-table__search .gui-input input, .gui-table__sort .gui-select select { min-height: 44px; font-size: 16px; }
+  .gui-table__tools .gui-popover-control > button, .gui-table [data-gui-table-sort], .gui-table__selection > span { min-height: 44px; }
+  .gui-table [data-gui-table-action] .gui-icon-button { width: 44px; height: 44px; }
 }

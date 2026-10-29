@@ -3,7 +3,7 @@
 HTML-first components for Grunt: readable Askama templates, scoped CSS, native
 browser controls, and small optional ES modules. Light and dark themes included.
 
-**147 components · 17 behavior modules · Cargo-only build**
+**148 components · 19 behavior modules · Cargo-only build**
 
 ## Browse the library
 

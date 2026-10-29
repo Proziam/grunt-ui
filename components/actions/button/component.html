@@ -10,13 +10,17 @@
   value="",
   leading_icon="",
   icon_image="",
-  action=""
+   action="",
+   dialog="",
+   dismiss=false
 ) %}
   <button class="gui-button"
           data-kind="{{ kind }}"
           data-size="{{ size }}"
            type="{{ type }}"
-           {% if !action.is_empty() %} data-gui-modal-action="{{ action }}"{% endif %}
+            {% if !action.is_empty() %} data-gui-modal-action="{{ action }}"{% endif %}
+           {% if !dialog.is_empty() %} data-gui-open="{{ dialog }}" aria-controls="{{ dialog }}" aria-haspopup="dialog" aria-expanded="false"{% endif %}
+           {% if dismiss %} data-gui-close{% endif %}
           {% if disabled || busy %} disabled{% endif %}
           {% if busy %} aria-busy="true"{% endif %}
           {% if !name.is_empty() %} name="{{ name }}" value="{{ value }}"{% endif %}>
