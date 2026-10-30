@@ -1,8 +1,8 @@
 {% import "display/badge/component.html" as badge %}
-{% macro render(title, body, datetime, time_label, status, tone="neutral", unread=false) %}
-  <article class="gui-notification"{% if unread %} data-unread{% endif %}>
+{% macro render(title, body, datetime, time_label, status, tone="neutral", unread=false, unread_label="Unread") %}
+  <article class="gui-notification" data-gui-palette="blue"{% if unread %} data-unread{% endif %}>
     <header>
-      <h3>{{ title }}</h3>
+      <h3>{% if unread %}<span class="gui-sr-only">{{ unread_label }}: </span>{% endif %}{{ title }}</h3>
       {{ badge::render(status, tone=tone) }}
     </header>
     <p>{{ body }}</p>

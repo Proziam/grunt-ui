@@ -1,39 +1,49 @@
-.gui-permission-matrix {
-  overflow: auto;
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-radius);
-}
-.gui-permission-matrix table {
-  border-collapse: collapse;
-  width: 100%;
-  color: var(--gui-text);
-  font: 13px/1.5 var(--gui-font);
-}
-.gui-permission-matrix caption {
-  padding: 14px;
-  text-align: left;
-  font-weight: 600;
-}
-.gui-permission-matrix th,
-.gui-permission-matrix td {
-  padding: 12px 16px;
-  border-top: 1px solid var(--gui-border);
-}
-.gui-permission-matrix th {
-  text-align: left;
-  font-weight: 500;
-}
-.gui-permission-matrix thead {
-  background: var(--gui-soft);
-  color: var(--gui-muted);
-  font-size: 11px;
-}
-.gui-permission-matrix input {
+.gui-permission-matrix { min-width: 0; container-type: inline-size; }
+.gui-permission-matrix .gui-table-scroll { block-size: auto; scrollbar-gutter: auto; scroll-padding-block-start: 0; }
+.gui-permission-matrix .gui-table { table-layout: fixed; }
+.gui-permission-matrix .gui-table > caption { padding: 0 0 16px; font: 500 18px/24px var(--gui-font); overflow-wrap: anywhere; }
+.gui-permission-matrix .gui-table th, .gui-permission-matrix .gui-table td { box-sizing: border-box; padding: 8px 0; overflow-wrap: anywhere; }
+.gui-permission-matrix .gui-table th:first-child { padding-left: 12px; padding-right: 12px; text-align: left; }
+.gui-permission-matrix .gui-table thead th { position: static; width: 96px; text-align: center; white-space: normal; }
+.gui-permission-matrix .gui-table thead th:first-child { width: auto; }
+.gui-permission-matrix .gui-table th:last-child, .gui-permission-matrix .gui-table td:last-child { width: 108px; padding-right: 12px; }
+.gui-permission-matrix .gui-table tbody th, .gui-permission-matrix .gui-table tbody td { height: 64px; font-weight: 400; }
+.gui-permission-matrix .gui-table tbody tr:hover { background: transparent; }
+.gui-permission-matrix td > label { position: relative; display: grid; place-items: center; min-height: 44px; cursor: pointer; }
+.gui-permission-matrix .gui-choice-control {
+  appearance: none;
+  box-sizing: border-box;
   width: 16px;
   height: 16px;
-  accent-color: var(--gui-accent);
+  margin: 0;
+  border: 2px solid var(--gui-field-border);
+  border-radius: 4px;
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
+  cursor: inherit;
 }
-.gui-permission-matrix :focus-visible {
-  outline: 3px solid var(--gui-focus);
-  outline-offset: 3px;
+.gui-permission-matrix .gui-choice-control:checked { border: 1px solid var(--gui-accent); background: var(--gui-accent); }
+.gui-permission-matrix__check {
+  position: absolute;
+  display: none;
+  width: 13px;
+  height: 13px;
+  background: var(--gui-accent-ink);
+  mask: url('images/permissions/check.svg') center no-repeat;
+  pointer-events: none;
+}
+.gui-permission-matrix .gui-choice-control:checked + .gui-permission-matrix__check { display: block; }
+.gui-permission-matrix label:has(input:disabled) { opacity: 0.45; cursor: not-allowed; }
+.gui-permission-matrix .gui-choice-control:disabled:checked { border-color: var(--gui-muted); background: var(--gui-muted); }
+.gui-permission-matrix .gui-choice-control:disabled + .gui-permission-matrix__check { background: var(--gui-surface); }
+.gui-permission-matrix ::selection { color: var(--gui-accent-ink); background: var(--gui-accent); }
+.gui-permission-matrix-demo { max-width: 688px; }
+@container (max-width: 480px) {
+  .gui-permission-matrix .gui-table thead th { width: 56px; }
+  .gui-permission-matrix .gui-table thead th:first-child { width: auto; }
+  .gui-permission-matrix .gui-table th:last-child, .gui-permission-matrix .gui-table td:last-child { width: 68px; }
+}
+@media (forced-colors: active) {
+  .gui-permission-matrix .gui-choice-control { appearance: auto; }
+  .gui-permission-matrix .gui-choice-control:checked + .gui-permission-matrix__check { display: none; }
 }

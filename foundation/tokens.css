@@ -44,7 +44,8 @@
   --gui-modal-accent-border: #6941c6;
   --gui-modal-accent-ink: #fff;
   --gui-modal-link: #6941c6;
-  --gui-control-border: #d0d0d0;
+  --gui-field-border: #d0d0d0;
+  --gui-control-border: var(--gui-field-border);
   --gui-destructive: #e8000b;
   --gui-destructive-ink: #fff;
   --gui-placeholder: #737373;
@@ -90,7 +91,8 @@
   --gui-modal-accent-border: #b692f6;
   --gui-modal-accent-ink: #17191e;
   --gui-modal-link: #c3a5ff;
-  --gui-control-border: #596273;
+  --gui-field-border: #596273;
+  --gui-control-border: var(--gui-field-border);
   --gui-destructive: #be2635;
   --gui-placeholder: #a4afbf;
   --gui-digit-placeholder: #798392;

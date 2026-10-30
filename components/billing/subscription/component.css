@@ -1,35 +1,10 @@
-.gui-subscription {
-  padding: 24px;
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-radius);
-  background: var(--gui-surface);
-  color: var(--gui-text);
-  font: 13px/1.6 var(--gui-font);
-}
-.gui-subscription header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.gui-subscription h3 {
-  margin: 0;
-  font-size: 19px;
-}
-.gui-subscription header p {
-  margin: 6px 0 0;
-  color: var(--gui-muted);
-}
-.gui-subscription__access {
-  margin: 20px 0;
-  padding: 12px;
-  background: var(--gui-soft);
-  border-radius: 7px;
-  color: var(--gui-muted);
-}
-.gui-subscription footer {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+.gui-subscription { min-width: 0; padding: 24px; border: 1px solid var(--gui-border); border-radius: 20px; background: var(--gui-surface); color: var(--gui-text); font: 14px/20px var(--gui-font); overflow-wrap: anywhere; }
+.gui-subscription > header { display: flex; align-items: start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.gui-subscription > header > div { min-width: 0; }
+.gui-subscription h3 { margin: 0; font: 500 18px/24px var(--gui-font); }
+.gui-subscription header p { margin: 4px 0 0; color: var(--gui-muted); }
+.gui-subscription .gui-badge { white-space: normal; }
+.gui-subscription__access { margin: 20px 0; color: var(--gui-muted); }
+.gui-subscription > footer { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--gui-border); }
+.gui-subscription > footer .gui-link[data-kind='button'] { min-height: 40px; font: 500 14px/20px var(--gui-font); }
+@media (pointer: coarse) { .gui-subscription > footer .gui-link[data-kind='button'] { min-height: 44px; } }

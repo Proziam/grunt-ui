@@ -25,12 +25,14 @@
 {% macro control(name, value, checked=false, disabled=false, type="checkbox", label="") %}
   <input class="gui-choice-control" type="{{ type }}" name="{{ name }}" value="{{ value }}"{% if checked %} checked{% endif %}{% if disabled %} disabled{% endif %}{% if !label.to_string().is_empty() %} aria-label="{{ label }}"{% endif %}>
 {% endmacro %}
-{% macro group(legend, help="") %}
-  <fieldset class="gui-choice-group">
+{% macro group(legend, help="", palette="blue") %}
+  <fieldset class="gui-choice-group" data-gui-palette="{{ palette }}">
     <legend>{{ legend }}</legend>
+    <div class="gui-choice-group__body">
     {% if !help.is_empty() %}
       <p>{{ help }}</p>
     {% endif %}
     {{ caller() }}
+    </div>
   </fieldset>
 {% endmacro %}

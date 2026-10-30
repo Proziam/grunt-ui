@@ -1,47 +1,12 @@
-.gui-checklist {
-  color: var(--gui-text);
-  font: 13px/1.6 var(--gui-font);
-}
-.gui-checklist > h3 {
-  margin: 0 0 16px;
-  font-size: 16px;
-}
-.gui-checklist ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.gui-checklist li {
-  display: flex;
-  align-items: start;
-  gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--gui-border);
-}
-.gui-checklist li > span {
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  border: 1px solid var(--gui-border);
-  border-radius: 50%;
-  background: var(--gui-soft);
-  color: var(--gui-muted);
-  flex-shrink: 0;
-  font-size: 11px;
-}
-.gui-checklist [data-complete] > span {
-  color: var(--gui-success);
-  background: var(--gui-success-soft);
-  border-color: transparent;
-}
-.gui-checklist a {
-  color: inherit;
-  font-weight: 500;
-  text-underline-offset: 3px;
-}
-.gui-checklist p {
-  margin: 4px 0 0;
-  color: var(--gui-muted);
-  font-size: 12px;
-}
+.gui-checklist { min-width: 0; color: var(--gui-text); font: 14px/20px var(--gui-font); overflow-wrap: anywhere; }
+.gui-checklist > h3 { margin: 0 0 16px; font: 500 18px/24px var(--gui-font); }
+.gui-checklist ol { list-style: none; padding: 0; margin: 0; }
+.gui-checklist li { display: flex; align-items: start; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--gui-border); }
+.gui-checklist li:last-child { border-bottom: 0; }
+.gui-checklist li > span { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--gui-border); border-radius: var(--gui-control-radius); background: var(--gui-surface); color: var(--gui-muted); flex-shrink: 0; font: 12px/16px var(--gui-font); }
+.gui-checklist li > div { min-width: 0; }
+.gui-checklist [data-complete] > span { color: var(--gui-success); }
+.gui-checklist a { color: inherit; font-weight: 500; text-underline-offset: 3px; }
+.gui-checklist a:hover:not(:active) { color: var(--gui-accent-hover); }
+.gui-checklist a:focus-visible { outline: 3px solid var(--gui-focus); outline-offset: 3px; }
+.gui-checklist p { margin: 4px 0 0; color: var(--gui-muted); }

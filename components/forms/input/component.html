@@ -39,6 +39,7 @@
            {% if readonly %} readonly{% endif %}
            {% if !error.is_empty() %} aria-invalid="true" aria-describedby="{{ id }}-error"{% else if !help.is_empty() %} aria-describedby="{{ id }}-help"{% endif %}>
     {% if !suffix.is_empty() %}<kbd class="gui-input__suffix">{{ suffix }}</kbd>{% endif %}
+    {% if caller is defined %}{{ caller() }}{% endif %}
     </div>
     {% if !help.is_empty() %}
       <p class="gui-input__help" id="{{ id }}-help">{{ help }}</p>

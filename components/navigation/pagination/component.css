@@ -1,29 +1,8 @@
-.gui-pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 14px 0;
-  color: var(--gui-muted);
-  font: 12px/1.5 var(--gui-font);
-}
-.gui-pagination > div {
-  display: flex;
-  gap: 8px;
-}
-.gui-pagination > div > * {
-  padding: 7px 12px;
-  border: 1px solid var(--gui-border);
-  border-radius: 7px;
-  background: var(--gui-surface);
-  color: var(--gui-text);
-  text-decoration: none;
-}
-.gui-pagination [aria-disabled] {
-  opacity: 0.45;
-}
-.gui-pagination a:focus-visible {
-  outline: 3px solid var(--gui-focus);
-  outline-offset: 3px;
-}
+.gui-pagination { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; min-width: 0; padding: 16px 0; color: var(--gui-muted); font: 14px/20px var(--gui-font); }
+.gui-pagination > span { overflow-wrap: anywhere; }
+.gui-pagination > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.gui-pagination > div > :is(a, span) { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 8px 12px; border: 1px solid var(--gui-border); border-radius: var(--gui-control-radius); background: var(--gui-surface); box-shadow: var(--gui-shadow); color: var(--gui-text); font-weight: 500; text-decoration: none; }
+.gui-pagination [aria-disabled='true'] { opacity: 0.45; }
+.gui-pagination a:hover:not(:active) { background: var(--gui-surface-hover); }
+.gui-pagination a:focus-visible { outline: 3px solid var(--gui-focus); outline-offset: 3px; }
+@media (pointer: coarse) { .gui-pagination > div > :is(a, span) { min-height: 44px; } }

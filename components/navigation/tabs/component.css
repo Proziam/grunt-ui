@@ -1,20 +1,26 @@
 .gui-tabs {
+  min-width: 0;
   color: var(--gui-text);
-  font: 14px/1.6 var(--gui-font);
+  font: 14px/20px var(--gui-font);
 }
 .gui-tabs__nav {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   overflow-x: auto;
   border-bottom: 1px solid var(--gui-border);
+  scrollbar-width: thin;
+  scrollbar-color: var(--gui-border) transparent;
 }
 .gui-tabs__nav > a {
-  padding: 10px 2px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 4px;
   border-bottom: 2px solid transparent;
   color: var(--gui-muted);
   text-decoration: none;
   white-space: nowrap;
-  font-size: 13px;
+  font-weight: 500;
 }
 .gui-tabs__nav > a[aria-selected='true'] {
   color: var(--gui-accent);
@@ -24,9 +30,15 @@
   outline: 3px solid var(--gui-focus);
   outline-offset: -3px;
 }
+.gui-tabs__nav > a:hover:not(:active) { color: var(--gui-accent-hover); }
 .gui-tabs__panel {
-  padding: 22px 0;
+  padding: 20px 0;
+  overflow-wrap: anywhere;
 }
+.gui-tabs__panel > :first-child { margin-top: 0; }
+.gui-tabs__panel > :last-child { margin-bottom: 0; }
+.gui-tabs__panel:focus-visible { outline: 3px solid var(--gui-focus); outline-offset: -3px; }
 .gui-tabs__panel[hidden] {
   display: none;
 }
+@media (pointer: coarse) { .gui-tabs__nav > a { min-height: 44px; } }

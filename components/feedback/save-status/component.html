@@ -1,12 +1,13 @@
-{% macro render(label, state="saved", detail="") %}
-  <div class="gui-save-status" data-state="{{ state }}" role="status">
+{% import "display/icon/component.html" as icon %}
+{% macro render(label, state="saved", detail="", palette="blue") %}
+  <div class="gui-save-status" data-gui-palette="{{ palette }}" data-state="{{ state }}" role="status">
     <span aria-hidden="true">
       {% if state == "saved" %}
-        ✓
+        {{ icon::render("check") }}
       {% else if state == "error" %}
-        !
+        {{ icon::render("warning") }}
       {% else %}
-        ○
+        {{ icon::render("clock") }}
       {% endif %}
     </span>
     <span>{{ label }}

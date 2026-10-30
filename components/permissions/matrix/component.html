@@ -1,3 +1,12 @@
+{% import "collections/table/component.html" as table %}
+{% import "forms/choice/component.html" as choice %}
+{% macro permission(name, label, scope, checked, disabled) %}
+  <label>
+    <span class="gui-sr-only">{{ label }}: {{ scope }}</span>
+    {{ choice::control(name, "1", checked=checked, disabled=disabled) }}
+    <span class="gui-permission-matrix__check" aria-hidden="true"></span>
+  </label>
+{% endmacro %}
 {% macro render(
   label,
   rows,
@@ -6,9 +15,8 @@
   run_label="Run",
   scope_label="Scope"
 ) %}
-  <div class="gui-permission-matrix" role="region" aria-label="{{ label }}" tabindex="0">
-    <table>
-      <caption>{{ label }}</caption>
+  <div class="gui-permission-matrix" data-gui-palette="blue">
+    {% call table::surface(label, show_caption=true) %}
       <thead>
         <tr>
           <th scope="col">{{ scope_label }}</th>
@@ -22,38 +30,17 @@
           <tr>
             <th scope="row">{{ scope }}</th>
             <td>
-              <label>
-                <span class="gui-sr-only">{{ create_label }}: {{ scope }}</span>
-                <input type="checkbox"
-                       name="{{ key }}-create"
-                       value="1"
-                       {% if create %} checked{% endif %}
-                       {% if readonly %} disabled{% endif %}>
-              </label>
+              {{ permission(key ~ "-create", create_label, scope, create, readonly) }}
             </td>
             <td>
-              <label>
-                <span class="gui-sr-only">{{ edit_label }}: {{ scope }}</span>
-                <input type="checkbox"
-                       name="{{ key }}-edit"
-                       value="1"
-                       {% if edit %} checked{% endif %}
-                       {% if readonly %} disabled{% endif %}>
-              </label>
+              {{ permission(key ~ "-edit", edit_label, scope, edit, readonly) }}
             </td>
             <td>
-              <label>
-                <span class="gui-sr-only">{{ run_label }}: {{ scope }}</span>
-                <input type="checkbox"
-                       name="{{ key }}-run"
-                       value="1"
-                       {% if run %} checked{% endif %}
-                       {% if readonly %} disabled{% endif %}>
-              </label>
+              {{ permission(key ~ "-run", run_label, scope, run, readonly) }}
             </td>
           </tr>
         {% endfor %}
       </tbody>
-    </table>
+    {% endcall %}
   </div>
 {% endmacro %}

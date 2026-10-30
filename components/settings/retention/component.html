@@ -13,10 +13,12 @@
   content_max="365",
   history_max=""
 ) %}
-  <fieldset class="gui-retention">
-    <legend>{{ title }}</legend>
-    <p>{{ description }}</p>
-    <div>
+  <fieldset class="gui-retention" data-gui-palette="blue" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-description">
+    <header class="gui-retention__header">
+      <h3 id="{{ id }}-title">{{ title }}</h3>
+      <p id="{{ id }}-description">{{ description }}</p>
+    </header>
+    <div class="gui-retention__fields">
       {{ number::render(
         id ~ "-content",
         content_name,

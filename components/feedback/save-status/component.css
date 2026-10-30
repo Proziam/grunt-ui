@@ -1,17 +1,7 @@
-.gui-save-status {
-  display: flex;
-  align-items: start;
-  gap: 8px;
-  color: var(--gui-muted);
-  font: 12px/1.5 var(--gui-font);
-}
-.gui-save-status[data-state='saved'] > span:first-child {
-  color: var(--gui-success);
-}
-.gui-save-status[data-state='error'] {
-  color: var(--gui-danger);
-}
-.gui-save-status small {
-  display: block;
-  font-size: 11px;
-}
+.gui-save-status { display: flex; align-items: start; gap: 8px; min-width: 0; color: var(--gui-text); font: 14px/20px var(--gui-font); }
+.gui-save-status > span:first-child { display: inline-flex; flex: 0 0 20px; color: var(--gui-muted); }
+.gui-save-status > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.gui-save-status[data-state='saved'] > span:first-child { color: var(--gui-success); }
+.gui-save-status[data-state='error'] > span:first-child { color: var(--gui-danger); }
+.gui-save-status small { display: block; margin-top: 4px; color: var(--gui-muted); font: 12px/16px var(--gui-font); }
+.gui-save-status-demo { display: grid; gap: 16px; }

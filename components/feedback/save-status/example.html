@@ -1,4 +1,5 @@
 {% import "feedback/save-status/component.html" as save %}
+<div class="gui-save-status-demo">
 {{ save::render("All changes saved") }}
 {{ save::render("Saving changes…", state="saving") }}
 {{ save::render(
@@ -6,3 +7,4 @@
   state="error",
   detail="Your edits remain available."
 ) }}
+</div>

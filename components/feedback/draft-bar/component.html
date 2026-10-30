@@ -1,5 +1,5 @@
-{% macro render(label) %}
-  <div class="gui-draft-bar">
+{% macro render(label, palette="blue") %}
+  <div class="gui-draft-bar" data-gui-palette="{{ palette }}">
     <p role="status">{{ label }}</p>
     <div>{{ caller() }}</div>
   </div>

@@ -1,45 +1,13 @@
-.gui-run {
-  padding: 22px;
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-radius);
-  background: var(--gui-surface);
-  color: var(--gui-text);
-  font: 13px/1.6 var(--gui-font);
-}
-.gui-run header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.gui-run h3 {
-  margin: 0;
-  font-size: 17px;
-}
-.gui-run header p {
-  margin: 4px 0;
-  color: var(--gui-muted);
-  font:
-    11px/1.6 ui-monospace,
-    monospace;
-}
-.gui-run dl {
-  display: flex;
-  gap: 36px;
-  margin: 20px 0;
-}
-.gui-run dt {
-  color: var(--gui-muted);
-  font-size: 11px;
-}
-.gui-run dd {
-  margin: 4px 0 0;
-  font-variant-numeric: tabular-nums;
-}
-.gui-run footer {
-  padding-top: 16px;
-  border-top: 1px solid var(--gui-border);
-  display: flex;
-  gap: 8px;
-}
+.gui-run { min-width: 0; padding: 20px; border: 1px solid var(--gui-border); border-radius: 20px; background: var(--gui-surface); color: var(--gui-text); font: 14px/20px var(--gui-font); overflow-wrap: anywhere; }
+.gui-run > header { display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.gui-run > header > div { min-width: 0; }
+.gui-run h3 { margin: 0; font: 500 18px/24px var(--gui-font); }
+.gui-run header p { margin: 4px 0 0; color: var(--gui-muted); font: 12px/16px ui-monospace, monospace; }
+.gui-run .gui-badge { white-space: normal; }
+.gui-run > dl { display: flex; flex-wrap: wrap; gap: 16px 32px; margin: 20px 0; }
+.gui-run > dl > div { min-width: 0; }
+.gui-run dt { color: var(--gui-muted); font: 12px/16px var(--gui-font); }
+.gui-run dd { margin: 4px 0 0; font-variant-numeric: tabular-nums; }
+.gui-run > footer { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 16px; border-top: 1px solid var(--gui-border); }
+.gui-run > footer .gui-link[data-kind='button'] { min-height: 40px; font: 500 14px/20px var(--gui-font); }
+@media (pointer: coarse) { .gui-run > footer .gui-link[data-kind='button'] { min-height: 44px; } }

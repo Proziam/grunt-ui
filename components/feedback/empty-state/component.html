@@ -1,6 +1,7 @@
-{% macro render(title, description, symbol="◇") %}
-  <div class="gui-empty">
-    <span class="gui-empty__symbol" aria-hidden="true">{{ symbol }}</span>
+{% import "display/feature-icon/component.html" as feature %}
+{% macro render(title, description, symbol="", icon_name="inbox", image="", palette="blue") %}
+  <div class="gui-empty" data-gui-palette="{{ palette }}">
+    {% if symbol.is_empty() %}{{ feature::render(icon_name, image=image) }}{% else %}<span class="gui-empty__symbol" aria-hidden="true">{{ symbol }}</span>{% endif %}
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
     {% if caller is defined %}

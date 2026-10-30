@@ -1,47 +1,9 @@
-.gui-message {
-  max-width: 80%;
-  margin-right: auto;
-  padding: 16px 18px;
-  border: 1px solid var(--gui-border);
-  border-radius: 12px 12px 12px 3px;
-  background: var(--gui-soft);
-  color: var(--gui-text);
-  font: 13px/1.7 var(--gui-font);
-}
-.gui-message[data-direction='outgoing'] {
-  margin-right: 0;
-  margin-left: auto;
-  background: var(--gui-accent-soft);
-  border-radius: 12px 12px 3px 12px;
-}
-.gui-message header {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-.gui-message header strong {
-  font-weight: 500;
-}
-.gui-message time,
-.gui-message footer {
-  font-size: 10px;
-  color: var(--gui-muted);
-}
-.gui-message h3 {
-  font-size: 14px;
-  margin: 8px 0;
-}
-.gui-message__body {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-.gui-message footer {
-  margin-top: 10px;
-}
-@media (max-width: 480px) {
-  .gui-message {
-    max-width: 95%;
-  }
-}
+.gui-message { min-width: 0; max-width: min(80%, 65ch); margin-right: auto; padding: 16px; border: 1px solid var(--gui-border); border-radius: var(--gui-radius); background: var(--gui-surface); color: var(--gui-text); font: 14px/22px var(--gui-font); overflow-wrap: anywhere; }
+.gui-message[data-direction='outgoing'] { --gui-muted: color-mix(in srgb, var(--gui-accent) 15%, var(--gui-modal-muted)); margin-right: 0; margin-left: auto; background: var(--gui-accent-soft); }
+.gui-message > header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 8px; font: 14px/20px var(--gui-font); }
+.gui-message > header > strong { font-weight: 500; }
+.gui-message time, .gui-message > footer { color: var(--gui-muted); font: 12px/16px var(--gui-font); }
+.gui-message > h3 { margin: 8px 0; font: 500 14px/20px var(--gui-font); }
+.gui-message__body { white-space: pre-wrap; }
+.gui-message > footer { margin-top: 12px; }
+@media (max-width: 480px) { .gui-message { max-width: 95%; } }

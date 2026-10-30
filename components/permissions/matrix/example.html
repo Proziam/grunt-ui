@@ -1,5 +1,7 @@
 {% import "permissions/matrix/component.html" as permissions %}
+<div class="gui-permission-matrix-demo">
 {{ permissions::render(
   "Workflow permissions",
   [("personal", "Personal workflows", true, true, true, true), ("operations", "Operations team", false, true, true, false), ("organization", "Organization", false, false, true, false)]
 ) }}
+</div>

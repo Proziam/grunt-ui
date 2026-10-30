@@ -1,4 +1,5 @@
 {% import "feedback/alert/component.html" as alert %}
+<div class="gui-alert-demo">
 {{ alert::render(
   "Reconnect your account",
   "Your saved workflow is safe. Renew this connection before the next run.",
@@ -9,3 +10,4 @@
   "Your edits are still available. Review the connection and retry.",
   tone="danger"
 ) }}
+</div>

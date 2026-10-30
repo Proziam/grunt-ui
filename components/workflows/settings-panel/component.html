@@ -1,3 +1,4 @@
+{% import "actions/button/component.html" as button %}
 {% macro render(
   title,
   description,
@@ -6,7 +7,7 @@
   submit_label="Save settings",
   readonly=false
 ) %}
-  <section class="gui-settings-panel">
+  <section class="gui-settings-panel" data-gui-palette="blue">
     <header>
       <h2>{{ title }}</h2>
       <p>{{ description }}</p>
@@ -17,7 +18,7 @@
         <legend class="gui-sr-only">{{ title }}</legend>
         <div class="gui-settings-panel__fields">{{ caller() }}</div>
         <footer>
-          <button type="submit">{{ submit_label }}</button>
+          {{ button::render(submit_label, kind="primary", type="submit", disabled=readonly) }}
         </footer>
       </fieldset>
     </form>

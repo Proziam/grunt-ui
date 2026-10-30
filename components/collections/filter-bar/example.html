@@ -1,6 +1,7 @@
 {% import "collections/filter-bar/component.html" as filters %}
 {% import "forms/select/component.html" as select %}
-{% call filters::render("#example", "Search integrations", search_label="Search integrations…") %}
+<div class="gui-filter-bar-demo">
+{% call filters::render("#example", "Search integrations", search_label="Search integrations", placeholder="Search integrations…") %}
   {{ select::render(
     "category-filter",
     "category",
@@ -8,3 +9,4 @@
     [("all", "All categories"), ("communication", "Communication"), ("files", "Files")]
   ) }}
 {% endcall %}
+</div>

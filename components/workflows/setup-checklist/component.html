@@ -1,12 +1,13 @@
+{% import "display/icon/component.html" as icon %}
 {% macro render(title, items) %}
-  <section class="gui-checklist">
+  <section class="gui-checklist" data-gui-palette="blue">
     <h3>{{ title }}</h3>
     <ol>
       {% for (label, detail, href, complete) in items %}
         <li{% if complete %} data-complete{% endif %}>
           <span aria-hidden="true">
             {% if complete %}
-              ✓
+              {{ icon::render("check", size=16) }}
             {% else %}
               {{ loop.index }}
             {% endif %}

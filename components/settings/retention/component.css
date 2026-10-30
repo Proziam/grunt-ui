@@ -1,30 +1,29 @@
 .gui-retention {
+  display: grid;
+  gap: 20px;
   min-width: 0;
   margin: 0;
-  padding: 22px;
+  padding: 20px;
   border: 1px solid var(--gui-border);
-  border-radius: var(--gui-radius);
+  border-radius: 20px;
+  background: var(--gui-surface);
   color: var(--gui-text);
-  font: 13px/1.6 var(--gui-font);
+  box-shadow: var(--gui-shadow);
+  font: 14px/20px var(--gui-font);
 }
-.gui-retention > legend {
-  padding: 0 6px;
-  font-weight: 600;
-}
-.gui-retention > p {
-  margin: 0 0 20px;
-  color: var(--gui-muted);
-}
-.gui-retention > div {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-.gui-retention > footer {
-  margin-top: 18px;
-}
-@media (max-width: 560px) {
-  .gui-retention > div {
-    grid-template-columns: 1fr;
-  }
+.gui-retention__header { display: grid; gap: 4px; overflow-wrap: anywhere; }
+.gui-retention__header > h3 { margin: 0; font: 500 18px/24px var(--gui-font); }
+.gui-retention__header > p { margin: 0; color: var(--gui-muted); }
+.gui-retention__fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; min-width: 0; }
+.gui-retention .gui-number { min-width: 0; font: 14px/20px var(--gui-font); }
+.gui-retention .gui-number > label { margin-bottom: 8px; font-weight: 400; }
+.gui-retention .gui-number > div { min-width: 0; min-height: 40px; border-color: var(--gui-field-border); box-shadow: var(--gui-shadow); overflow: visible; }
+.gui-retention .gui-number input { box-sizing: border-box; min-height: 38px; padding: 7px 12px; font: 16px/24px var(--gui-font); caret-color: var(--gui-accent); }
+.gui-retention .gui-number > div:focus-within { outline: 2px solid var(--gui-focus); outline-offset: 2px; }
+.gui-retention .gui-number input:focus-visible { outline: none; }
+.gui-retention > footer { min-width: 0; }
+.gui-retention ::selection { color: var(--gui-accent-ink); background: var(--gui-accent); }
+.gui-retention-demo { max-width: 688px; }
+@media (pointer: coarse) {
+  .gui-retention .gui-number > div { min-height: 44px; }
 }

@@ -1,32 +1,6 @@
-.gui-empty {
-  padding: 36px 24px;
-  text-align: center;
-  font: 14px/1.6 var(--gui-font);
-  color: var(--gui-text);
-}
-.gui-empty__symbol {
-  display: inline-grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  border: 1px solid var(--gui-border);
-  border-radius: 15px;
-  background: var(--gui-surface);
-  color: var(--gui-accent);
-  box-shadow: var(--gui-shadow);
-  font-size: 25px;
-}
-.gui-empty h3 {
-  margin: 20px 0 7px;
-  font-size: 17px;
-  font-weight: 600;
-}
-.gui-empty p {
-  max-width: 45ch;
-  margin: auto;
-  color: var(--gui-muted);
-  font-size: 13px;
-}
-.gui-empty__actions {
-  margin-top: 20px;
-}
+.gui-empty { min-width: 0; padding: 32px 20px; text-align: center; color: var(--gui-text); font: 14px/20px var(--gui-font); overflow-wrap: anywhere; }
+.gui-empty > .gui-feature-icon { color: var(--gui-muted); }
+.gui-empty__symbol { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--gui-control-border); border-radius: var(--gui-control-radius); background: var(--gui-surface); color: var(--gui-muted); box-shadow: var(--gui-shadow); font-size: 20px; }
+.gui-empty > h3 { margin: 16px 0 4px; font: 500 18px/24px var(--gui-font); }
+.gui-empty > p { max-width: 45ch; margin: 0 auto; color: var(--gui-muted); }
+.gui-empty__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; }

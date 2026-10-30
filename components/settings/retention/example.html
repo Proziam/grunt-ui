@@ -1,4 +1,5 @@
 {% import "settings/retention/component.html" as retention %}
+<div class="gui-retention-demo">
 {{ retention::render(
   "retention-policy",
   "Retained information",
@@ -6,3 +7,4 @@
   "30",
   "90"
 ) }}
+</div>

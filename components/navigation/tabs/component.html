@@ -1,5 +1,5 @@
 {% macro render(id, label, items, selected="") %}
-  <div class="gui-tabs" data-gui-tabs data-selected="{{ selected }}">
+  <div class="gui-tabs" data-gui-palette="blue" data-gui-tabs data-selected="{{ selected }}">
     <nav class="gui-tabs__nav" aria-label="{{ label }}">
       {% for (key, text) in items %}
         <a id="{{ id }}-tab-{{ key }}"

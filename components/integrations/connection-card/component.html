@@ -1,7 +1,7 @@
 {% import "integrations/logo-tile/component.html" as logo %}
 {% import "display/badge/component.html" as badge %}
 {% macro render(provider, initials, account, ownership, status, tone="neutral", detail="") %}
-  <article class="gui-connection-card">
+  <article class="gui-connection-card" data-gui-palette="blue">
     <header>
       {{ logo::render(provider, initials) }}
       <div>
@@ -10,7 +10,7 @@
       </div>
       {{ badge::render(status, tone=tone, dot=true) }}
     </header>
-    <p class="gui-connection-card__scope">{{ ownership }}</p>
+    <div class="gui-connection-card__scope">{{ badge::render(ownership) }}</div>
     {% if !detail.is_empty() %}
       <p class="gui-connection-card__detail">{{ detail }}</p>
     {% endif %}

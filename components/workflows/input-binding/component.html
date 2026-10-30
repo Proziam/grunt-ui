@@ -1,4 +1,5 @@
 {% import "forms/select/component.html" as select %}
+{% import "display/feature-icon/component.html" as feature %}
 {% macro render(
   id,
   name,
@@ -7,8 +8,8 @@
   selected="",
   description="Only explicitly assigned inputs may be used."
 ) %}
-  <section class="gui-binding">
-    <span class="gui-binding__arrow" aria-hidden="true">↳</span>
+  <section class="gui-binding" data-gui-palette="blue">
+    {{ feature::render("binding") }}
     <div>{{ select::render(id, name, label, sources, value=selected, help=description) }}</div>
   </section>
 {% endmacro %}

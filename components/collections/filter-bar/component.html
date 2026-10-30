@@ -1,16 +1,24 @@
-{% macro render(action, label, query="", name="q", search_label="Search", submit_label="Apply") %}
+{% import "actions/button/component.html" as button %}
+{% import "display/icon/component.html" as icon %}
+{% macro render(action, label, query="", name="q", search_label="Search", submit_label="Apply", placeholder="") %}
   <form class="gui-filter-bar"
+        data-gui-palette="blue"
         action="{{ action }}"
         method="get"
         role="search"
         aria-label="{{ label }}">
-    <label>
-      <span class="gui-sr-only">{{ search_label }}</span>
-      <input type="search" name="{{ name }}" value="{{ query }}" placeholder="{{ search_label }}">
+    <label class="gui-filter-bar__search">
+      <span>{{ search_label }}</span>
+      <span class="gui-filter-bar__control">
+        {{ icon::render("", image="../../images/modals/icon-search.svg") }}
+        <input type="search" name="{{ name }}" value="{{ query }}" placeholder="{% if placeholder.is_empty() %}{{ search_label }}{% else %}{{ placeholder }}{% endif %}">
+      </span>
     </label>
-    {% if caller is defined %}
-      {{ caller() }}
-    {% endif %}
-    <button type="submit">{{ submit_label }}</button>
+    <div class="gui-filter-bar__filters">
+      {% if caller is defined %}
+        {{ caller() }}
+      {% endif %}
+      {{ button::render(submit_label, type="submit") }}
+    </div>
   </form>
 {% endmacro %}

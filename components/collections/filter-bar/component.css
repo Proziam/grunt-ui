@@ -1,38 +1,62 @@
 .gui-filter-bar {
+  --gui-control-border: var(--gui-field-border);
   display: flex;
   align-items: end;
   flex-wrap: wrap;
   gap: 12px;
+  min-width: 0;
   color: var(--gui-text);
-  font: 13px/1.5 var(--gui-font);
+  font: 14px/20px var(--gui-font);
 }
-.gui-filter-bar > label {
-  flex: 1;
-  min-width: 180px;
+.gui-filter-bar__search { display: grid; flex: 999 1 280px; gap: 8px; min-width: 0; }
+.gui-filter-bar__control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--gui-control-border);
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-surface);
+  box-shadow: var(--gui-shadow);
 }
-.gui-filter-bar input[type='search'] {
+.gui-filter-bar__control > input {
   box-sizing: border-box;
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-control-radius);
-  background: var(--gui-surface);
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
   color: inherit;
+  caret-color: var(--gui-accent);
   font: inherit;
 }
-.gui-filter-bar > button {
-  padding: 10px 16px;
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-control-radius);
-  background: var(--gui-surface);
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
+.gui-filter-bar__control > input::placeholder { color: var(--gui-muted); opacity: 1; }
+.gui-filter-bar__control:focus-within { outline: 2px solid var(--gui-focus); outline-offset: 2px; }
+.gui-filter-bar__control > input:focus-visible { outline: none; }
+.gui-filter-bar__filters { display: flex; flex: 1 1 288px; align-items: end; flex-wrap: wrap; gap: 12px; min-width: 0; }
+.gui-filter-bar__filters:not(:has(> :not([type='hidden']):not(.gui-button))) { flex: 0 0 auto; }
+.gui-filter-bar__filters > :not([type='hidden']):not(.gui-button) { flex: 1 1 180px; min-width: 0; }
+.gui-filter-bar__filters > .gui-button { flex: 0 0 auto; min-width: 96px; border-color: var(--gui-border); font-weight: 500; }
+.gui-filter-bar .gui-select label { margin-bottom: 8px; font-weight: 400; }
+.gui-filter-bar .gui-select select { font: 14px/20px var(--gui-font); }
+.gui-filter-bar .gui-select select:not([multiple]) {
+  appearance: none;
+  padding-right: 36px;
+  background-image: url('images/modals/icon-select-chevron.svg');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
 }
-.gui-filter-bar > button:enabled:hover:not(:active) {
-  background: var(--gui-surface-hover);
+.gui-filter-bar ::selection { color: var(--gui-accent-ink); background: var(--gui-accent); }
+[data-gui-theme='dark'] .gui-filter-bar__control > img,
+:root[data-workspace-theme='dark'] .gui-filter-bar__control > img { filter: brightness(2); }
+.gui-filter-bar-demo { max-width: 688px; }
+@media (pointer: coarse) {
+  .gui-filter-bar__control, .gui-filter-bar .gui-select select { min-height: 44px; }
+  .gui-filter-bar__control > input, .gui-filter-bar .gui-select select { font-size: 16px; }
 }
-.gui-filter-bar :focus-visible {
-  outline: 3px solid var(--gui-focus);
-  outline-offset: 2px;
+@media (forced-colors: active) {
+  .gui-filter-bar .gui-select select:not([multiple]) { appearance: auto; background-image: none; }
 }

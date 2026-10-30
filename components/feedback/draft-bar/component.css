@@ -4,19 +4,23 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  padding: 14px 18px;
+  min-width: 0;
+  padding: 16px 20px;
   border: 1px solid var(--gui-border);
   border-radius: var(--gui-radius);
   background: var(--gui-surface);
-  box-shadow: var(--gui-shadow-raised);
+  box-shadow: var(--gui-shadow);
   color: var(--gui-text);
-  font: 13px/1.5 var(--gui-font);
+  font: 14px/20px var(--gui-font);
 }
 .gui-draft-bar > p {
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .gui-draft-bar > div {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
 }
+.gui-draft-bar .gui-button { font-weight: 500; }

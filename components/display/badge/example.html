@@ -1,6 +1,8 @@
 {% import "display/badge/component.html" as badge %}
+<div class="gui-badge-demo" data-gui-palette="blue">
 {{ badge::render("Connected", tone="success", dot=true) }}
 {{ badge::render("Needs review", tone="warning", dot=true) }}
 {{ badge::render("Failed", tone="danger", dot=true) }}
 {{ badge::render("Running", tone="info", dot=true) }}
 {{ badge::render("Organization") }}
+</div>

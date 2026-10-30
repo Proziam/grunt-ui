@@ -1,57 +1,37 @@
 .gui-plan {
   display: flex;
   flex-direction: column;
-  padding: 26px;
+  gap: 20px;
+  min-width: 0;
+  padding: 24px;
   border: 1px solid var(--gui-border);
-  border-radius: 15px;
+  border-radius: 20px;
   background: var(--gui-surface);
   color: var(--gui-text);
   box-shadow: var(--gui-shadow);
-  font: 13px/1.7 var(--gui-font);
+  font: 14px/20px var(--gui-font);
+  overflow-wrap: anywhere;
 }
-.gui-plan[data-featured] {
-  border-color: var(--gui-accent);
-  box-shadow: 0 0 0 3px var(--gui-accent-soft);
-}
-.gui-plan header {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-}
-.gui-plan h3 {
-  margin: 0;
-  font-size: 20px;
-}
-.gui-plan > p {
-  color: var(--gui-muted);
-}
-.gui-plan__price {
-  margin: 18px 0;
-}
-.gui-plan__price strong {
-  font-size: 38px;
-  letter-spacing: -1px;
-  line-height: 1.1;
-}
-.gui-plan__price span {
-  margin-left: 6px;
-  color: var(--gui-muted);
-  font-size: 12px;
-}
-.gui-plan ul {
-  list-style: none;
-  margin: 0 0 24px;
-  padding: 0;
-}
-.gui-plan li {
-  display: flex;
-  gap: 10px;
-  padding: 7px 0;
-}
-.gui-plan li > span {
-  color: var(--gui-accent);
-}
-.gui-plan footer {
-  margin-top: auto;
+.gui-plan > header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.gui-plan > header > h3 { min-width: 0; margin: 0; font: 500 18px/24px var(--gui-font); }
+.gui-plan > header > .gui-badge { max-width: 100%; white-space: normal; }
+.gui-plan[data-featured] > header > .gui-badge { border-color: var(--gui-accent); color: var(--gui-accent); }
+.gui-plan > p { margin: 0; color: var(--gui-muted); }
+.gui-plan__price { display: grid; gap: 4px; }
+.gui-plan__price > strong { font: 500 28px/36px var(--gui-font); }
+.gui-plan__price > span { color: var(--gui-muted); font: 12px/16px var(--gui-font); }
+.gui-plan > ul { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.gui-plan > ul > li { display: flex; align-items: start; gap: 12px; }
+.gui-plan > ul > li > .gui-icon { margin-top: 2px; }
+.gui-plan > ul > li > span { min-width: 0; }
+.gui-plan > footer { margin-top: auto; }
+.gui-plan > footer > :is(.gui-button, .gui-link[data-kind='button']) { justify-content: center; width: 100%; min-height: 40px; font: 600 14px/20px var(--gui-font); text-align: center; }
+.gui-plan > footer > .gui-link[data-kind='button'] { border-color: var(--gui-accent); background: var(--gui-accent); color: var(--gui-accent-ink); }
+.gui-plan > footer > .gui-link[data-kind='button']:not([aria-disabled='true']):hover:not(:active) { background: var(--gui-accent-hover); }
+.gui-plan ::selection { color: var(--gui-accent-ink); background: var(--gui-accent); }
+[data-gui-theme='dark'] .gui-plan > ul > li > img,
+:root[data-workspace-theme='dark'] .gui-plan > ul > li > img { filter: brightness(2); }
+.gui-plan-demo { max-width: 352px; }
+@media (pointer: coarse) {
+  .gui-plan > footer > :is(.gui-button, .gui-link[data-kind='button']) { min-height: 44px; }
 }

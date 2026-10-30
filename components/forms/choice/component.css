@@ -24,25 +24,35 @@
 .gui-choice strong {
   font-weight: 500;
 }
-.gui-choice__note { color: var(--gui-muted); font-size: 12px; }
+.gui-choice__note { color: var(--gui-muted); font: 12px/16px var(--gui-font); }
 .gui-choice small {
   display: block;
-  margin-top: 3px;
+  margin-top: 4px;
   color: var(--gui-muted);
-  font-size: 12px;
+  font: 12px/16px var(--gui-font);
 }
 .gui-choice-group {
   min-width: 0;
-  padding: 16px;
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-radius);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--gui-text);
+  font: 14px/20px var(--gui-font);
 }
 .gui-choice-group legend {
-  padding: 0 6px;
-  font: 500 14px/1.5 var(--gui-font);
-  color: var(--gui-text);
-}
-.gui-choice-group > p {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: var(--gui-control-radius);
+  background: var(--gui-soft);
+  font: 500 12px/16px var(--gui-font);
   color: var(--gui-muted);
-  font: 12px/1.5 var(--gui-font);
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+.gui-choice-group__body { padding: 12px; }
+.gui-choice-group__body > p {
+  margin: 0 0 8px;
+  color: var(--gui-muted);
+  font: 14px/20px var(--gui-font);
 }

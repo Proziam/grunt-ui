@@ -1,5 +1,6 @@
 {% import "billing/plan-card/component.html" as plan %}
 {% import "actions/link/component.html" as link %}
+<div class="gui-plan-demo">
 {% call plan::render(
   "Example plan",
   "For a small team finding its rhythm.",
@@ -11,3 +12,4 @@
 ) %}
   {{ link::render("Review plan details", "#example", kind="button") }}
 {% endcall %}
+</div>

@@ -1,3 +1,4 @@
+{% import "display/icon/component.html" as icon %}
 {% macro render(
   label,
   summary,
@@ -6,18 +7,18 @@
   previous_label="Previous",
   next_label="Next"
 ) %}
-  <nav class="gui-pagination" aria-label="{{ label }}">
+  <nav class="gui-pagination" data-gui-palette="blue" aria-label="{{ label }}">
     <span>{{ summary }}</span>
     <div>
       {% if !previous_href.is_empty() %}
-        <a href="{{ previous_href }}">← {{ previous_label }}</a>
+        <a href="{{ previous_href }}">{{ icon::render("arrow-left") }}{{ previous_label }}</a>
       {% else %}
-        <span aria-disabled="true">← {{ previous_label }}</span>
+        <span aria-disabled="true">{{ icon::render("arrow-left") }}{{ previous_label }}</span>
       {% endif %}
       {% if !next_href.is_empty() %}
-        <a href="{{ next_href }}">{{ next_label }} →</a>
+        <a href="{{ next_href }}">{{ next_label }}{{ icon::render("arrow") }}</a>
       {% else %}
-        <span aria-disabled="true">{{ next_label }} →</span>
+        <span aria-disabled="true">{{ next_label }}{{ icon::render("arrow") }}</span>
       {% endif %}
     </div>
   </nav>

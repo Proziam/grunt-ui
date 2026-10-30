@@ -1,59 +1,9 @@
-.gui-settings-panel {
-  border: 1px solid var(--gui-border);
-  border-radius: var(--gui-radius);
-  background: var(--gui-surface);
-  color: var(--gui-text);
-  font: 13px/1.6 var(--gui-font);
-}
-.gui-settings-panel > header {
-  padding: 22px 24px;
-  border-bottom: 1px solid var(--gui-border);
-}
-.gui-settings-panel h2 {
-  font-size: 18px;
-  margin: 0;
-  font-weight: 600;
-}
-.gui-settings-panel header p {
-  color: var(--gui-muted);
-  margin: 6px 0 0;
-}
-.gui-settings-panel fieldset {
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  margin: 0;
-}
-.gui-settings-panel__fields {
-  display: grid;
-  gap: 20px;
-  padding: 24px;
-}
-.gui-settings-panel footer {
-  display: flex;
-  justify-content: flex-end;
-  padding: 16px 24px;
-  border-top: 1px solid var(--gui-border);
-  background: var(--gui-page);
-  border-radius: 0 0 var(--gui-radius) var(--gui-radius);
-}
-.gui-settings-panel footer button {
-  padding: 9px 16px;
-  border: 1px solid var(--gui-accent);
-  border-radius: var(--gui-control-radius);
-  background: var(--gui-accent);
-  color: var(--gui-accent-ink);
-  font: 500 13px/1.5 var(--gui-font);
-  cursor: pointer;
-}
-.gui-settings-panel footer button:enabled:hover:not(:active) {
-  background: var(--gui-accent-hover);
-}
-.gui-settings-panel footer button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.gui-settings-panel footer button:focus-visible {
-  outline: 3px solid var(--gui-focus);
-  outline-offset: 3px;
-}
+.gui-settings-panel { min-width: 0; border: 1px solid var(--gui-border); border-radius: 20px; background: var(--gui-surface); box-shadow: var(--gui-shadow); color: var(--gui-text); font: 14px/20px var(--gui-font); }
+.gui-settings-panel > header { padding: 20px; border-bottom: 1px solid var(--gui-border); overflow-wrap: anywhere; }
+.gui-settings-panel > header > h2 { margin: 0; font: 500 18px/24px var(--gui-font); }
+.gui-settings-panel > header > p { color: var(--gui-muted); margin: 4px 0 0; }
+.gui-settings-panel > form { margin: 0; }
+.gui-settings-panel > form > fieldset { min-width: 0; padding: 0; border: 0; margin: 0; }
+.gui-settings-panel__fields { display: grid; gap: 16px; min-width: 0; padding: 20px; }
+.gui-settings-panel > form > fieldset > footer { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; padding: 20px; border-top: 1px solid var(--gui-border); }
+.gui-settings-panel > form > fieldset > footer > .gui-button { font-weight: 500; }
